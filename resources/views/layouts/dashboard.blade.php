@@ -53,7 +53,10 @@
 
         @include('dashboard.header')
 
-        @yield('content')
+        <div class="page-body-wrapper sidebar-icon">
+            @include('dashboard.sidebar')
+            @yield('content')
+        </div>
 
     </div>
     
@@ -77,11 +80,8 @@
     <script src="{{ asset('dashboard/js/chart/apex-chart/apex-chart.js') }}"></script>
     <script src="{{ asset('dashboard/js/chart/apex-chart/stock-prices.js') }}"></script>
     <script src="{{ asset('dashboard/js/notify/bootstrap-notify.min.js') }}"></script>
-    <script src="{{ asset('dashboard/js/dashboard/default.js') }}"></script>
+    {{-- <script src="{{ asset('dashboard/js/dashboard/default.js') }}"></script> --}}
     <script src="{{ asset('dashboard/js/notify/index.js') }}"></script>
-    <script src="{{ asset('dashboard/js/datepicker/date-picker/datepicker.js') }}"></script>
-    <script src=".{{ asset('dashboard/js/datepicker/date-picker/datepicker.en.js') }}"></script>
-    <script src="{{ asset('dashboard/js/datepicker/date-picker/datepicker.custom.js') }}"></script>
     <script src="{{ asset('dashboard/js/tooltip-init.js') }}"></script>
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
