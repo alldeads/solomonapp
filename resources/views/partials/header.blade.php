@@ -7,10 +7,10 @@
 						<div class="header-row">
 							<nav class="header-nav-top">
 								<ul class="nav nav-pills">
-									<li class="nav-item nav-item-anim-icon d-none d-md-block">
+									<li class="nav-item nav-item-anim-icon">
 										<a class="nav-link pl-0" href="about-us.html"><i class="fas fa-angle-right"></i> Login</a>
 									</li>
-									<li class="nav-item nav-item-anim-icon d-none d-md-block">
+									<li class="nav-item nav-item-anim-icon">
 										<a class="nav-link" href="contact-us.html"><i class="fas fa-angle-right"></i> Create Account</a>
 									</li>
 									<li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-sm-show">

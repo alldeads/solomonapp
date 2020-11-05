@@ -44,7 +44,7 @@
 							data-x="center"
 							data-y="center" data-voffset="['-60','-60','-60','-85']"
 							data-fontsize="['50','50','50','90']"
-							data-lineheight="['55','55','55','95']">THE BEST HTML TEMPLATE</h1>
+							data-lineheight="['55','55','55','95']">THE BEST DROP SHIPPING</h1>
 
 						<div class="tp-caption font-weight-light text-center"
 							data-frames='[{"from":"opacity:0;","speed":300,"to":"o:1;","delay":2000,"split":"chars","splitdelay":0.05,"ease":"Power2.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
@@ -52,7 +52,7 @@
 							data-y="center" data-voffset="['0','0','0','-25']"
 							data-fontsize="['18','18','18','50']"
 							data-lineheight="['29','29','29','40']"
-							style="color: #b5b5b5;">Trusted by over <strong class="text-color-light">30,000</strong> satisfied users, Porto is a huge sucess in the of<br>one of the world's largest MarketPlace.</div>
+							style="color: #b5b5b5;">Trusted by over <strong class="text-color-light">30,000</strong> satisfied users, Solomon App is a huge sucess in the of<br>one of the world's largest MarketPlace.</div>
 		
 						<a class="tp-caption btn btn-light-2 btn-outline btn-rounded font-weight-semibold"
 							data-frames='[{"delay":4500,"speed":2000,"frame":"0","from":"opacity:0;y:50%;","to":"o:1;y:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
@@ -137,252 +137,129 @@
 			</div>
 		</div>
 
-				<div class="container my-5 py-3" id="main">
-					<div class="row pt-4">
-						<div class="col-lg-4 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="200">
-							<div class="feature-box feature-box-style-2">
-								<div class="feature-box-icon">
-									<i class="icon-user-following icons"></i>
-								</div>
-								<div class="feature-box-info">
-									<h4 class="font-weight-bold mb-2">Customer Support</h4>
-									<p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing metus elit. Quisque rutrum pellentesque imperdiet.</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 appear-animation" data-appear-animation="fadeIn">
-							<div class="feature-box feature-box-style-2">
-								<div class="feature-box-icon">
-									<i class="icon-layers icons"></i>
-								</div>
-								<div class="feature-box-info">
-									<h4 class="font-weight-bold mb-2">Sliders</h4>
-									<p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla.</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="200">
-							<div class="feature-box feature-box-style-2">
-								<div class="feature-box-icon">
-									<i class="icon-calculator icons"></i>
-								</div>
-								<div class="feature-box-info">
-									<h4 class="font-weight-bold mb-2">HTML5</h4>
-									<p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla.</p>
-								</div>
-							</div>
-						</div>
-					</div>
+		<div class="home-intro" id="home-intro">
+			<div class="container">
 
-					<div class="row mt-lg-3">
-						<div class="col-lg-4">
-							<div class="feature-box feature-box-style-2 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="300">
-								<div class="feature-box-icon">
-									<i class="icon-star icons"></i>
-								</div>
-								<div class="feature-box-info">
-									<h4 class="font-weight-bold mb-2">Icons</h4>
-									<p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing metus elit. Quisque rutrum pellentesque imperdiet.</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="feature-box feature-box-style-2 appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="100">
-								<div class="feature-box-icon">
-									<i class="icon-drop icons"></i>
-								</div>
-								<div class="feature-box-info">
-									<h4 class="font-weight-bold mb-2">Colors</h4>
-									<p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla.</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="300">
-							<div class="feature-box feature-box-style-2">
-								<div class="feature-box-icon">
-									<i class="icon-mouse icons"></i>
-								</div>
-								<div class="feature-box-info">
-									<h4 class="font-weight-bold mb-2">Buttons</h4>
-									<p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla.</p>
-								</div>
-							</div>
-						</div>
+				<div class="row align-items-center">
+					<div class="col-lg-8">
+						<p>
+							The fastest way to grow your business with the leader in <span class="highlighted-word">Technology</span>
+							<span>Check out our options and features included.</span>
+						</p>
 					</div>
-
-					<div class="row mt-lg-3">
-						<div class="col-lg-4 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="400">
-							<div class="feature-box feature-box-style-2">
-								<div class="feature-box-icon">
-									<i class="icon-screen-desktop icons"></i>
-								</div>
-								<div class="feature-box-info">
-									<h4 class="font-weight-bold mb-2">Lightboxes</h4>
-									<p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing metus elit. Quisque rutrum pellentesque imperdiet.</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="200">
-							<div class="feature-box feature-box-style-2">
-								<div class="feature-box-icon">
-									<i class="icon-energy icons"></i>
-								</div>
-								<div class="feature-box-info">
-									<h4 class="font-weight-bold mb-2">Elements</h4>
-									<p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla.</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="400">
-							<div class="feature-box feature-box-style-2">
-								<div class="feature-box-icon">
-									<i class="icon-social-youtube icons"></i>
-								</div>
-								<div class="feature-box-info">
-									<h4 class="font-weight-bold mb-2">Videos</h4>
-									<p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla.</p>
-								</div>
-							</div>
+					<div class="col-lg-4">
+						<div class="get-started text-left text-lg-right">
+							<a href="#" class="btn btn-primary btn-lg text-3 font-weight-semibold px-4 py-3">Get Started Now</a>
+							<div class="learn-more">or <a href="index.html">learn more.</a></div>
 						</div>
 					</div>
 				</div>
 
-				<section class="section section-height-3 bg-color-grey-scale-1 border-0 m-0 appear-animation" data-appear-animation="fadeIn">
-					<div class="container">
-						<div class="row">
-							<div class="col appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200">
-								
-								<div class="owl-carousel owl-theme nav-bottom rounded-nav mb-0" data-plugin-options="{'items': 1, 'loop': false, 'autoHeight': true}">
-									<div>
-										<div class="testimonial testimonial-style-2 testimonial-with-quotes testimonial-quotes-dark mb-0">
-											<div class="testimonial-author">
-												<img src="img/clients/client-1.jpg" class="img-fluid rounded-circle" alt="">
-											</div>
-											<blockquote>
-												<p class="text-color-dark text-5 line-height-5 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget risus porta, tincidunt turpis at, interdum tortor. Suspendisse potenti. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce ante tellus, convallis non consectetur sed, pharetra nec ex.</p>
-											</blockquote>
-											<div class="testimonial-author">
-												<p><strong class="font-weight-extra-bold text-2">- John Smith. Okler</strong></p>
-											</div>
-										</div>
-									</div>
-									<div>
-										<div class="testimonial testimonial-style-2 testimonial-with-quotes testimonial-quotes-dark mb-0">
-											<div class="testimonial-author">
-												<img src="img/clients/client-1.jpg" class="img-fluid rounded-circle" alt="">
-											</div>
-											<blockquote>
-												<p class="text-color-dark text-5 line-height-5 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget risus porta, tincidunt turpis at, interdum tortor. Suspendisse potenti. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-											</blockquote>
-											<div class="testimonial-author">
-												<p><strong class="font-weight-extra-bold text-2">- John Smith. Okler</strong></p>
-											</div>
-										</div>
-									</div>
-								</div>
+			</div>
+		</div>
 
-							</div>
-						</div>
-					</div>
-				</section>
-
-				<div class="container-fluid">
-					<div class="row">
-
-						<div class="col-lg-6 p-0">
-							<section class="section section-height-3 section-primary h-100 m-0 border-0">
-								<div class="row justify-content-end m-0">
-									<div class="col-half-section col-half-section-right mb-5 appear-animation" data-appear-animation="fadeInRightShorter">
-										<h2 class="text-light text-7">Latest <strong>Posts</strong></h2>
-										<div class="row recent-posts">
-											<div class="col-md-6 mb-4 mb-md-0">
-												<article>
-													<div class="row">
-														<div class="col-auto pr-0">
-															<div class="date">
-																<span class="day bg-color-light text-color-dark font-weight-extra-bold">15</span>
-																<span class="month bg-color-light font-weight-semibold text-color-primary text-1">JAN</span>
-															</div>
-														</div>
-														<div class="col pl-1">
-															<h4 class="font-weight-normal line-height-3 text-4"><a href="blog-post.html" class="text-light">Lorem ipsum dolor sit amet, consectetur</a></h4>
-															<p class="text-color-light line-height-5 opacity-6 pr-4 mb-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-															<a href="/" class="read-more text-color-light font-weight-semibold text-2">read more <i class="fas fa-chevron-right text-1 ml-1"></i></a>
-														</div>
-													</div>
-												</article>
-											</div>
-											<div class="col-md-6">
-												<article>
-													<div class="row">
-														<div class="col-auto pr-0">
-															<div class="date">
-																<span class="day bg-color-light text-color-dark font-weight-extra-bold">14</span>
-																<span class="month bg-color-light font-weight-semibold text-color-primary text-1">JAN</span>
-															</div>
-														</div>
-														<div class="col pl-1">
-															<h4 class="font-weight-normal line-height-3 text-4"><a href="blog-post.html" class="text-light">Lorem ipsum dolor sit amet, consectetur</a></h4>
-															<p class="text-color-light line-height-5 opacity-6 pr-4 mb-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-															<a href="/" class="read-more text-color-light font-weight-semibold text-2">read more <i class="fas fa-chevron-right text-1 ml-1"></i></a>
-														</div>
-													</div>
-												</article>
-											</div>
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-lg-6 p-0">
-							<section class="section section-height-3 section-secondary h-100 m-0 border-0">
-								<div class="row m-0 mt-lg-5 pt-lg-2">
-									<div class="col-half-section mb-5 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="400">
-										<div class="row counters counters-sm counters-text-light">
-											<div class="col-md-6 mb-5">
-												<div class="counter">
-													<strong class="font-weight-extra-bold" data-to="30000" data-append="+">0</strong>
-													<label class="opacity-5 text-4 mt-1">Happy Clients</label>
-												</div>
-											</div>
-											<div class="col-md-6 mb-5">
-												<div class="counter">
-													<strong class="font-weight-extra-bold" data-to="3500" data-append="+">0</strong>
-													<label class="opacity-5 text-4 mt-1">Answered Tickets</label>
-												</div>
-											</div>
-											<div class="col-md-6 mb-5 mb-md-0">
-												<div class="counter">
-													<strong class="font-weight-extra-bold" data-to="16">0</strong>
-													<label class="opacity-5 text-4 mt-1">Pre-made Demos</label>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="counter">
-													<strong class="font-weight-extra-bold" data-to="3000" data-append="+">0</strong>
-													<label class="opacity-5 text-4 mt-1">Development Hours</label>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-					</div>
+		<div class="container">
+			<div class="row text-center pt-3">
+				<div class="col-md-10 mx-md-auto">
+					<h1 class="word-rotator slide font-weight-bold text-8 mb-3 appear-animation" data-appear-animation="fadeInUpShorter">
+						<span>Solomon is </span>
+						<span class="word-rotator-words bg-primary">
+							<b class="is-visible">incredibly</b>
+							<b>especially</b>
+							<b>extremely</b>
+						</span>
+						<span> beautiful and fully responsive.</span>
+					</h1>
+					<p class="lead appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="300">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum, nulla vel pellentesque consequat, ante nulla hendrerit arcu, ac tincidunt mauris lacus sed leo.
+					</p>
 				</div>
 			</div>
 
-			<footer id="footer" class="mt-0">
-				<div class="footer-copyright footer-copyright-style-2">
-					<div class="container py-2">
-						<div class="row py-4">
-							<div class="col mb-4 mb-lg-0">
-								<p>© Copyright 2020. All Rights Reserved.</p>
+		</div>
+
+		<div class="appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200">
+			<div class="home-concept mt-5">
+				<div class="container">
+					<div class="row text-center">
+						<span class="sun"></span>
+						<span class="cloud"></span>
+						<div class="col-lg-2 ml-lg-auto">
+							<div class="process-image">
+								<img src="{{ asset('images/home-concept-item-1.png') }}" alt="" />
+								<strong>Direct Selling</strong>
+							</div>
+						</div>
+						<div class="col-lg-2">
+							<div class="process-image process-image-on-middle">
+								<img src="{{ asset('images/home-concept-item-2.png') }}" alt="" />
+								<strong>Personal Points</strong>
+							</div>
+						</div>
+						<div class="col-lg-2">
+							<div class="process-image">
+								<img src="{{ asset('images/home-concept-item-3.png') }}" alt="" />
+								<strong>Partner Points</strong>
+							</div>
+						</div>
+						<div class="col-lg-4 ml-lg-auto">
+							<div class="project-image">
+								<div id="fcSlideshow" class="fc-slideshow">
+									<ul class="fc-slides">
+										<li>
+											<a href="portfolio-single-wide-slider.html">
+												<img class="img-responsive" src="{{ asset('images/project-home-1.jpg') }}" alt="" />
+											</a>
+										</li>
+										<li><a href="portfolio-single-wide-slider.html"><img class="img-responsive" src="{{ asset('images/project-home-2.jpg') }}" alt="" /></a></li>
+										<li><a href="portfolio-single-wide-slider.html"><img class="img-responsive" src="{{ asset('images/project-home-3.jpg') }}" alt="" /></a></li>
+									</ul>
+								</div>
+								<strong class="our-work">Our Work</strong>
 							</div>
 						</div>
 					</div>
+
 				</div>
-			</footer>
+			</div>
+		</div>
+
+		<div class="container my-5 py-3" id="main">
+			<div class="row pt-4">
+				<div class="col-lg-4 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="200">
+					<div class="feature-box feature-box-style-2">
+						<div class="feature-box-icon">
+							<i class="icon-user-following icons"></i>
+						</div>
+						<div class="feature-box-info">
+							<h4 class="font-weight-bold mb-2">Customer Support</h4>
+							<p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing metus elit. Quisque rutrum pellentesque imperdiet.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 appear-animation" data-appear-animation="fadeIn">
+					<div class="feature-box feature-box-style-2">
+						<div class="feature-box-icon">
+							<i class="icon-present icons"></i>
+						</div>
+						<div class="feature-box-info">
+							<h4 class="font-weight-bold mb-2">Rewards</h4>
+							<p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="200">
+					<div class="feature-box feature-box-style-2">
+						<div class="feature-box-icon">
+							<i class="icon-paypal icons"></i>
+						</div>
+						<div class="feature-box-info">
+							<h4 class="font-weight-bold mb-2">Supported Payments</h4>
+							<p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 @endsection

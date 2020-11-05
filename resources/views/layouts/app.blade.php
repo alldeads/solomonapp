@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="{{ asset('vendor/rs-plugin/css/settings.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/rs-plugin/css/layers.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/rs-plugin/css/navigation.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/circle-flip-slideshow/css/component.css') }}">
     
     <!-- Skin CSS -->
     <link rel="stylesheet" href="{{ asset('css/skins/skin-corporate-4.css') }}"> 
@@ -61,6 +62,8 @@
         @include('partials.header')
 
         @yield('content')
+
+        @include('partials.footer')
     </div>
     
     <!-- Vendor -->
@@ -89,6 +92,8 @@
     <!-- Current Page Vendor and Views -->
     <script src="{{ asset('vendor/rs-plugin/js/jquery.themepunch.tools.min.js') }}"></script>
     <script src="{{ asset('vendor/rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script>
+    <script src="{{ asset('vendor/circle-flip-slideshow/js/jquery.flipshow.min.js') }}"></script>
+    <script src="{{ asset('js/views/view.home.js') }}"></script>
 
     <!-- Theme Custom -->
     <script src="{{ asset('js/custom.js') }}"></script>
