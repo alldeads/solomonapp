@@ -1,19 +1,19 @@
-<!-- Page Sidebar Start-->
 <div class="sidebar-wrapper">
     <div class="logo-wrapper">
-        <a href="{{ route('home') }}">
-            <img class="img-fluid for-light" src="{{ asset('images/logo-4.jpg') }}" alt="">
-            <img class="img-fluid for-dark" src="{{ asset('images/logo-4.jpg') }}" alt="">
+        <a href="{{route('home')}}">
+            <img class="img-fluid for-light" src="{{asset('assets/images/logo/logo.png')}}" alt="" />
+            <img class="img-fluid for-dark" src="{{asset('assets/images/logo/logo_dark.png')}}" alt="" />
         </a>
-
-        <div class="back-btn"><i class="fa fa-angle-left"></i></div>
+        <div class="back-btn">
+            <i class="fa fa-angle-left"></i>
+        </div>
         <div class="toggle-sidebar">
             <i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i>
         </div>
     </div>
     <div class="logo-icon-wrapper">
-        <a href="{{ route('home') }}">
-            <img class="img-fluid" src="{{ asset('images/logo-4.jpg') }}" alt="">
+        <a href="{{route('home')}}">
+            <img class="img-fluid" src="{{asset('assets/images/logo/logo-icon.png')}}" alt="" />
         </a>
     </div>
 
@@ -24,8 +24,8 @@
         <div id="sidebar-menu">
             <ul class="sidebar-links custom-scrollbar">
                 <li class="back-btn">
-                    <a href="{{ route('home') }}">
-                        <img class="img-fluid" src="{{ asset('images/logo-4.jpg') }}" alt="">
+                    <a href="{{route('home')}}">
+                        <img class="img-fluid" src="{{asset('assets/images/logo/logo-icon.png')}}" alt="" />
                     </a>
                     <div class="mobile-back text-right">
                         <span>Back</span>
@@ -34,18 +34,29 @@
                 </li>
                 <li class="sidebar-main-title">
                     <div>
-                        <h6 class="lan-1">General</h6>
-                        <p class="lan-2">Dashboards,widgets & layout.</p>
+                        <h6 class="lan-1">{{ trans('lang.General') }}  </h6>
                     </div>
                 </li>
                 <li class="sidebar-list">
-                    <label class="badge badge-success">2</label><a class="sidebar-link sidebar-title active" href="#"><i data-feather="home"></i><span class="lan-3">Dashboard              </span></a>
-                    <ul class="sidebar-submenu">
-                        <li><a class="lan-4" href="index.html">Default</a></li>
-                        <li><a class="lan-5" href="dashboard-02.html">Ecommerce</a></li>
-                    </ul>
+                    <label class="badge badge-success">5</label>
+                    <a class="sidebar-link sidebar-title active" href="#">
+                        <i data-feather="home"></i>
+                        <span>Dashboard</span>
+                        <div class="according-menu">
+                            <i class="fa fa-angle-{{request()->route()->getPrefix() == '/home' ? 'down' : 'right' }}"></i>
+                        </div>
+                   </a>
                 </li>
-                
+
+                <li class="sidebar-list">
+                    <a class="sidebar-link sidebar-title" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i data-feather="log-in"></i>
+                        <span>Log-out</span>
+                        <div class="according-menu">
+                            <i class="fa fa-angle-{{request()->route()->getPrefix() == '/home' ? 'down' : 'right' }}"></i>
+                        </div>
+                   </a>
+                </li>
             </ul>
         </div>
         <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
