@@ -51,6 +51,8 @@
 
     <div class="page-wrapper compact-wrapper" id="pageWrapper">
 
+        @include('dashboard.header')
+
         @yield('content')
 
     </div>
@@ -80,11 +82,6 @@
     <script src="{{ asset('dashboard/js/datepicker/date-picker/datepicker.js') }}"></script>
     <script src=".{{ asset('dashboard/js/datepicker/date-picker/datepicker.en.js') }}"></script>
     <script src="{{ asset('dashboard/js/datepicker/date-picker/datepicker.custom.js') }}"></script>
-    <script src="{{ asset('dashboard/js/typeahead/handlebars.js') }}"></script>
-    <script src=".{{ asset('dashboard/js/typeahead/typeahead.bundle.js') }}"></script>
-    <script src="{{ asset('dashboard/js/typeahead/typeahead.custom.js') }}"></script>
-    <script src="{{ asset('dashboard/js/typeahead-search/handlebars.js') }}"></script>
-    <script src="{{ asset('dashboard/js/typeahead-search/typeahead-custom.js') }}"></script>
     <script src="{{ asset('dashboard/js/tooltip-init.js') }}"></script>
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
