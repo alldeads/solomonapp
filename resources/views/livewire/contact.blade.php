@@ -31,14 +31,14 @@
 					<div class="form-row">
 						<div class="form-group col-lg-6">
 							<label class="required text-light font-weight-bold text-2">Full Name</label>
-							<input type="text" maxlength="100" class="text-light form-control" required name="full_name">
+							<input type="text" maxlength="100" class="text-light form-control" required name="full_name" value="{{ old('full_name') }}">
 							@error('full_name')
 								<span class="error" style="color:red;">{{ $message }}</span> 
 							@enderror
 						</div>
 						<div class="form-group col-lg-6">
 							<label class="required text-light font-weight-bold text-2">Email Address</label>
-							<input type="email" class="form-control text-light"required name="email">
+							<input type="email" class="form-control text-light"required name="email" value="{{ old('email') }}">
 							@error('email')
 								<span class="error" style="color:red;">{{ $message }}</span>
 							@enderror
@@ -47,16 +47,18 @@
 					<div class="form-row">
 						<div class="form-group col">
 							<label class="required text-light font-weight-bold text-2">Subject</label>
-							<input type="text" value=""maxlength="100" class="text-light form-control" name="subject" required>
+							<input type="text" maxlength="100" class="text-light form-control" name="subject" required value="{{ old('subject') }}">
+							@error('subject')
+								<span class="error" style="color:red;">{{ $message }}</span>
+							@enderror
 						</div>
-						@error('subject')
-							<span class="error" style="color:red;">{{ $message }}</span>
-						@enderror
 					</div>
 					<div class="form-row">
 						<div class="form-group col">
 							<label class="required text-light font-weight-bold text-2">Message</label>
-							<textarea maxlength="5000" rows="8" class="text-light form-control" name="message" required></textarea>
+							<textarea maxlength="5000" rows="8" class="text-light form-control" name="message" required>
+								{{ old("message") }}
+							</textarea>
 							@error('message')
 								<span class="error" style="color:red;">{{ $message }}</span>
 							@enderror
