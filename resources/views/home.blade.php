@@ -242,7 +242,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-3 xl-50 chart_data_right second">
+        <div class="col-xl-3 xl-50 chart_data_right box-col-12">
             <div class="card">
                 <div class="card-body">
                     <div class="media align-items-center">
