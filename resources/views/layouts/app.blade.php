@@ -72,8 +72,8 @@
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('vendor/common/common.min.js') }}"></script>
     <script src="{{ asset('vendor/jquery.validation/jquery.validate.min.js') }}"></script>
-    <script src="{{ asset('vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js') }}s"></script>
-    <script src="{{ asset('vendor/jquery.gmap/jquery.gmap.min.jss') }}"></script>
+    <script src="{{ asset('vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js') }}"></script>
+    <script src="{{ asset('vendor/jquery.gmap/jquery.gmap.min.js') }}"></script>
     <script src=""></script>
     <script src="{{ asset('vendor/jquery.lazyload/jquery.lazyload.min.js') }}"></script>
     <script src=""></script>
