@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/contact-us', App\Http\Livewire\Contact::class)->name('contact');
+Route::post('/contact-us', [App\Http\Controllers\WebController::class, 'saveReport'])->name('home');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

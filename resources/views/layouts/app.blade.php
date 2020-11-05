@@ -45,6 +45,7 @@
 
     <!-- Head Libs -->
     <script src="{{ asset('vendor/modernizr/modernizr.min.js') }}"></script>
+    @livewireStyles
 </head>
 
 <body class="loading-overlay-showing" data-plugin-page-transition data-loading-overlay data-plugin-options="{'hideDelay': 500}">
@@ -66,6 +67,7 @@
         @include('partials.footer')
     </div>
     
+    @livewireScripts
     <!-- Vendor -->
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/jquery.appear/jquery.appear.min.js') }}"></script>
@@ -101,6 +103,62 @@
 
     <!-- Theme Initialization Files -->
     <script src="{{ asset('js/theme.init.js') }}"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHYtLgQ_Ba64sIJlYajgT8fREDbNfb6fA"></script>
+    <script>
+
+        /*
+        Map Settings
+
+            Find the Latitude and Longitude of your address:
+                - https://www.latlong.net/
+                - http://www.findlatitudeandlongitude.com/find-address-from-latitude-and-longitude/
+
+        */
+
+        // Map Markers
+        var mapMarkers = [{
+            address: "Cebu, PH 6000",
+            html: "<strong>Solomon Office</strong><br>Cebu, PH 6000",
+            icon: {
+                image: "images/pin.png",
+                iconsize: [26, 46],
+                iconanchor: [12, 46]
+            },
+            popup: true
+        }];
+
+        // Map Initial Location
+        var initLatitude = 10.316235;
+        var initLongitude = 123.9146156;
+
+        // Map Extended Settings
+        var mapSettings = {
+            controls: {
+                draggable: (($.browser.mobile) ? false : true),
+                panControl: true,
+                zoomControl: true,
+                mapTypeControl: true,
+                scaleControl: true,
+                streetViewControl: true,
+                overviewMapControl: true
+            },
+            scrollwheel: false,
+            markers: mapMarkers,
+            latitude: initLatitude,
+            longitude: initLongitude,
+            zoom: 11
+        };
+
+        var map = $('#googlemaps').gMap(mapSettings);
+
+        // Map text-center At
+        var mapCenterAt = function(options, e) {
+            e.preventDefault();
+            $('#googlemaps').gMap("centerAt", options);
+        }
+
+    </script>
 
 </body>
 </html>
