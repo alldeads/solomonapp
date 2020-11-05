@@ -6447,7 +6447,7 @@ html.dark.boxed .body {
 }
 
 html.dark #header .header-top {
-	background: #2c3237;
+	background: #000;
 	border-bottom-color: #333940;
 }
 
@@ -6456,7 +6456,7 @@ html.dark #header .header-search .form-control {
 }
 
 html.dark #header .header-body {
-	background: #212529;
+	background: #000;
 	border-top-color: #333940;
 }
 

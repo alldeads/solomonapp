@@ -56,8 +56,13 @@
         </div>
     </div>
 
-    @yield('content')
+    <div class="body">
 
+        @include('partials.header')
+
+        @yield('content')
+    </div>
+    
     <!-- Vendor -->
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/jquery.appear/jquery.appear.min.js') }}"></script>
