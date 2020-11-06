@@ -57,7 +57,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-8 xl-100 dashboard-sec box-col-12">
+        <div class="col-xl-12 xl-100 dashboard-sec box-col-12">
             <div class="card earning-card">
                 <div class="card-body p-0">
                     <div class="row m-0">
@@ -158,7 +158,7 @@
             </div>
         </div>
 
-        <div class="col-xl-9 xl-100 chart_data_left box-col-12">
+        <div class="col-xl-12 xl-100 chart_data_left box-col-12">
             <div class="card">
                 <div class="card-body p-0">
                     <div class="row m-0 chart-main">

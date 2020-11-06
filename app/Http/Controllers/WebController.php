@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\CreateReportRequest;
 
 use App\Models\Contact;
+use App\Models\User;
 
 class WebController extends Controller
 {
@@ -18,5 +19,16 @@ class WebController extends Controller
     	}
 
     	return redirect()->route('contact');
+    }
+
+    public function referral($username)
+    {
+    	$user = User::where('username', $username)->first();
+
+    	if ( !$user ) {
+    		return redirect('/');
+    	}
+
+    	return view('auth.register', compact('user'));
     }
 }

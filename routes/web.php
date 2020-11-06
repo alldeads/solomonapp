@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/site/{username}', [App\Http\Controllers\WebController::class, 'referral']);
+
 Route::get('/', function () {
     return view('index');
 });

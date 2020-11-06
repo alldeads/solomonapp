@@ -90,6 +90,5 @@
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
     <script src="{{asset('dashboard/js/script.js')}}"></script>
-    <script src="{{asset('dashboard/js/theme-customizer/customizer.js')}}"></script>
     </body>
 </html>
