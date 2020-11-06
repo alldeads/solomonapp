@@ -25,5 +25,6 @@ Route::post('/contact-us', [App\Http\Controllers\WebController::class, 'saveRepo
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
-Route::post('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
+
+Route::get('/edit-profile', App\Http\Livewire\Account\Profile::class)->name('profile');
+

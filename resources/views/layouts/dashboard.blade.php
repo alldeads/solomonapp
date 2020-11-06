@@ -35,6 +35,7 @@
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="{{asset('dashboard/css/responsive.css')}}">
     @yield('style')
+    @livewireStyles
   </head>
 
   <body class="dark-only">
@@ -90,5 +91,6 @@
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
     <script src="{{asset('dashboard/js/script.js')}}"></script>
+    @livewireScripts
     </body>
 </html>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateReportRequest;
 
 class HomeController extends Controller
 {
@@ -26,9 +27,29 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function profile(Request $request)
+    public function profile(CreateReportRequest $request)
     {
         $user = auth()->user();
+
+        // $validatedData = $request->validate([
+        //     'first_name' => 'required|min:2',
+        //     'last_name' => 'required|min:2',
+        //     'email' => 'required|email',
+        //     'phone' => 'required',
+        //     'company' => 'nullable',
+        //     'position' => 'nullable',
+        //     'username' => 'required|min:4',
+        // ]);
+
+        $user->update([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'company' => $request->company,
+            'position' => $request->position,
+            'username' => $request->username
+        ]);
 
         return view('dashboard.profile', compact('user'));
     }
