@@ -25,4 +25,11 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function profile(Request $request)
+    {
+        $user = auth()->user();
+
+        return view('dashboard.profile', compact('user'));
+    }
 }

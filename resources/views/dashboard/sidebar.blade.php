@@ -39,13 +39,35 @@
                 </li>
                 <li class="sidebar-list">
                     <label class="badge badge-success">5</label>
-                    <a class="sidebar-link sidebar-title active" href="#">
+                    <a class="sidebar-link sidebar-title active" href="{{ route('home') }}">
                         <i data-feather="home"></i>
                         <span>Dashboard</span>
                         <div class="according-menu">
                             <i class="fa fa-angle-{{request()->route()->getPrefix() == '/home' ? 'down' : 'right' }}"></i>
                         </div>
                    </a>
+                </li>
+
+                <li class="sidebar-list">
+                    <a class="sidebar-link sidebar-title" href="#">
+                        <i data-feather="user"></i>
+                        <span>Account</span>
+                        <div class="according-menu">
+                            <i class="fa fa-angle-{{request()->route()->getPrefix() == '/profile' ? 'down' : 'right' }}"></i>
+                        </div>
+                   </a>
+                   <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/profile' ? 'block;' : 'none;' }}">
+                        <li>
+                            <a href="{{route('profile')}}">
+                                Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Password
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
                 <li class="sidebar-list">
