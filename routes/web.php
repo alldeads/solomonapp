@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes(['register' => false]);
 
 Route::get('/site/{username}', [App\Http\Controllers\WebController::class, 'referral']);
+Route::post('/site/{username}', [App\Http\Controllers\WebController::class, 'referral'])->name('referral');
 
 Route::get('/', function () {
     return view('index');
@@ -23,6 +24,7 @@ Route::get('/', function () {
 
 Route::get('/contact-us', App\Http\Livewire\Contact::class)->name('contact');
 Route::post('/contact-us', [App\Http\Controllers\WebController::class, 'saveReport'])->name('home');
+Route::get('/success/{token}', [App\Http\Controllers\WebController::class, 'success'])->name('success');
 
 Route::middleware('auth')->group(function() {
 	Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

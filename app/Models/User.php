@@ -17,9 +17,16 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
+        'username',
         'email',
         'password',
+        'first_name',
+        'last_name',
+        'phone',
+        'available_points',
+        'status',
+        'sponsor_id',
+        'direct_recruits'
     ];
 
     /**
@@ -40,6 +47,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function scopeActive($query)
+    {
+        $query->where('status', 'active');
+    }
 
     public function getReferralLinkAttribute($value)
     { 
@@ -62,5 +74,25 @@ class User extends Authenticatable
         }
 
         return true;
+    }
+
+    public static function pass_up_points($user_id, $points)
+    {
+        $level = 5;
+        $count = 0;
+
+        do {
+            $user = User::findOrFail($user_id);
+
+            if ( $user->status == 'active' ) {
+                $user->available_points = $user->available_points + $points;
+                $user->save();
+            }
+            
+            $user_id = $user->sponsor_id;
+
+            $count++;
+
+        } while ($count != $level);
     }
 }

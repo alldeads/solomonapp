@@ -21,13 +21,20 @@ class DatabaseSeeder extends Seeder
     		'username' => 'solomon',
     		'phone' => '123456',
     		'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 
+            'status' => 'active'
     	]);
 
     	for ($i=1; $i < 10; $i++) { 
     		\App\Models\User::factory(2)->create([
-    			'sponsor_id' => $i
+    			'sponsor_id' => $i,
+    			'available_points' => 0,
+                'status' => 'active'
     		]);
+
+    		$user = User::find($i);
+
+    		$user->direct_recruits = 2;
+    		$user->save();
     	}
-        
     }
 }

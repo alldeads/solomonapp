@@ -65,7 +65,7 @@
                             <div class="row m-0 chart-left">
                                 <div class="col-xl-12 p-0 left_side_earning">
                                     <h5>Dashboard</h5>
-                                    <p class="font-roboto">Overview of last month</p>
+                                    {{-- <p class="font-roboto">Overview of last month</p> --}}
                                 </div>
                                 <div class="col-xl-12 p-0 left_side_earning">
                                     <h5>$4055.56 </h5>
@@ -124,8 +124,8 @@
                                             <i class="icofont icofont-crown"></i>
                                         </div>
                                         <div class="media-body">
-                                            <h6>Referral Earning</h6>
-                                            <p>$5,000.20</p>
+                                            <h6>Lifetime Earning</h6>
+                                            <p>₱{{ number_format($user->used_points, 2, '.', ',') }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -135,8 +135,8 @@
                                             <i class="icofont icofont-heart-alt"></i>
                                         </div>
                                         <div class="media-body">
-                                            <h6>Cash Balance</h6>
-                                            <p>$2,657.21</p>
+                                            <h6>Products Sold</h6>
+                                            <p>₱{{ number_format($user->product_sold, 2, '.', ',') }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -146,8 +146,8 @@
                                             <i class="icofont icofont-cur-dollar"></i>
                                         </div>
                                         <div class="media-body">
-                                            <h6>Sales forcasting</h6>
-                                            <p>$9,478.50 </p>
+                                            <h6>Available Points</h6>
+                                            <p>₱{{ number_format($user->available_points, 2, '.', ',') }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -171,8 +171,8 @@
                                 </div>
                                 <div class="media-body">
                                     <div class="right-chart-content">
-                                        <h4>1001</h4>
-                                        <span>purchase </span>
+                                        <h4>{{ $user->direct_recruits }}</h4>
+                                        <span>Recruits </span>
                                     </div>
                                 </div>
                             </div>
@@ -187,7 +187,7 @@
                                 <div class="media-body">
                                     <div class="right-chart-content">
                                         <h4>1005</h4>
-                                        <span>Sales</span>
+                                        <span>Rewards</span>
                                     </div>
                                 </div>
                             </div>
@@ -202,7 +202,7 @@
                                 <div class="media-body">
                                     <div class="right-chart-content">
                                         <h4>100</h4>
-                                        <span>Sales return</span>
+                                        <span>Claimed Rewards</span>
                                     </div>
                                 </div>
                             </div>
@@ -217,7 +217,7 @@
                                 <div class="media-body">
                                     <div class="right-chart-content">
                                         <h4>101</h4>
-                                        <span>Purchase ret</span>
+                                        <span>Vouchers</span>
                                     </div>
                                 </div>
                             </div>
@@ -227,7 +227,7 @@
             </div>
         </div>
 
-        <div class="col-xl-3 xl-50 chart_data_right box-col-12">
+        {{-- <div class="col-xl-3 xl-50 chart_data_right box-col-12">
             <div class="card">
                 <div class="card-body">
                     <div class="media align-items-center">
@@ -256,7 +256,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
 @endsection

@@ -23,6 +23,11 @@ class CreateUsersTable extends Migration
             $table->string('phone');
             $table->string('company')->nullable();
             $table->string('position')->nullable();
+            $table->integer('used_points')->default(0);
+            $table->integer('available_points')->default(0);
+            $table->integer('direct_recruits')->default(0);
+            $table->integer('product_sold')->default(0);
+            $table->enum('status', ['inactive', 'active'])->default('inactive');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
