@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function() {
 	Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 	Route::get('/edit-profile', App\Http\Livewire\Account\Profile::class)->name('profile');
 	Route::get('/products', App\Http\Livewire\Ecommerce\Product::class)->name('product');
+	Route::get('/carts', App\Http\Livewire\Ecommerce\Cart::class)->name('cart');
 });
 
 

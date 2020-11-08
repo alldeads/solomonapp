@@ -17,9 +17,9 @@ class Header extends Component
 		$this->count = Cart::getUserCartQuantity();
 	}
 
-	public function refresh($quantity)
+	public function refresh()
 	{
-		$this->count += $quantity ;
+		$this->count = Cart::getUserCartQuantity();
 	}
 
     public function render()

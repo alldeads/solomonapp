@@ -39,7 +39,7 @@ class Single extends Component
 			$cart->update(['quantity' => $this->quantity + $cart->quantity]);
 		}
 
-		$this->emit('cartAdded', $this->quantity);
+		$this->emit('cartAdded');
 
 		session()->flash('cartsuccess', 'Successfully added to cart.');
 	}
