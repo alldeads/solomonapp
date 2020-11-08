@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Address;
 use App\Models\Cart;
 use App\Models\PaymentMethod;
+use App\Models\Payment;
+use App\Models\Order;
+use App\Models\OrderDetails;
 
 class Checkout extends Component
 {
@@ -29,6 +32,7 @@ class Checkout extends Component
 	public $shipping_type;
 	public $payment_options;
 	public $payment_option;
+	public $quantity;
 
 	protected $rules = [
         'email'      => 'required|email',
@@ -47,7 +51,7 @@ class Checkout extends Component
 	public function mount()
 	{
 		$this->items = auth()->user()->carts;
-
+		$this->quantity = Cart::getUserCartQuantity();
 		$this->sub_total = Cart::getUserCartTotal();
 		$this->total = Cart::getUserCartTotal();
 		$this->shipping_type  = 2;
@@ -156,6 +160,7 @@ class Checkout extends Component
 			$payment = Payment::create([
 				'user_id' => auth()->user()->id,
 				'address_id' => $address->id,
+				'payment_method_id' => $this->payment_option,
 				'reference_code' => '',
 				'amount' => $this->total,
 			]);
@@ -164,8 +169,8 @@ class Checkout extends Component
 				'user_id' => auth()->user()->id,
 				'sub_total' => $this->sub_total,
 				'total' => $this->total,
-				'quantity' => Cart::getUserCartQuantity,
-				'payment_id' => $payment_id
+				'quantity' => $this->quantity,
+				'payment_id' => $payment->id
 			]);
 
 			foreach ($this->items as $value) {
@@ -177,9 +182,14 @@ class Checkout extends Component
 				]);
 			}
 
+			Cart::clearUserCart();
+
+			session()->flash('checkoutsuccess', 'Your order has been placed. Please proceed for the payment.');
+
 			DB::commit();
 		} catch (\Exception $e) {
 			DB::rollBack();
+			session()->flash('checkouterror', 'Oops! Something went wrong, please try again.');
 		}
 	}
 

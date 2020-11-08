@@ -170,11 +170,25 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="text-right">
-                                    <button type="submit" class="btn btn-primary">
-                                        Place Order
-                                    </button>
-                                </div>
+                                @if (session()->has('checkoutsuccess'))
+                                    <div class="alert alert-success mt-2">
+                                        {{ session('checkoutsuccess') }}
+                                    </div>
+                                @endif
+
+                                @if (session()->has('checkouterror'))
+                                    <div class="alert alert-success">
+                                        {{ session('checkouterror') }}
+                                    </div>
+                                @endif
+
+                                @if (!session()->has('checkoutsuccess'))
+                                    <div class="text-right">
+                                        <button type="submit" class="btn btn-primary">
+                                            Place Order
+                                        </button>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>

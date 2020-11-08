@@ -53,4 +53,9 @@ class Cart extends Model
 
         return $count;
     }
+
+    public static function clearUserCart()
+    {
+        return Cart::where('user_id', auth()->user()->id)->delete();
+    }
 }
