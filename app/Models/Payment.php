@@ -18,6 +18,7 @@ class Payment extends Model
         'user_id',
         'address_id',
         'reference_code',
+        'payment_type',
         'amount',
         'status'
     ];

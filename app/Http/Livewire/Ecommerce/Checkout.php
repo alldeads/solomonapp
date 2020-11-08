@@ -4,8 +4,11 @@ namespace App\Http\Livewire\Ecommerce;
 
 use Livewire\Component;
 
+use Illuminate\Support\Facades\DB;
+
 use App\Models\Address;
 use App\Models\Cart;
+use App\Models\PaymentMethod;
 
 class Checkout extends Component
 {
@@ -24,6 +27,7 @@ class Checkout extends Component
 	public $sub_total = 0;
 	public $total = 0;
 	public $shipping_type;
+	public $payment_options;
 	public $payment_option;
 
 	protected $rules = [
@@ -43,10 +47,12 @@ class Checkout extends Component
 	public function mount()
 	{
 		$this->items = auth()->user()->carts;
+
 		$this->sub_total = Cart::getUserCartTotal();
 		$this->total = Cart::getUserCartTotal();
 		$this->shipping_type  = 2;
 		$this->payment_option = 1;
+		$this->payment_options = PaymentMethod::active()->get();
 
 		if ( count( auth()->user()->addresses ) > 0 ) {
 
@@ -103,16 +109,37 @@ class Checkout extends Component
 
 	public function saveAddress()
 	{
+		if ( count($this->items) == 0 ) {
+			return redirect()->route('product');
+		}
+
 		$this->validate();
 
-		if ( $this->address_id > 0 ) {
+		DB::beginTransaction();
 
-			$address = Address::updateOrCreate(
-				[
-					'user_id' => auth()->user()->id, 
-					'id' => $this->address_id
-				],
-				[
+		try {
+			if ( $this->address_id > 0 ) {
+				$address = Address::updateOrCreate(
+					[
+						'user_id' => auth()->user()->id, 
+						'id' => $this->address_id
+					],
+					[
+						'first_name' => $this->first_name,
+						'last_name'  => $this->last_name,
+						'phone'  => $this->phone,
+						'email'  => $this->email,
+						'address'  => $this->address,
+						'state'  => $this->state,
+						'city'  => $this->city,
+						'zip'  => $this->zip,
+						'notes'  => $this->notes,
+					]
+				);
+			} else {
+
+				$address = Address::create([
+					'user_id' => auth()->user()->id,
 					'first_name' => $this->first_name,
 					'last_name'  => $this->last_name,
 					'phone'  => $this->phone,
@@ -122,22 +149,37 @@ class Checkout extends Component
 					'city'  => $this->city,
 					'zip'  => $this->zip,
 					'notes'  => $this->notes,
-				]
-			);
-		} else {
+				]);
 
-			auth()->user()->addresses()->create([
-				'first_name' => $this->first_name,
-				'last_name'  => $this->last_name,
-				'phone'  => $this->phone,
-				'email'  => $this->email,
-				'address'  => $this->address,
-				'state'  => $this->state,
-				'city'  => $this->city,
-				'zip'  => $this->zip,
-				'notes'  => $this->notes,
+			}
+
+			$payment = Payment::create([
+				'user_id' => auth()->user()->id,
+				'address_id' => $address->id,
+				'reference_code' => '',
+				'amount' => $this->total,
 			]);
 
+			$order = Order::create([
+				'user_id' => auth()->user()->id,
+				'sub_total' => $this->sub_total,
+				'total' => $this->total,
+				'quantity' => Cart::getUserCartQuantity,
+				'payment_id' => $payment_id
+			]);
+
+			foreach ($this->items as $value) {
+				OrderDetails::create([
+					'order_id' => $order->id,
+					'product_name' => $value->product->name,
+					'product_price' => $value->product->original_price,
+					'product_quantity' => $value->quantity
+				]);
+			}
+
+			DB::commit();
+		} catch (\Exception $e) {
+			DB::rollBack();
 		}
 	}
 

@@ -15,6 +15,10 @@ class Cart extends Component
 	public function mount()
 	{
 		$this->carts = auth()->user()->carts;
+
+        if ( count($this->carts) == 0 ) {
+            return redirect()->route('product');
+        }
 	}
 
     public function refresh($item)
