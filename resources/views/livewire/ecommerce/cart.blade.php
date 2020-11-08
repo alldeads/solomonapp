@@ -28,7 +28,7 @@
                               				<a class="btn btn-secondary cart-btn-transform" href="{{ route('product') }}">continue shopping</a>
                               			</td>
                               			<td>
-                              				<a class="btn btn-success cart-btn-transform" href="">check out
+                              				<a class="btn btn-success cart-btn-transform" href="{{ route('checkout') }}">check out
                               				</a>
                               			</td>
                            			</tr>

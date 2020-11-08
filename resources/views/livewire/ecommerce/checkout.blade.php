@@ -11,29 +11,42 @@
                         <div class="row">
                             <div class="form-group col-sm-6">
                                 <label for="inputEmail4">First Name</label>
-                                <input class="form-control" id="inputEmail4" type="email">
+                                <input class="form-control @error('first_name') is-invalid @enderror" wire:model="first_name" type="text">
+                                @error('first_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="form-group col-sm-6">
                                 <label for="inputPassword4">Last Name</label>
-                                <input class="form-control" id="inputPassword4" type="password">
+                                <input class="form-control @error('last_name') is-invalid @enderror" wire:model="last_name" type="text">
+                                @error('last_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-sm-6">
                                 <label for="inputEmail5">Phone</label>
-                                <input class="form-control" id="inputEmail5" type="email">
+                                <input class="form-control @error('phone') is-invalid @enderror" wire:model="phone" type="text">
+                                @error('phone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="form-group col-sm-6">
-                                <label for="inputPassword7">Email Address</label>
-                                <input class="form-control" id="inputPassword7" type="password">
+                                <label for="email">Email Address</label>
+                                <input class="form-control @error('email') is-invalid @enderror" wire:model="email" type="text">
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputState">Country</label>
-                            <select class="form-control" id="inputState">
-                                <option selected="">Choose...</option>
-                                <option>...</option>
-                            </select>
                         </div>
                         <div class="form-group">
                             <label for="inputAddress5">Address</label>
@@ -77,10 +90,10 @@
                                 <li class="shipping-class">Shipping
                                     <div class="shopping-checkout-option">
                                         <label class="d-block" for="chk-ani">
-                                            <input class="checkbox_animated" id="chk-ani" type="checkbox" checked="">Option 1
+                                            <input class="radio_animated" id="edo-ani" type="radio" name="shipping_type" checked="">Pick-up
                                         </label>
                                         <label class="d-block" for="chk-ani1">
-                                            <input class="checkbox_animated" id="chk-ani1" type="checkbox">Option 2
+                                            <input class="radio_animated" id="edo-ani" name="shipping_type" type="radio">Delivery
                                         </label>
                                     </div>
                                 </li>
@@ -98,7 +111,7 @@
                                             <input class="radio_animated" id="edo-ani1" type="radio" name="rdo-ani" data-original-title="" title="">Cash On Delivery
                                         </label>
                                         <label class="d-block" for="edo-ani2">
-                                            <input class="radio_animated" id="edo-ani2" type="radio" name="rdo-ani" checked="" data-original-title="" title="">PayPal<img class="img-paypal" src="{{asset('assets/images/checkout/paypal.png')}}" alt="">
+                                            <input class="radio_animated" id="edo-ani2" type="radio" name="rdo-ani" checked="" data-original-title="" title="">PayPal<img class="img-paypal" src="{{asset('images/paypal.png')}}" alt="">
                                         </label>
                                     </div>
                                 </div>
