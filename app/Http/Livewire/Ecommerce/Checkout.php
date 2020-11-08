@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Ecommerce;
 use Livewire\Component;
 
 use App\Models\Address;
+use App\Models\Cart;
 
 class Checkout extends Component
 {
@@ -20,6 +21,10 @@ class Checkout extends Component
 	public $address_id;
 	public $addresses;
 	public $items;
+	public $sub_total = 0;
+	public $total = 0;
+	public $shipping_type;
+	public $payment_option;
 
 	protected $rules = [
         'email'      => 'required|email',
@@ -30,12 +35,18 @@ class Checkout extends Component
         'notes'      => 'nullable',
         'address'    => 'required',
         'state'      => 'required',
-        'city'       => 'required'
+        'city'       => 'required',
+        'payment_option' => 'required|numeric',
+        'shipping_type' => 'required|numeric'
     ];
 
 	public function mount()
 	{
 		$this->items = auth()->user()->carts;
+		$this->sub_total = Cart::getUserCartTotal();
+		$this->total = Cart::getUserCartTotal();
+		$this->shipping_type  = 2;
+		$this->payment_option = 1;
 
 		if ( count( auth()->user()->addresses ) > 0 ) {
 

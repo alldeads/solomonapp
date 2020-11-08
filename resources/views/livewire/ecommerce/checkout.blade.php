@@ -5,9 +5,9 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-lg-6 col-sm-12">
-                    <form wire:submit.prevent="saveAddress">
+            <form wire:submit.prevent="saveAddress">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-12">
                         <div class="form-group">
                             <label for="inputAddress5">Saved Addresses</label>
                             <select class="form-control @error('first_name') is-invalid @enderror" wire:model="address_id">
@@ -113,65 +113,69 @@
                                 </span>
                             @enderror
                         </div>
-                    </form>
-                </div>
+                    </div>
 
-                <div class="col-lg-6 col-sm-12">
-                    <div class="checkout-details">
-                        <div class="order-box">
-                            <div class="title-box">
-                                <div class="checkbox-title">
-                                    <h4>Product </h4>
-                                    <span>Total</span>
-                                </div>
-                            </div>
-
-                            <ul class="qty">
-                                <li>Pink Slim Shirt × 1 <span>$25.10</span></li>
-                                <li>SLim Fit Jeans × 1 <span>$555.00</span></li>
-                            </ul>
-
-                            <ul class="sub-total">
-                                <li>Subtotal 
-                                    <span class="count">$380.10
-                                    </span>
-                                </li>
-                                <li class="shipping-class">Shipping
-                                    <div class="shopping-checkout-option">
-                                        <label class="d-block" for="chk-ani">
-                                            <input class="radio_animated" id="edo-ani" type="radio" name="shipping_type" checked="">Pick-up
-                                        </label>
-                                        <label class="d-block" for="chk-ani1">
-                                            <input class="radio_animated" id="edo-ani" name="shipping_type" type="radio">Delivery
-                                        </label>
-                                    </div>
-                                </li>
-                            </ul>
-                            <ul class="sub-total total">
-                                <li>Total <span class="count">$620.00</span></li>
-                            </ul>
-                            <div class="animate-chk">
-                                <div class="row">
-                                    <div class="col">
-                                        <label class="d-block" for="edo-ani">
-                                            <input class="radio_animated" id="edo-ani" type="radio" name="rdo-ani" checked="" data-original-title="" title="">Check Payments
-                                        </label>
-                                        <label class="d-block" for="edo-ani1">
-                                            <input class="radio_animated" id="edo-ani1" type="radio" name="rdo-ani" data-original-title="" title="">Cash On Delivery
-                                        </label>
-                                        <label class="d-block" for="edo-ani2">
-                                            <input class="radio_animated" id="edo-ani2" type="radio" name="rdo-ani" checked="" data-original-title="" title="">PayPal<img class="img-paypal" src="{{asset('images/paypal.png')}}" alt="">
-                                        </label>
+                    <div class="col-lg-6 col-sm-12">
+                        <div class="checkout-details">
+                            <div class="order-box">
+                                <div class="title-box">
+                                    <div class="checkbox-title">
+                                        <h4>Product </h4>
+                                        <span>Total</span>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="text-right">
-                                <a class="btn btn-primary" href="#">Place Order  </a>
+
+                                <ul class="qty">
+                                    @foreach( $items as $item )
+                                        <li>{{ $item->product->name }} × {{ $item->quantity }} <span>₱{{ number_format($item->quantity * $item->product->original_price, 2, '.', ',') }}</span></li>
+                                    @endforeach
+                                </ul>
+
+                                <ul class="sub-total">
+                                    <li>Subtotal 
+                                        <span class="count">
+                                            ₱{{ number_format($sub_total, 2, '.', ',') }}
+                                        </span>
+                                    </li>
+                                    <li class="shipping-class">Shipping
+                                        <div class="shopping-checkout-option">
+                                            <label class="d-block" for="chk-ani">
+                                                <input class="radio_animated" id="edo-ani" type="radio" wire:model="shipping_type" value="1" checked="">Pick-up
+                                            </label>
+                                            <label class="d-block" for="chk-ani1">
+                                                <input class="radio_animated" id="edo-ani" wire:model="shipping_type" type="radio" value="2">Delivery
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="sub-total total">
+                                    <li>Total <span class="count">₱{{ number_format($total, 2, '.', ',') }}</span></li>
+                                </ul>
+                                <div class="animate-chk">
+                                    <div class="row">
+                                        <div class="col">
+                                            {{-- <label class="d-block" for="edo-ani">
+                                                <input class="radio_animated" id="edo-ani" type="radio" name="rdo-ani" checked="" data-original-title="" title="">Check Payments
+                                            </label> --}}
+                                            <label class="d-block" for="edo-ani1">
+                                                <input class="radio_animated" id="edo-ani1" type="radio" wire:model="payment_option" value="1">Cash On Delivery
+                                            </label>
+                                            {{-- <label class="d-block" for="edo-ani2">
+                                                <input class="radio_animated" id="edo-ani2" type="radio" name="rdo-ani" checked="" data-original-title="" title="">PayPal<img class="img-paypal" src="{{asset('images/paypal.png')}}" alt="">
+                                            </label> --}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <button type="submit" class="btn btn-primary">
+                                        Place Order
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>

@@ -41,4 +41,16 @@ class Cart extends Model
 
     	return $count;
     }
+
+    public static function getUserCartTotal()
+    {
+        $carts = auth()->user()->carts;
+        $count = 0;
+
+        foreach ($carts as $cart) {
+            $count += $cart->quantity * $cart->product->original_price;
+        }
+
+        return $count;
+    }
 }
