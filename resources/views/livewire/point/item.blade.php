@@ -71,11 +71,11 @@
          	</div>
     	</div>
     	<div class="product-wrapper-grid mt-3">
-        	{{-- <div class="row">
-        		@foreach($products as $product)
-        			<livewire:ecommerce.single :product="$product" :key="$product->id">
+        	<div class="row">
+        		@foreach($items as $item)
+        			<livewire:point.single :item="$item" :key="$item->id">
         		@endforeach
-         	</div> --}}
+         	</div>
       	</div>
    	</div>
 </div>
