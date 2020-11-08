@@ -7,7 +7,18 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-lg-6 col-sm-12">
-                    <form>
+                    <form wire:submit.prevent="saveAddress">
+                        {{-- <div class="form-group">
+                            <label for="inputAddress5">Saved Addresses</label>
+                            <select class="form-control @error('first_name') is-invalid @enderror" wire:model="saved">
+                                <option>New Address</option>
+                            </select>
+                            @error('address')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div> --}}
                         <div class="row">
                             <div class="form-group col-sm-6">
                                 <label for="inputEmail4">First Name</label>
@@ -50,20 +61,54 @@
                         </div>
                         <div class="form-group">
                             <label for="inputAddress5">Address</label>
-                            <input class="form-control" id="inputAddress5" type="text">
+                            <input class="form-control @error('address') is-invalid @enderror" wire:model="address" type="text">
+                            @error('address')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="form-group">
-                            <label for="inputCity">Town/City</label>
-                            <input class="form-control" id="inputCity" type="text">
+                            <label for="inputCity">State/Municipality</label>
+                            <input class="form-control @error('state') is-invalid @enderror" wire:model="state" type="text">
+                            @error('state')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="form-group">
-                            <label for="inputAddress2">State/Country</label>
-                            <input class="form-control" id="inputAddress2" type="text">
+                            <label for="inputAddress2">City</label>
+                            <input class="form-control @error('city') is-invalid @enderror" wire:model="city" type="text">
+                            @error('city')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="form-group">
-                            <label for="inputAddress6">Postal Code</label>
-                            <input class="form-control" id="inputAddress6" type="text">
+                            <label for="inputAddress6">Zip Code</label>
+                            <input class="form-control @error('zip') is-invalid @enderror" wire:model="zip" type="number">
+                            @error('zip')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
+                        <div class="form-group">
+                            <label for="inputAddress6">Notes</label>
+
+                            <textarea class="form-control @error('notes') is-invalid @enderror" wire:model="notes">
+                                
+                            </textarea>
+                            @error('zip')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                        <button type="submit" class="btn btn-primary"> Save</button>
                     </form>
                 </div>
 

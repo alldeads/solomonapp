@@ -9,6 +9,7 @@ use App\Http\Requests\CreateReportRequest;
 
 use App\Models\Contact;
 use App\Models\User;
+use App\Models\Address;
 
 class WebController extends Controller
 {
@@ -44,7 +45,7 @@ class WebController extends Controller
             try {
                 DB::beginTransaction();
 
-                User::create([
+                $user = User::create([
                     'sponsor_id' => $referral->id,
                     'first_name' => $request->first_name,
                     'last_name' => $request->last_name,
@@ -52,6 +53,18 @@ class WebController extends Controller
                     'phone' => $request->phone,
                     'username' => $request->username,
                     'password' => bcrypt($request->password)
+                ]);
+
+                Address::create([
+                    'user_id' => $user->id,
+                    'first_name' => $request->first_name,
+                    'last_name' => $request->last_name,
+                    'email' => $request->email,
+                    'phone' => $request->phone,
+                    'address'  => '',
+                    'state'  => '',
+                    'city'  => '',
+                    'zip'  => ''
                 ]);
 
                 $referral->update([
@@ -71,8 +84,6 @@ class WebController extends Controller
 
     public function success($token)
     {
-        User::pass_up_points(20, 100);
-
         return view('site.success');
     }
 }
