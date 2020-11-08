@@ -1,8 +1,14 @@
 <div class="col-xl-3 col-sm-6 xl-4">
    	<div class="card">
-   		@if ( session()->has('cartsuccess') )
+   		@if ( session()->has('itemsuccess') )
             <div class="alert alert-success text-center">
-            	{{ session('cartsuccess') }}
+            	{{ session('itemsuccess') }}
+			</div>
+		@endif
+
+		@if ( session()->has('itemerror') )
+            <div class="alert alert-danger text-center">
+            	{{ session('itemerror') }}
 			</div>
 		@endif
       	<div class="product-box">
