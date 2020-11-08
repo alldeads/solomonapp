@@ -45,7 +45,7 @@ class Checkout extends Component
         'state'      => 'required',
         'city'       => 'required',
         'payment_option' => 'required|numeric',
-        'shipping_type' => 'required|numeric'
+        'shipping_type' => 'required|string'
     ];
 
 	public function mount()
@@ -54,7 +54,7 @@ class Checkout extends Component
 		$this->quantity = Cart::getUserCartQuantity();
 		$this->sub_total = Cart::getUserCartTotal();
 		$this->total = Cart::getUserCartTotal();
-		$this->shipping_type  = 2;
+		$this->shipping_type  = "delivery";
 		$this->payment_option = 1;
 		$this->payment_options = PaymentMethod::active()->get();
 
@@ -166,11 +166,13 @@ class Checkout extends Component
 			]);
 
 			$order = Order::create([
+				'reference' => 'S-' . time(),
 				'user_id' => auth()->user()->id,
 				'sub_total' => $this->sub_total,
 				'total' => $this->total,
 				'quantity' => $this->quantity,
-				'payment_id' => $payment->id
+				'payment_id' => $payment->id,
+				'shipping_type' => $this->shipping_type
 			]);
 
 			foreach ($this->items as $value) {

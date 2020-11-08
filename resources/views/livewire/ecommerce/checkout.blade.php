@@ -140,10 +140,10 @@
                                     <li class="shipping-class">Shipping
                                         <div class="shopping-checkout-option">
                                             <label class="d-block" for="chk-ani">
-                                                <input class="radio_animated" id="edo-ani" type="radio" wire:model="shipping_type" value="1" checked="">Pick-up
+                                                <input class="radio_animated" id="edo-ani" type="radio" wire:model="shipping_type" value="pick-up" checked="">Pick-up
                                             </label>
                                             <label class="d-block" for="chk-ani1">
-                                                <input class="radio_animated" id="edo-ani" wire:model="shipping_type" type="radio" value="2">Delivery
+                                                <input class="radio_animated" id="edo-ani" wire:model="shipping_type" type="radio" value="delivery">Delivery
                                             </label>
                                         </div>
                                     </li>

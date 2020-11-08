@@ -53,7 +53,7 @@
                         <i data-feather="shopping-bag"></i>
                         <span>Products</span>
                         <div class="according-menu">
-                            <i class="fa fa-angle-{{request()->route()->getPrefix() == '/home' ? 'down' : 'right' }}"></i>
+                            <i class="fa fa-angle-{{request()->route()->getPrefix() == '/products' ? 'down' : 'right' }}"></i>
                         </div>
                    </a>
                 </li>
@@ -74,9 +74,32 @@
                         <i data-feather="shopping-cart"></i>
                         <span>Cart</span>
                         <div class="according-menu">
-                            <i class="fa fa-angle-{{request()->route()->getPrefix() == '/home' ? 'down' : 'right' }}"></i>
+                            <i class="fa fa-angle-{{request()->route()->getPrefix() == '/cart' ? 'down' : 'right' }}"></i>
                         </div>
                    </a>
+                </li>
+
+                <li class="sidebar-list">
+                    <a class="sidebar-link sidebar-title active" href="#">
+                        <i data-feather="archive"></i>
+                        <span>Activities</span>
+                        <div class="according-menu">
+                            <i class="fa fa-angle-{{request()->route()->getPrefix() == '/activities' ? 'down' : 'right' }}"></i>
+                        </div>
+                    </a>
+
+                    <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/activities' ? 'block;' : 'none;' }}">
+                        <li>
+                            <a href="{{route('orders')}}">
+                                Order History
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Rewards History
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
                 <li class="sidebar-list">

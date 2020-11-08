@@ -18,6 +18,6 @@ class Product extends Component
     {
         return view('livewire.ecommerce.product')
         		->extends('layouts.dashboard')
-        		->section('content');;
+        		->section('content');
     }
 }

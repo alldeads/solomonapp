@@ -16,10 +16,12 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id');
+            $table->string('reference')->unique();
             $table->double('sub_total');
             $table->double('total');
             $table->double('quantity');
             $table->bigInteger('payment_id')->nullable();
+            $table->enum('shipping_type', ['pick-up', 'delivery']);
             $table->enum('status', ['pending', 'processing', 'accepted', 'for-delivery', 'delivered', 'cancelled', 'on-hold'])->default('pending');
             $table->timestamps();
         });
