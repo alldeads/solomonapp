@@ -16,4 +16,5 @@ Route::group([
     $router->get('/api/users', 'UserController@getUser' );
 
     $router->resource('users', UserController::class);
+    $router->resource('item-histories', PointsController::class);
 });
