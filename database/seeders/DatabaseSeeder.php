@@ -180,12 +180,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Item::create([
-            'name'    => 'Brand New Samsung A10s',
-            'points'  => 800,
-            'avatar'  => 'items/samsung-a10.jpg'
-        ]);
-
-        Item::create([
             'name'    => 'Brand New HP Laptop',
             'points'  => 1750,
             'avatar'  => 'items/hplaptop.jpg'

@@ -11,7 +11,15 @@ class Item extends Component
 	public $available_points;
 	public $items;
 
+	protected $listeners = ['pointsRefreshed' => 'refresh'];
+
 	public function mount()
+	{
+		$this->available_points = auth()->user()->available_points;
+		$this->items = Items::all();
+	}
+
+	public function refresh()
 	{
 		$this->available_points = auth()->user()->available_points;
 		$this->items = Items::all();

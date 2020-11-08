@@ -115,4 +115,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Payment::class);
     }
+
+    public function items()
+    {
+        return $this->hasMany(ItemHistory::class);
+    }
 }
