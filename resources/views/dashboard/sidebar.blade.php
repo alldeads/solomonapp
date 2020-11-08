@@ -50,7 +50,7 @@
 
                 <li class="sidebar-list">
                     <label class="badge badge-danger">5</label>
-                    <a class="sidebar-link sidebar-title active" href="{{ route('home') }}">
+                    <a class="sidebar-link sidebar-title active" href="{{ route('product') }}">
                         <i data-feather="shopping-bag"></i>
                         <span>Products</span>
                         <div class="according-menu">

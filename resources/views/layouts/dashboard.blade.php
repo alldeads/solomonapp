@@ -26,6 +26,9 @@
     <link rel="stylesheet" type="text/css" href="{{asset('dashboard/css/vendors/feather-icon.css')}}">
     <!-- Plugins css start-->
     @yield('css')
+    <link rel="stylesheet" type="text/css" href="{{asset('dashboard/css/vendors/select2.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('dashboard/css/vendors/owlcarousel.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('dashboard/css/vendors/range-slider.css')}}">
     <!-- Plugins css Ends-->
     <!-- Bootstrap css-->
     <link rel="stylesheet" type="text/css" href="{{asset('dashboard/css/vendors/bootstrap.css')}}">
@@ -86,6 +89,15 @@
     <script src="{{asset('dashboard/js/config.js')}}"></script>
     <!-- Plugins JS start-->
     @yield('script')
+    <script src="{{asset('dashboard/js/range-slider/ion.rangeSlider.min.js')}}"></script>
+    <script src="{{asset('dashboard/js/range-slider/rangeslider-script.js')}}"></script>
+    <script src="{{asset('dashboard/js/touchspin/vendors.min.js')}}"></script>
+    <script src="{{asset('dashboard/js/touchspin/touchspin.js')}}"></script>
+    <script src="{{asset('dashboard/js/touchspin/input-groups.min.js')}}"></script>
+    <script src="{{asset('dashboard/js/owlcarousel/owl.carousel.js')}}"></script>
+    <script src="{{asset('dashboard/js/select2/select2.full.min.js')}}"></script>
+    <script src="{{asset('dashboard/js/select2/select2-custom.js')}}"></script>
+    <script src="{{asset('dashboard/js/product-tab.js')}}"></script>
     <script src="{{asset('dashboard/js/sidebar-menu.js')}}"></script>
     <script src="{{asset('dashboard/js/tooltip-init.js')}}"></script>
     <!-- Plugins JS Ends-->
