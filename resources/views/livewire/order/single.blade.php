@@ -98,13 +98,15 @@
                                 </li>
                             </ul>
 
-                            <div class="row mt-3">
-                                <div class="col-12 text-center">
-                                    <a href="#" class="btn btn-primary">
-                                        Pay Now
-                                    </a>
+                            @if ($payment->status != "received" && $payment->method->abbr != "cod") 
+                                <div class="row mt-3">
+                                    <div class="col-12 text-center">
+                                        <a href="{{ route('order.payment', ['order_number' => $order->reference]) }}" class="btn btn-primary">
+                                            Pay Now
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>

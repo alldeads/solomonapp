@@ -13,6 +13,7 @@
 								<th scope="col">Total</th>
 								<th scope="col">Quantity</th>
 								<th scope="col">Status</th>
+								<th scope="col">Payment</th>
 								<th scope="col">Placed On</th>
 								<th scope="col">Action</th>
 							</tr>
@@ -23,7 +24,8 @@
 									<th scope="row">{{ $order->reference }}</th>
 									<td>{{ $order->total }}</td>
 									<td>{{ $order->quantity }}</td>
-									<td>{{ $order->status }}</td>
+									<td>{{ ucfirst($order->status) }}</td>
+									<td>{{ ucfirst($order->payment->status) }}</td>
 									<td>{{ date('F j, Y', strtotime($order->created_at)) }}</td>
 									<td>
 										<a href="{{ route('order.single', ['order_number' => $order->reference]) }}"> View</a>

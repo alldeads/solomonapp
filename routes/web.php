@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function() {
 	Route::get('/checkout', App\Http\Livewire\Ecommerce\Checkout::class)->name('checkout');
 	Route::get('/orders', App\Http\Livewire\Order\History::class)->name('orders');
 	Route::get('/order/{order_number}', App\Http\Livewire\Order\Single::class)->name('order.single');
+	Route::get('/order/payment/{order_number}', App\Http\Livewire\Order\Payment::class)->name('order.payment');
 });
 
 
