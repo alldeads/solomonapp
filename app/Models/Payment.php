@@ -25,11 +25,21 @@ class Payment extends Model
 
     public function order()
     {
-    	return $this->belongsTo(Order::class);
+    	return $this->hasOne(Order::class);
     }
 
     public function user()
     {
     	return $this->belongsTo(User::class);
+    }
+
+    public function address()
+    {
+        return $this->belongsTo(Address::class);
+    }
+
+    public function method()
+    {
+        return $this->belongsTo(PaymentMethod::class, 'payment_method_id');
     }
 }

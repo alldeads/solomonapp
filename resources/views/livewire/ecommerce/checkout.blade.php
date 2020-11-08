@@ -107,7 +107,7 @@
                             <textarea class="form-control @error('notes') is-invalid @enderror" wire:model="notes">
                                 
                             </textarea>
-                            @error('zip')
+                            @error('notes')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

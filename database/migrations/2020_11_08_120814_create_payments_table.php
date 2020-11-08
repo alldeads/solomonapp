@@ -20,7 +20,7 @@ class CreatePaymentsTable extends Migration
             $table->bigInteger('payment_method_id');
             $table->string('reference_code');
             $table->double('amount');
-            $table->enum('status', ['pending', 'received', 'fraud', 'on-hold', 'rejected'])->default('pending');
+            $table->enum('status', ['pending', 'processing', 'received', 'fraud', 'on-hold', 'rejected'])->default('pending');
             $table->timestamps();
         });
     }

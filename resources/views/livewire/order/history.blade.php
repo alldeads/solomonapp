@@ -26,7 +26,7 @@
 									<td>{{ $order->status }}</td>
 									<td>{{ date('F j, Y', strtotime($order->created_at)) }}</td>
 									<td>
-										<a href="#"> View</a>
+										<a href="{{ route('order.single', ['order_number' => $order->reference]) }}"> View</a>
 									</td>
 								</tr>
 							@endforeach
