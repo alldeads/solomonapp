@@ -1,12 +1,17 @@
 <div class="col-xl-3 col-sm-6 xl-4">
    	<div class="card">
+   		@if ( session()->has('cartsuccess') )
+            <div class="alert alert-success text-center">
+            	{{ session('cartsuccess') }}
+			</div>
+		@endif
       	<div class="product-box">
          	<div class="product-img">
             	<img class="img-fluid" src="{{ $product->avatar }}" alt="">
             	<div class="product-hover">
                		<ul>
                   		<li>
-	                     	<button class="btn" type="button">
+	                     	<button class="btn" wire:click="add_to_cart">
 	                     		<i class="icon-shopping-cart"></i>
 	                     	</button>
                   		</li>
@@ -18,7 +23,7 @@
                		</ul>
             	</div>
          	</div>
-         	<div class="modal fade" id="productModal{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter" aria-hidden="true">
+         	<div wire:ignore.self class="modal fade" id="productModal{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter" aria-hidden="true">
             	<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                		<div class="modal-content">
                   		<div class="modal-header">
@@ -27,6 +32,18 @@
                         			<img class="img-fluid" src="{{ $product->avatar }}" alt="">
                         		</div>
                         		<div class="product-details col-md-6 text-left">
+                        			@if ( session()->has('carterror') )
+			                            <div class="alert alert-danger text-center">
+			                            	{{ session('carterror') }}
+                        				</div>
+                					@endif
+
+                					@if ( session()->has('cartsuccess') )
+			                            <div class="alert alert-success text-center">
+			                            	{{ session('cartsuccess') }}
+                        				</div>
+                					@endif
+                        			
                            			<h4>{{ $product->name }}</h4>
                        				<div class="product-price">₱{{ number_format($product->original_price, 2, '.', ',') }}
                        				</div>
@@ -38,11 +55,12 @@
                           				<h6 class="f-w-600">Quantity</h6>
                       					<fieldset>
                          					<div class="input-group">
-                            					<input class="touchspin text-center" type="text" value="1" wire:model="quantity">
+                            					<input class="text-center form-control" type="number" wire:model="quantity">
                          					</div>
                       					</fieldset>
-                      					<div class="addcart-btn">
-                             				<button class="btn btn-primary" type="button">Add to Cart</button>
+                      					<div>
+                             				<button class="btn btn-primary" wire:click="add_to_cart" wire:loading.remove>Add to Cart</button>
+                             				<button class="btn btn-primary" wire:loading>Adding...</button>
 			                            </div>
                        				</div>
                         		</div>

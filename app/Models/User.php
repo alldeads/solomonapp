@@ -95,4 +95,9 @@ class User extends Authenticatable
 
         } while ($count != $level);
     }
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
 }
