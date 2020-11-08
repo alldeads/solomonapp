@@ -17,4 +17,5 @@ Route::group([
 
     $router->resource('users', UserController::class);
     $router->resource('item-histories', PointsController::class);
+    $router->resource('payments', PaymentController::class);
 });
