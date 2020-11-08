@@ -13,4 +13,7 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('home');
 
+    $router->get('/api/users', 'UserController@getUser' );
+
+    $router->resource('users', UserController::class);
 });

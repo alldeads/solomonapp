@@ -396,7 +396,7 @@ return [
     */
     'extensions' => [
         'material-ui' => [
-            'enable' => true
+            'enable' => false
         ]
     ],
 ];

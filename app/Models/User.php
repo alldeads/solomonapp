@@ -101,6 +101,11 @@ class User extends Authenticatable
         return $this->hasMany(Cart::class);
     }
 
+    public function sponsor()
+    {
+        return $this->belongsTo(User::class, 'sponsor_id');
+    }
+
     public function addresses()
     {
         return $this->hasMany(Address::class);
