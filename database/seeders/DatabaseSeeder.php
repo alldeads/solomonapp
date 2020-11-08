@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Product;
 use App\Models\PaymentMethod;
 use App\Models\Address;
+use App\Models\Item;
 
 class DatabaseSeeder extends Seeder
 {
@@ -122,6 +123,90 @@ class DatabaseSeeder extends Seeder
             'description'    => '',
             'original_price' => 180,
             'avatar'         => asset('products/charcoal.jpg')
+        ]);
+
+        Item::create([
+            'name'    => 'Romoss Power Bank',
+            'points'  => 10,
+            'avatar'  => 'items/romoss.jpg'
+        ]);
+
+        Item::create([
+            'name'    => '100 Pesos Cash',
+            'points'  => 20,
+            'avatar'  => 'items/100peso.jpg'
+        ]);
+
+        Item::create([
+            'name'    => 'Smart Watch',
+            'points'  => 30,
+            'avatar'  => 'items/smart-watch.jpg'
+        ]);
+
+        Item::create([
+            'name'    => 'Smart Watch',
+            'points'  => 30,
+            'avatar'  => 'items/smart-watch.jpg'
+        ]);
+
+        Item::create([
+            'name'    => '5kl Premium Rice(Ganador)',
+            'points'  => 50,
+            'avatar'  => 'items/5klganador.jpg'
+        ]);
+
+        Item::create([
+            'name'    => 'Samsung Keystone SMB 1053',
+            'points'  => 100,
+            'avatar'  => 'items/samsungkeystone.jpg'
+        ]);
+
+        Item::create([
+            'name'    => 'Half Sack Rice + 500 Pesos Cash',
+            'points'  => 250,
+            'avatar'  => 'items/ganador-25kg.jpg'
+        ]);
+
+        Item::create([
+            'name'    => 'Half Sack Rice + 500 Pesos Cash',
+            'points'  => 250,
+            'avatar'  => 'items/ganador-25kg.jpg'
+        ]);
+
+        Item::create([
+            'name'    => 'Brand New Samsung A10s',
+            'points'  => 800,
+            'avatar'  => 'items/samsung-a10.jpg'
+        ]);
+
+        Item::create([
+            'name'    => 'Brand New Samsung A10s',
+            'points'  => 800,
+            'avatar'  => 'items/samsung-a10.jpg'
+        ]);
+
+        Item::create([
+            'name'    => 'Brand New HP Laptop',
+            'points'  => 1750,
+            'avatar'  => 'items/hplaptop.jpg'
+        ]);
+
+        Item::create([
+            'name'    => '35,000 Pesos Cash',
+            'points'  => 5000,
+            'avatar'  => 'items/35pesos.jpg'
+        ]);
+
+        Item::create([
+            'name'    => 'Suzuki Smash 115 or Honda Beat 110i',
+            'points'  => 8000,
+            'avatar'  => 'items/motor.jpg'
+        ]);
+
+        Item::create([
+            'name'    => '80,000  Pesos Cash',
+            'points'  => 10000,
+            'avatar'  => 'items/eightythousand.jpg'
         ]);
     }
 }
