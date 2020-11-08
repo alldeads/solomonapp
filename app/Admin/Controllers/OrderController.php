@@ -26,7 +26,7 @@ class OrderController extends AdminController
     {
         $grid = new Grid(new Order());
 
-        $grid->column('user.full_name', __('User'));
+        $grid->column('user.username', __('User'));
         $grid->column('reference', __('Reference'));
         $grid->column('sub_total', __('Sub total'));
         $grid->column('total', __('Total'));
@@ -73,7 +73,7 @@ class OrderController extends AdminController
     {
         $form = new Form(new Order());
 
-        $form->text('user.full_name', __('User'))->disable();
+        $form->text('user.username', __('User'))->disable();
         $form->text('reference', __('Reference'));
         $form->decimal('sub_total', __('Sub total'));
         $form->decimal('total', __('Total'));
