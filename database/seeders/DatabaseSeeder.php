@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+
 use App\Models\User;
+use App\Models\Product;
 
 class DatabaseSeeder extends Seeder
 {
@@ -36,5 +38,47 @@ class DatabaseSeeder extends Seeder
     		$user->direct_recruits = 2;
     		$user->save();
     	}
+
+        Product::create([
+            'name'           => 'Charcoal Soap',
+            'description'    => '',
+            'original_price' => 180,
+            'avatar'         => asset('products/charcoal.jpg')
+        ]);
+
+        Product::create([
+            'name'           => 'Calamansi Soap',
+            'description'    => '',
+            'original_price' => 180,
+            'avatar'         => asset('products/charcoal.jpg')
+        ]);
+
+        Product::create([
+            'name'           => 'Carrot Soap',
+            'description'    => '',
+            'original_price' => 180,
+            'avatar'         => asset('products/charcoal.jpg')
+        ]);
+
+        Product::create([
+            'name'           => 'Tomato Soap',
+            'description'    => '',
+            'original_price' => 180,
+            'avatar'         => asset('products/charcoal.jpg')
+        ]);
+
+        Product::create([
+            'name'           => 'Singkamas Soap',
+            'description'    => '',
+            'original_price' => 180,
+            'avatar'         => asset('products/charcoal.jpg')
+        ]);
+
+        Product::create([
+            'name'           => 'Banana Soap',
+            'description'    => '',
+            'original_price' => 180,
+            'avatar'         => asset('products/charcoal.jpg')
+        ]);
     }
 }
