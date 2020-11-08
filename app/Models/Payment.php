@@ -20,7 +20,8 @@ class Payment extends Model
         'reference_code',
         'payment_method_id',
         'amount',
-        'status'
+        'status',
+        'type'
     ];
 
     public function order()
