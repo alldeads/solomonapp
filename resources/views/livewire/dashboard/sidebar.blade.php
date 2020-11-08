@@ -95,8 +95,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
-                                Rewards History
+                            <a href="{{route('point.history')}}">
+                                Redeem History
                             </a>
                         </li>
                     </ul>

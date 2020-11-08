@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function() {
 	Route::get('/order/{order_number}', App\Http\Livewire\Order\Single::class)->name('order.single');
 	Route::get('/order/payment/{order_number}', App\Http\Livewire\Order\Payment::class)->name('order.payment');
 	Route::get('/point_system', App\Http\Livewire\Point\Item::class)->name('points');
+	Route::get('/points/history', App\Http\Livewire\Point\History::class)->name('point.history');
 });
 
 
