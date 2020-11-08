@@ -29,4 +29,16 @@ class Cart extends Model
     {
     	return $this->belongsTo(Product::class);
     }
+
+    public static function getUserCartQuantity()
+    {
+    	$carts = auth()->user()->carts;
+    	$count = 0;
+
+    	foreach ($carts as $cart) {
+    		$count += $cart->quantity;
+    	}
+
+    	return $count;
+    }
 }

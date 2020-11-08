@@ -49,7 +49,7 @@
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
         </form>
-        @include('dashboard.header')
+        @livewire('dashboard.header')
         <div class="page-body-wrapper sidebar-icon">
             @include('dashboard.sidebar')
             <div class="page-body">

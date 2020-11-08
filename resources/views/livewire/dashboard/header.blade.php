@@ -1,4 +1,4 @@
-<div class="page-header">
+<div class="page-header" wire:ignore.self>
     <div class="header-wrapper row m-0">
         <div class="header-logo-wrapper">
             <div class="logo-wrapper">
@@ -7,7 +7,7 @@
                 </a>
             </div>
             <div class="toggle-sidebar">
-                <i class="status_toggle middle sidebar-toggle" data-feather="sliders"></i>
+                <i class="status_toggle middle sidebar-toggle fa fa-bars"></i>
             </div>
         </div>
         <div class="left-header col horizontal-wrapper pl-0"> </div>
@@ -15,12 +15,12 @@
             <ul class="nav-menus">
                 <li class="onhover-dropdown">
                     <div class="notification-box">
-                        <i data-feather="bell"> </i>
+                        <i class="fa fa-bell"> </i>
                         <span class="badge badge-pill badge-secondary">4 </span>
                     </div>
                      <ul class="notification-dropdown onhover-show-div">
                         <li>
-                            <i data-feather="bell"></i>
+                            <i class="fa fa-bell"> </i>
                             <h6 class="f-18 mb-0">Notitications</h6>
                         </li>
                         <li>
@@ -36,21 +36,16 @@
                 <li>
                     <div class="mode"><i class="fa fa-moon-o"></i></div>
                 </li>
-                <li class="cart-nav onhover-dropdown">
+                <li>
                     <div class="cart-box">
-                        <i data-feather="shopping-cart"></i>
-                        <span class="badge badge-pill badge-primary">2</span>
+                        <i class="fa fa-shopping-bag"></i>
+                        <span class="badge badge-pill badge-primary">{{ $count }}</span>
                     </div>
-                    <ul class="cart-dropdown onhover-show-div">
-                        <li>
-                            <h6 class="mb-0 f-20">Shoping Bag</h6>
-                            <i data-feather="shopping-cart"></i>
-                        </li>
-                    </ul>
                 </li>
         
                 <li class="maximize">
-                    <a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()">     <i data-feather="maximize"></i>
+                    <a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()">
+                        <i data-feather="maximize"></i>
                     </a>
                 </li>
                 <li class="profile-nav onhover-dropdown p-0 mr-0">
@@ -65,12 +60,14 @@
                     </div>
                     <ul class="profile-dropdown onhover-show-div">
                         <li>
-                            <a href="{{ route('profile') }}"><i data-feather="user"></i>
+                            <a href="{{ route('profile') }}">
+                                <i class="fa fa-user"></i>
                                 <span>Profile </span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i data-feather="log-in"> </i>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="fa fa-sign-out"> </i>
                                 <span>Log out</span>
                             </a>
                         </li>
