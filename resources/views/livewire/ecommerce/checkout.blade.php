@@ -8,17 +8,23 @@
             <div class="row">
                 <div class="col-lg-6 col-sm-12">
                     <form wire:submit.prevent="saveAddress">
-                        {{-- <div class="form-group">
+                        <div class="form-group">
                             <label for="inputAddress5">Saved Addresses</label>
-                            <select class="form-control @error('first_name') is-invalid @enderror" wire:model="saved">
-                                <option>New Address</option>
+                            <select class="form-control @error('first_name') is-invalid @enderror" wire:model="address_id">
+                                <option value="0">New Address</option>
+
+                                @foreach($addresses as $address)
+                                    <option value="{{ $address->id }}"> 
+                                        {{ $address->address }}
+                                    </option>
+                                @endforeach
                             </select>
                             @error('address')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                        </div> --}}
+                        </div>
                         <div class="row">
                             <div class="form-group col-sm-6">
                                 <label for="inputEmail4">First Name</label>
@@ -107,8 +113,6 @@
                                 </span>
                             @enderror
                         </div>
-
-                        <button type="submit" class="btn btn-primary"> Save</button>
                     </form>
                 </div>
 
