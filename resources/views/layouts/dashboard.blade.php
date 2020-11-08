@@ -51,7 +51,7 @@
         </form>
         @livewire('dashboard.header')
         <div class="page-body-wrapper sidebar-icon">
-            @include('dashboard.sidebar')
+            @livewire('dashboard.sidebar')
             <div class="page-body">
                 <div class="container-fluid">
                     <div class="page-title">

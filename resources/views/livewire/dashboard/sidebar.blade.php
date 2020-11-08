@@ -38,7 +38,6 @@
                     </div>
                 </li>
                 <li class="sidebar-list">
-                    <label class="badge badge-success">5</label>
                     <a class="sidebar-link sidebar-title active" href="{{ route('home') }}">
                         <i data-feather="home"></i>
                         <span>Dashboard</span>
@@ -49,7 +48,7 @@
                 </li>
 
                 <li class="sidebar-list">
-                    <label class="badge badge-danger">5</label>
+                    <label class="badge badge-danger">{{ $this->products }}</label>
                     <a class="sidebar-link sidebar-title active" href="{{ route('product') }}">
                         <i data-feather="shopping-bag"></i>
                         <span>Products</span>
