@@ -49,6 +49,28 @@
                 </li>
 
                 <li class="sidebar-list">
+                    <label class="badge badge-danger">5</label>
+                    <a class="sidebar-link sidebar-title active" href="{{ route('home') }}">
+                        <i data-feather="shopping-bag"></i>
+                        <span>Products</span>
+                        <div class="according-menu">
+                            <i class="fa fa-angle-{{request()->route()->getPrefix() == '/home' ? 'down' : 'right' }}"></i>
+                        </div>
+                   </a>
+                </li>
+
+                <li class="sidebar-list">
+                    <label class="badge badge-warning">5</label>
+                    <a class="sidebar-link sidebar-title active" href="{{ route('home') }}">
+                        <i data-feather="gift"></i>
+                        <span>Points System</span>
+                        <div class="according-menu">
+                            <i class="fa fa-angle-{{request()->route()->getPrefix() == '/home' ? 'down' : 'right' }}"></i>
+                        </div>
+                   </a>
+                </li>
+
+                <li class="sidebar-list">
                     <a class="sidebar-link sidebar-title" href="#">
                         <i data-feather="user"></i>
                         <span>Account</span>
