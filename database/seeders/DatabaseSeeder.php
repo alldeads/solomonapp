@@ -86,43 +86,65 @@ class DatabaseSeeder extends Seeder
         Product::create([
             'name'           => 'Charcoal Soap',
             'description'    => '',
-            'original_price' => 180,
+            'original_price' => 150,
+            'members_price'  => 90,
             'avatar'         => asset('products/charcoal.jpg')
         ]);
 
         Product::create([
             'name'           => 'Calamansi Soap',
             'description'    => '',
-            'original_price' => 180,
-            'avatar'         => asset('products/charcoal.jpg')
+            'original_price' => 150,
+            'members_price'  => 90,
+            'avatar'         => asset('products/calamansi.jpg')
         ]);
 
         Product::create([
             'name'           => 'Carrot Soap',
             'description'    => '',
-            'original_price' => 180,
-            'avatar'         => asset('products/charcoal.jpg')
+            'original_price' => 150,
+            'members_price'  => 90,
+            'avatar'         => asset('products/carrot.jpg')
         ]);
 
         Product::create([
             'name'           => 'Tomato Soap',
             'description'    => '',
-            'original_price' => 180,
-            'avatar'         => asset('products/charcoal.jpg')
+            'original_price' => 150,
+            'members_price'  => 90,
+            'avatar'         => asset('products/tomato.jpg')
         ]);
 
         Product::create([
             'name'           => 'Singkamas Soap',
             'description'    => '',
-            'original_price' => 180,
-            'avatar'         => asset('products/charcoal.jpg')
+            'original_price' => 150,
+            'members_price'  => 90,
+            'avatar'         => asset('products/singkamas.jpg')
         ]);
 
         Product::create([
             'name'           => 'Banana Soap',
             'description'    => '',
-            'original_price' => 180,
-            'avatar'         => asset('products/charcoal.jpg')
+            'original_price' => 150,
+            'members_price'  => 90,
+            'avatar'         => asset('products/banana.jpg')
+        ]);
+
+        Product::create([
+            'name'           => 'Turmeric Oil',
+            'description'    => '',
+            'original_price' => 150,
+            'members_price'  => 125,
+            'avatar'         => asset('products/banana.jpg')
+        ]);
+
+        Product::create([
+            'name'           => 'Eucalyptus Oil',
+            'description'    => '',
+            'original_price' => 150,
+            'members_price'  => 125,
+            'avatar'         => asset('products/banana.jpg')
         ]);
 
         Item::create([

@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->integer('quantity')->default(0);
             $table->double('original_price');
+            $table->double('members_price');
             $table->double('discounted_price')->nullable();
             $table->string('avatar')->nullable();
             $table->timestamps();
