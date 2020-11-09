@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Voucher;
+use App\Models\User;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -29,6 +30,19 @@ class VoucherController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
+
+        $grid->column('user_id', __('Used By'))->display(function($id) {
+
+            if ( !$id ) {
+                return "Unassigned";
+            }
+
+            $user = User::findOrFail($id);
+
+            return "<a href='/admin/users/".$id."/edit'>" . $user->full_name. " (". $user->username .")</a>";
+
+        });
+
         $grid->column('status', __('Status'));
         $grid->column('created_at', __('Created at'));
 
@@ -66,7 +80,14 @@ class VoucherController extends AdminController
 
         $form->text('name', __('Name'))->default(Str::random(8));
         $form->hidden('points', __('Points'))->default(10);
-        $form->hidden('user_id', __('User id'))->default(1);
+
+        $form->select('user_id', 'User')->options(function ($id) {
+            $user = User::find($id);
+
+            if ($user) {
+                return [$user->id => $user->username];
+            }
+        })->ajax('/admin/api/users');
 
         return $form;
     }
