@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Order;
+use App\Models\User;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -26,12 +27,21 @@ class OrderController extends AdminController
     {
         $grid = new Grid(new Order());
 
-        $grid->column('user.username', __('User'));
+        $grid->column('user_id', __('Full Name'))->display(function($id) {
+            $user = User::findOrFail($id);
+
+            return "<a href='/admin/users/".$id."/edit'>" . $user->full_name. "</a>";
+
+        });
+        $grid->column('user.username', __('Username'));
         $grid->column('reference', __('Reference'));
         $grid->column('sub_total', __('Sub total'));
         $grid->column('total', __('Total'));
         $grid->column('quantity', __('Quantity'));
-        $grid->column('payment_id', __('Payment id'));
+        $grid->column('payment_id', __('Payment'))->display(function ($id) {
+
+            return "<a href='/admin/payments/".$id."/edit' target='_blank'>Click Here</a>";
+        });
         $grid->column('shipping_type', __('Shipping type'));
         $grid->column('status', __('Status'));
         $grid->column('created_at', __('Created at'));
@@ -73,13 +83,20 @@ class OrderController extends AdminController
     {
         $form = new Form(new Order());
 
+        $form->hidden('user_id');
+        $form->hidden('id');
         $form->text('user.username', __('User'))->disable();
-        $form->text('reference', __('Reference'));
+        $form->text('reference', __('Reference'))->disable();
         $form->decimal('sub_total', __('Sub total'));
         $form->decimal('total', __('Total'));
         $form->decimal('quantity', __('Quantity'));
-        $form->number('payment_id', __('Payment id'));
-        $form->text('shipping_type', __('Shipping type'));
+
+        $form->select('shipping_type', __('Shipping type'))
+                ->options([
+                    'pick-up' => 'Pick Up', 
+                    'delivery' => 'Delivery'
+                ]);
+
         $form->select('status', __('Status'))
                 ->options([
                     'pending' => 'Pending', 
@@ -90,6 +107,18 @@ class OrderController extends AdminController
                     'on-hold' => 'On Hold',
                     'cancelled' => 'Cancelled',
                 ]);
+
+        $form->saving(function (Form $form) {
+
+            $user = User::findOrFail($form->user_id);
+            $order = Order::findOrFail($form->id);
+
+            if ( $order->status != "accepted" && $form->status == "accepted" ) {
+                if ( $form->quantity != 0 ) {
+                    User::pass_up_points($user->id, $form->quantity);
+                }
+            }
+        });
 
         return $form;
     }

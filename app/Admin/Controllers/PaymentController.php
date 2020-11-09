@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Payment;
+use App\Models\User;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -27,7 +28,13 @@ class PaymentController extends AdminController
         $grid = new Grid(new Payment());
 
         $grid->column('reference_code', __('Reference code'));
-        $grid->column('user.name', __('User'));
+        $grid->column('user_id', __('Full Name'))->display(function($id) {
+            $user = User::findOrFail($id);
+
+            return "<a href='/admin/users/".$id."/edit'>" . $user->full_name. "</a>";
+
+        });
+        $grid->column('user.username', __('User Name'));
         $grid->column('address_id', __('Address'));
         $grid->column('method.name', __('Payment Method'));
         $grid->column('amount', __('Amount'));

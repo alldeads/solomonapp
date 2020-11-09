@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Models\ItemHistory;
+use App\Models\User;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -28,6 +29,12 @@ class PointsController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('reference', __('Reference'));
+        $grid->column('user_id', __('Full Name'))->display(function($id) {
+            $user = User::findOrFail($id);
+
+            return "<a href='/admin/users/".$id."/edit'>" . $user->full_name. "</a>";
+
+        });
         $grid->column('user.username', __('User'));
         $grid->column('item_name', __('Item name'));
         $grid->column('item_points', __('Item points'));
