@@ -11,6 +11,7 @@ use App\Models\Cart;
 use App\Models\PaymentMethod;
 use App\Models\Payment;
 use App\Models\Order;
+use App\Models\User;
 use App\Models\OrderDetails;
 
 class Checkout extends Component
@@ -33,6 +34,7 @@ class Checkout extends Component
 	public $payment_options;
 	public $payment_option;
 	public $quantity;
+	public $commissions = 0;
 
 	protected $rules = [
         'email'      => 'required|email',
@@ -79,6 +81,10 @@ class Checkout extends Component
 			$this->phone = auth()->user()->phone;
 			$this->email = auth()->user()->email;
 			$this->address_id = 0;
+		}
+
+		foreach ($this->items as $value) {
+			$this->commissions += ($value->product->original_price - $value->product->members_price) * $value->quantity;
 		}
 	}
 
@@ -157,8 +163,10 @@ class Checkout extends Component
 
 			}
 
+			$user = User::find(auth()->user()->id);
+
 			$payment = Payment::create([
-				'user_id' => auth()->user()->id,
+				'user_id' => $user->id,
 				'address_id' => $address->id,
 				'payment_method_id' => $this->payment_option,
 				'reference_code' => '',
@@ -167,7 +175,7 @@ class Checkout extends Component
 
 			$order = Order::create([
 				'reference' => 'S-' . time(),
-				'user_id' => auth()->user()->id,
+				'user_id' => $user->id,
 				'sub_total' => $this->sub_total,
 				'total' => $this->total,
 				'quantity' => $this->quantity,
@@ -180,6 +188,7 @@ class Checkout extends Component
 					'order_id' => $order->id,
 					'product_name' => $value->product->name,
 					'product_price' => $value->product->original_price,
+					'product_price_m' => $value->product->members_price,
 					'product_quantity' => $value->quantity
 				]);
 			}
@@ -191,6 +200,7 @@ class Checkout extends Component
 			DB::commit();
 		} catch (\Exception $e) {
 			DB::rollBack();
+			dd($e);
 			session()->flash('checkouterror', 'Oops! Something went wrong, please try again.');
 		}
 	}

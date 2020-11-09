@@ -148,25 +148,22 @@
                                         </div>
                                     </li>
                                 </ul>
+                                <hr>
+                                <ul class="sub-total total">
+                                    <li>Commissions <span class="count">₱{{ number_format($commissions, 2, '.', ',') }}</span></li>
+                                </ul>
+                                <hr>
                                 <ul class="sub-total total">
                                     <li>Total <span class="count">₱{{ number_format($total, 2, '.', ',') }}</span></li>
                                 </ul>
                                 <div class="animate-chk">
                                     <div class="row">
                                         <div class="col">
-                                            {{-- <label class="d-block" for="edo-ani">
-                                                <input class="radio_animated" id="edo-ani" type="radio" name="rdo-ani" checked="" data-original-title="" title="">Check Payments
-                                            </label> --}}
-
                                             @foreach($payment_options as $payment)
                                                 <label class="d-block" for="{{ $payment->abbr }}">
                                                     <input class="radio_animated" id="{{ $payment->abbr }}" type="radio" wire:model="payment_option" value="{{ $payment->id }}">{{ $payment->name }}
                                                 </label>
                                             @endforeach
-                                            
-                                            {{-- <label class="d-block" for="edo-ani2">
-                                                <input class="radio_animated" id="edo-ani2" type="radio" name="rdo-ani" checked="" data-original-title="" title="">PayPal<img class="img-paypal" src="{{asset('images/paypal.png')}}" alt="">
-                                            </label> --}}
                                         </div>
                                     </div>
                                 </div>

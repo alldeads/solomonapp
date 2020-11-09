@@ -83,7 +83,11 @@ class User extends Authenticatable
         $count = 0;
 
         do {
-            $user = User::findOrFail($user_id);
+            $user = User::find($user_id);
+
+            if ( !$user ) {
+                return;
+            }
 
             if ( $user->status == 'active' ) {
                 $user->available_points = $user->available_points + $points;

@@ -112,12 +112,20 @@ class OrderController extends AdminController
 
             $user = User::findOrFail($form->user_id);
             $order = Order::findOrFail($form->id);
+            $commission = 0;
 
             if ( $order->status != "accepted" && $form->status == "accepted" ) {
                 if ( $form->quantity != 0 ) {
                     User::pass_up_points($user->id, $form->quantity);
 
+                    foreach ($order->order_details as $value) {
+                        $total = ($value->product_price - $value->product_price_m) * $value->product_quantity;
+
+                        $commission += $total;
+                    }
+
                     $user->product_sold += $form->quantity;
+                    $user->commission += $commission;
                     $user->save();
                 }
             }
