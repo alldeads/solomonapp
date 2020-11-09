@@ -68,11 +68,11 @@
                                     {{-- <p class="font-roboto">Overview of last month</p> --}}
                                 </div>
                                 <div class="col-xl-12 p-0 left_side_earning">
-                                    <h5>$4055.56 </h5>
-                                    <p class="font-roboto">This Month Earning</p>
+                                    <h5>₱{{ number_format($data['monthly_gross'], 2, '.', ',') }}</h5>
+                                    <p class="font-roboto">This Month Gross</p>
                                 </div>
                                 <div class="col-xl-12 p-0 left_side_earning">
-                                    <h5>$1004.11</h5>
+                                    <h5>₱{{ number_format($data['monthly_profit'], 2, '.', ',') }}</h5>
                                     <p class="font-roboto">This Month Profit</p>
                                 </div>
                                 <div class="col-xl-12 p-0 left_side_earning">
@@ -121,8 +121,8 @@
                                             <i class="icofont icofont-cur-dollar"></i>
                                         </div>
                                         <div class="media-body">
-                                            <h6>Lifetime Earning</h6>
-                                            <p>₱{{ number_format($user->commissions, 2, '.', ',') }}</p>
+                                            <h6>Lifetime Earnings</h6>
+                                            <p>₱{{ number_format($user->commission, 2, '.', ',') }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -132,8 +132,8 @@
                                             <i class="icofont icofont-heart-alt"></i>
                                         </div>
                                         <div class="media-body">
-                                            <h6>Available Cash</h6>
-                                            <p>₱{{ number_format($user->commissions, 2, '.', ',') }}</p>
+                                            <h6>Available Rewards</h6>
+                                            <p>{{ $rewards }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -198,7 +198,7 @@
                                 </div>
                                 <div class="media-body">
                                     <div class="right-chart-content">
-                                        <h4>100</h4>
+                                        <h4>{{ $data['claimed_rewards'] }}</h4>
                                         <span>Claimed Rewards</span>
                                     </div>
                                 </div>
@@ -213,7 +213,7 @@
                                 </div>
                                 <div class="media-body">
                                     <div class="right-chart-content">
-                                        <h4>101</h4>
+                                        <h4>0</h4>
                                         <span>Vouchers</span>
                                     </div>
                                 </div>
