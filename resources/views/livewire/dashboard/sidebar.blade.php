@@ -71,7 +71,7 @@
 
                 <li class="sidebar-list">
                     <a class="sidebar-link sidebar-title active" href="{{ route('vouchers') }}">
-                        <i data-feather="gift"></i>
+                        <i data-feather="box"></i>
                         <span>Vouchers</span>
                         <div class="according-menu">
                             <i class="fa fa-angle-{{request()->route()->getPrefix() == '/home' ? 'down' : 'right' }}"></i>

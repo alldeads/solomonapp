@@ -116,6 +116,9 @@ class OrderController extends AdminController
             if ( $order->status != "accepted" && $form->status == "accepted" ) {
                 if ( $form->quantity != 0 ) {
                     User::pass_up_points($user->id, $form->quantity);
+
+                    $user->product_sold += $form->quantity;
+                    $user->save();
                 }
             }
         });

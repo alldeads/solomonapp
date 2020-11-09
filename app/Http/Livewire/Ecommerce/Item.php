@@ -20,21 +20,26 @@ class Item extends Component
 		$this->item = $item;
 		$this->product_name = $item->product->name;
 		$this->product_avatar = $item->product->avatar;
-		$this->product_price = $item->product->members_price;
+		$this->product_price = $item->product->original_price;
 		$this->quantity = $item->quantity;
 		$this->total = $this->product_price * $this->quantity;
 	}
 
 	public function updatedQuantity($quantity)
 	{
-		$this->total = $this->product_price * $this->quantity;
+		try {
+			$this->total = $this->product_price * $this->quantity;
 
-		$cart = Cart::find($this->item->id);
+			$cart = Cart::find($this->item->id);
 
-		$cart->quantity = $this->quantity;
-		$cart->save();
+			$cart->quantity = $this->quantity;
+			$cart->save();
 
-		$this->emit('cartAdded');
+			$this->emit('cartAdded');
+
+		} catch(\Exception $e) {
+			session()->flash('itemerror', 'Invalid quantity!');
+		}
 	}
 
 	public function delete_cart()

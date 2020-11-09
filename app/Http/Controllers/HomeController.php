@@ -26,6 +26,8 @@ class HomeController extends Controller
     {
         $user = auth()->user();
 
+        $data['monthly_earning'] = "";
+
         return view('home', compact('user'));
     }
 }

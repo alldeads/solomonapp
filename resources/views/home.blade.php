@@ -90,10 +90,7 @@
                                     <div class="col-xl-8 col-md-8 col-sm-8 col-12 p-0">
                                         <div class="inner-top-left">
                                             <ul class="d-flex list-unstyled">
-                                                <li>Daily</li>
-                                                <li class="active">Weekly</li>
-                                                <li>Monthly</li>
-                                                <li>Yearly</li>
+                                                <li class="active">Monthly</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -121,11 +118,11 @@
                                 <div class="col-xl-4 pl-0 col-md-6 col-sm-6">
                                     <div class="media p-0">
                                         <div class="media-left">
-                                            <i class="icofont icofont-crown"></i>
+                                            <i class="icofont icofont-cur-dollar"></i>
                                         </div>
                                         <div class="media-body">
                                             <h6>Lifetime Earning</h6>
-                                            <p>₱{{ number_format($user->used_points, 2, '.', ',') }}</p>
+                                            <p>₱{{ number_format($user->commissions, 2, '.', ',') }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -135,19 +132,19 @@
                                             <i class="icofont icofont-heart-alt"></i>
                                         </div>
                                         <div class="media-body">
-                                            <h6>Products Sold</h6>
-                                            <p>₱{{ number_format($user->product_sold, 2, '.', ',') }}</p>
+                                            <h6>Available Cash</h6>
+                                            <p>₱{{ number_format($user->commissions, 2, '.', ',') }}</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-4 col-md-12 pr-0">
                                     <div class="media p-0">
                                         <div class="media-left">
-                                            <i class="icofont icofont-cur-dollar"></i>
+                                            <i class="icofont icofont-crown"></i>
                                         </div>
                                         <div class="media-body">
                                             <h6>Available Points</h6>
-                                            <p>₱{{ number_format($user->available_points, 2, '.', ',') }}</p>
+                                            <p>{{ $user->available_points }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -186,8 +183,8 @@
                                 </div>
                                 <div class="media-body">
                                     <div class="right-chart-content">
-                                        <h4>1005</h4>
-                                        <span>Rewards</span>
+                                        <h4>{{ $user->product_sold }}</h4>
+                                        <span>Sold Products</span>
                                     </div>
                                 </div>
                             </div>
