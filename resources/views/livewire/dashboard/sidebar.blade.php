@@ -70,6 +70,16 @@
                 </li>
 
                 <li class="sidebar-list">
+                    <a class="sidebar-link sidebar-title active" href="{{ route('vouchers') }}">
+                        <i data-feather="gift"></i>
+                        <span>Vouchers</span>
+                        <div class="according-menu">
+                            <i class="fa fa-angle-{{request()->route()->getPrefix() == '/home' ? 'down' : 'right' }}"></i>
+                        </div>
+                   </a>
+                </li>
+
+                <li class="sidebar-list">
                     <a class="sidebar-link sidebar-title active" href="{{ route('cart') }}">
                         <i data-feather="shopping-cart"></i>
                         <span>Cart</span>

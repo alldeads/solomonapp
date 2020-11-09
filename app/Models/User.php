@@ -26,6 +26,7 @@ class User extends Authenticatable
         'available_points',
         'status',
         'sponsor_id',
+        'commission',
         'direct_recruits'
     ];
 

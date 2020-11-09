@@ -19,6 +19,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        \App\Models\Voucher::factory(1000)->create([
+            'user_id' => 0
+        ]);
+
     	$user = User::create([
     		'first_name' => "Solomon",
     		'last_name'  => "Solomon",
@@ -41,30 +45,30 @@ class DatabaseSeeder extends Seeder
             'zip'  => ''
         ]);
 
-    	for ($i=1; $i < 10; $i++) { 
-    		\App\Models\User::factory(2)->create([
-    			'sponsor_id' => $i,
-    			'available_points' => 0,
-                'status' => 'active'
-    		]);
+    	// for ($i=1; $i < 10; $i++) { 
+    	// 	\App\Models\User::factory(2)->create([
+    	// 		'sponsor_id' => $i,
+    	// 		'available_points' => 0,
+     //            'status' => 'active'
+    	// 	]);
 
-    		$user = User::find($i);
+    	// 	$user = User::find($i);
 
-    		$user->direct_recruits = 2;
-    		$user->save();
+    	// 	$user->direct_recruits = 2;
+    	// 	$user->save();
 
-            Address::create([
-                'user_id' => $user->id,
-                'first_name' => $user->first_name,
-                'last_name' => $user->last_name,
-                'email' => $user->email,
-                'phone' => $user->phone,
-                'address'  => '',
-                'state'  => '',
-                'city'  => '',
-                'zip'  => ''
-            ]);
-    	}
+     //        Address::create([
+     //            'user_id' => $user->id,
+     //            'first_name' => $user->first_name,
+     //            'last_name' => $user->last_name,
+     //            'email' => $user->email,
+     //            'phone' => $user->phone,
+     //            'address'  => '',
+     //            'state'  => '',
+     //            'city'  => '',
+     //            'zip'  => ''
+     //        ]);
+    	// }
 
         PaymentMethod::create([
             'name' => 'Cash On Delivery',
@@ -166,12 +170,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Item::create([
-            'name'    => 'Smart Watch',
-            'points'  => 30,
-            'avatar'  => 'items/smart-watch.jpg'
-        ]);
-
-        Item::create([
             'name'    => '5kl Premium Rice(Ganador)',
             'points'  => 50,
             'avatar'  => 'items/5klganador.jpg'
@@ -181,12 +179,6 @@ class DatabaseSeeder extends Seeder
             'name'    => 'Samsung Keystone SMB 1053',
             'points'  => 100,
             'avatar'  => 'items/samsungkeystone.jpg'
-        ]);
-
-        Item::create([
-            'name'    => 'Half Sack Rice + 500 Pesos Cash',
-            'points'  => 250,
-            'avatar'  => 'items/ganador-25kg.jpg'
         ]);
 
         Item::create([
