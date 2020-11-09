@@ -17,7 +17,7 @@ class CreateVouchersTable extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->integer('points')->default(10);
-            $table->bigInteger('user_id');
+            $table->bigInteger('user_id')->nullable();
             $table->enum('status', ['available', 'used'])->default('available');
             $table->timestamps();
         });

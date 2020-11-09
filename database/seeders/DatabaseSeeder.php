@@ -19,9 +19,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Voucher::factory(1000)->create([
-            'user_id' => 0
-        ]);
+        \App\Models\Voucher::factory(1000)->create();
 
     	$user = User::create([
     		'first_name' => "Solomon",
