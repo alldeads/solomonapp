@@ -32,12 +32,10 @@ class PointsController extends AdminController
         $grid->column('user_id', __('Full Name'))->display(function($id) {
             $user = User::findOrFail($id);
 
-            return "<a href='/admin/users/".$id."/edit'>" . $user->full_name. "</a>";
+            return "<a href='/admin/users/".$id."/edit'>" . $user->full_name. " (". $user->username .")</a>";
 
         });
-        $grid->column('user.username', __('User'));
         $grid->column('item_name', __('Item name'));
-        $grid->column('item_points', __('Item points'));
         $grid->column('status', __('Status'));
         $grid->column('created_at', __('Created at'));
 
