@@ -88,7 +88,7 @@ class DatabaseSeeder extends Seeder
             'description'    => '',
             'original_price' => 150,
             'members_price'  => 90,
-            'avatar'         => asset('products/charcoal.jpg')
+            'avatar'         => 'products/charcoal.jpg'
         ]);
 
         Product::create([
@@ -96,7 +96,7 @@ class DatabaseSeeder extends Seeder
             'description'    => '',
             'original_price' => 150,
             'members_price'  => 90,
-            'avatar'         => asset('products/calamansi.jpg')
+            'avatar'         => 'products/calamansi.jpg'
         ]);
 
         Product::create([
@@ -104,7 +104,7 @@ class DatabaseSeeder extends Seeder
             'description'    => '',
             'original_price' => 150,
             'members_price'  => 90,
-            'avatar'         => asset('products/carrot.jpg')
+            'avatar'         => 'products/carrot.jpg'
         ]);
 
         Product::create([
@@ -112,7 +112,7 @@ class DatabaseSeeder extends Seeder
             'description'    => '',
             'original_price' => 150,
             'members_price'  => 90,
-            'avatar'         => asset('products/tomato.jpg')
+            'avatar'         => 'products/tomato.jpg'
         ]);
 
         Product::create([
@@ -120,7 +120,7 @@ class DatabaseSeeder extends Seeder
             'description'    => '',
             'original_price' => 150,
             'members_price'  => 90,
-            'avatar'         => asset('products/singkamas.jpg')
+            'avatar'         => 'products/singkamas.jpg'
         ]);
 
         Product::create([
@@ -128,7 +128,7 @@ class DatabaseSeeder extends Seeder
             'description'    => '',
             'original_price' => 150,
             'members_price'  => 90,
-            'avatar'         => asset('products/banana.jpg')
+            'avatar'         => 'products/banana.jpg'
         ]);
 
         Product::create([
@@ -136,7 +136,7 @@ class DatabaseSeeder extends Seeder
             'description'    => '',
             'original_price' => 150,
             'members_price'  => 125,
-            'avatar'         => asset('products/banana.jpg')
+            'avatar'         => 'products/turmeric.jpg'
         ]);
 
         Product::create([
@@ -144,7 +144,7 @@ class DatabaseSeeder extends Seeder
             'description'    => '',
             'original_price' => 150,
             'members_price'  => 125,
-            'avatar'         => asset('products/banana.jpg')
+            'avatar'         => 'products/eucalyptus.jpg'
         ]);
 
         Item::create([
