@@ -59,7 +59,7 @@
                 </li>
 
                 <li class="sidebar-list">
-                    <label class="badge badge-warning">5</label>
+                    <label class="badge badge-warning">{{ $points }}</label>
                     <a class="sidebar-link sidebar-title active" href="{{ route('points') }}">
                         <i data-feather="gift"></i>
                         <span>Points System</span>
