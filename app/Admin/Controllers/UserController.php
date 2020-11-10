@@ -32,7 +32,7 @@ class UserController extends AdminController
         $grid->column('username', __('Username'));
         $grid->column('available_points', __('Points'));
         $grid->column('direct_recruits', __('Direct recruits'));
-        $grid->column('product_sold', __('Product Sold'));
+        $grid->column('commission', __('Commission'));
         $grid->column('status', __('Status'));
         $grid->column('created_at', __('Created at'));
 
