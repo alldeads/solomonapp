@@ -76,11 +76,12 @@
                                     <p class="font-roboto">This Month Profit</p>
                                 </div>
                                 <div class="col-xl-12 p-0 left_side_earning">
-                                    <h5>90%</h5>
-                                    <p class="font-roboto">This Month Sale</p>
+                                    <h5>₱{{ number_format($data['monthly_gross'], 2, '.', ',') }}</h5>
+                                    <p class="font-roboto">Last Month Gross</p>
                                 </div>
-                                <div class="col-xl-12 p-0 left-btn">
-                                    <a class="btn btn-gradient">Summary</a>
+                                <div class="col-xl-12 p-0 left_side_earning">
+                                    <h5>₱{{ number_format($data['monthly_profit'], 2, '.', ',') }}</h5>
+                                    <p class="font-roboto">Last Month Profit</p>
                                 </div>
                             </div>
                         </div>
