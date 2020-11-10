@@ -29,6 +29,7 @@ Route::get('/success/{token}', [App\Http\Controllers\WebController::class, 'succ
 Route::middleware('auth')->group(function() {
 	Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 	Route::get('/edit-profile', App\Http\Livewire\Account\Profile::class)->name('profile');
+	Route::get('/change-password', App\Http\Livewire\Account\Password::class)->name('password');
 	Route::get('/products', App\Http\Livewire\Ecommerce\Product::class)->name('product');
 	Route::get('/cart', App\Http\Livewire\Ecommerce\Cart::class)->name('cart');
 	Route::get('/checkout', App\Http\Livewire\Ecommerce\Checkout::class)->name('checkout');

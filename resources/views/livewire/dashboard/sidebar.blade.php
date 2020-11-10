@@ -122,12 +122,12 @@
                    </a>
                    <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/profile' ? 'block;' : 'none;' }}">
                         <li>
-                            <a href="{{route('profile')}}">
+                            <a href="{{ route('profile') }}">
                                 Profile
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{ route('password') }}">
                                 Password
                             </a>
                         </li>
