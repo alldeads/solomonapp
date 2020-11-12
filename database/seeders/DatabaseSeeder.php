@@ -85,6 +85,18 @@ class DatabaseSeeder extends Seeder
             'status' => 'inactive'
         ]);
 
+        PaymentMethod::create([
+            'name' => 'Fund Transfer (BDO)',
+            'abbr' => 'ft',
+            'status' => 'active'
+        ]);
+
+        PaymentMethod::create([
+            'name' => 'Bank Deposit (BDO)',
+            'abbr' => 'deposit',
+            'status' => 'active'
+        ]);
+
         Product::create([
             'name'           => 'Charcoal Soap',
             'description'    => '',
