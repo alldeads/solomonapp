@@ -68,19 +68,19 @@
                                     {{-- <p class="font-roboto">Overview of last month</p> --}}
                                 </div>
                                 <div class="col-xl-12 p-0 left_side_earning">
-                                    <h5>₱{{ number_format($data['monthly_gross'], 2, '.', ',') }}</h5>
+                                    <h5>₱{{ number_format($data['this_month']['monthly_gross'], 2, '.', ',') }}</h5>
                                     <p class="font-roboto">This Month Gross</p>
                                 </div>
                                 <div class="col-xl-12 p-0 left_side_earning">
-                                    <h5>₱{{ number_format($data['monthly_profit'], 2, '.', ',') }}</h5>
+                                    <h5>₱{{ number_format($data['this_month']['monthly_profit'], 2, '.', ',') }}</h5>
                                     <p class="font-roboto">This Month Profit</p>
                                 </div>
                                 <div class="col-xl-12 p-0 left_side_earning">
-                                    <h5>₱{{ number_format($data['monthly_gross'], 2, '.', ',') }}</h5>
+                                    <h5>₱{{ number_format($data['last_month']['monthly_gross'], 2, '.', ',') }}</h5>
                                     <p class="font-roboto">Last Month Gross</p>
                                 </div>
                                 <div class="col-xl-12 p-0 left_side_earning">
-                                    <h5>₱{{ number_format($data['monthly_profit'], 2, '.', ',') }}</h5>
+                                    <h5>₱{{ number_format($data['last_month']['monthly_profit'], 2, '.', ',') }}</h5>
                                     <p class="font-roboto">Last Month Profit</p>
                                 </div>
                             </div>

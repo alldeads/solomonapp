@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\CreateReportRequest;
 
 use App\Models\Item;
+use App\Models\Order;
 
 class HomeController extends Controller
 {
@@ -28,27 +29,8 @@ class HomeController extends Controller
     {
         $user = auth()->user();
 
-        $month_num = date('m', strtotime(now()));
-        $year_num = date('Y', strtotime(now()));
-
-        $data['monthly_gross']  = 0;
-        $data['monthly_profit'] = 0;
-
-        $orders = $user->orders()
-                        ->whereMonth('created_at', $month_num)
-                        ->whereYear('created_at', $year_num)
-                        ->where('status', '!=', 'pending')
-                        ->get();
-
-        foreach ($orders as $order) {
-            $data['monthly_gross'] += $order->total;
-
-            foreach ($order->order_details as $detail) {
-                $profit = ($detail->product_price - $detail->product_price_m) * $detail->product_quantity;
-
-                $data['monthly_profit'] += $profit;
-            }
-        }
+        $data['this_month'] = Order::get_monthly_income(now());
+        $data['last_month'] = Order::get_monthly_income('last month');
 
         $items = Item::where('points', '<=', $user->available_points)->get();
         $rewards = count($items);

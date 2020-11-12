@@ -39,4 +39,30 @@ class Order extends Model
     {
     	return $this->hasMany(OrderDetails::class);
     }
+
+    public static function get_monthly_income($date)
+    {
+        $month_num = date('m', strtotime($date));
+        $year_num = date('Y', strtotime($date));
+
+        $data['monthly_gross']  = 0;
+        $data['monthly_profit'] = 0;
+
+        $orders = Order::whereMonth('created_at', $month_num)
+                        ->whereYear('created_at', $year_num)
+                        ->where('status', '!=', 'pending')
+                        ->get();
+
+        foreach ($orders as $order) {
+            $data['monthly_gross'] += $order->total;
+
+            foreach ($order->order_details as $detail) {
+                $profit = ($detail->product_price - $detail->product_price_m) * $detail->product_quantity;
+
+                $data['monthly_profit'] += $profit;
+            }
+        }
+
+        return $data;
+    }
 }
