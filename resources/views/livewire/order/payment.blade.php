@@ -7,9 +7,17 @@
             	</div>
             	<div class="card-body">
                		<div class="row">
-                        {{-- <div class="col-12 alert alert-warning">
-                            
-                        </div> --}}
+                        @if (session()->has('paymenterror'))
+                            <div class="col-12 alert alert-danger text-center">
+                                {{ session('paymenterror') }}
+                            </div>
+                        @endif
+
+                        @if (session()->has('paymentsuccess'))
+                            <div class="col-12 alert alert-success text-center">
+                                {{ session('paymentsuccess') }}
+                            </div>
+                        @endif
                         <div class="col-md-5 mb-2">
                             <h4>Instructions</h4>
 
@@ -17,6 +25,7 @@
                                 <div class="form-group">
                                     <small>Mobile</small>
                                     <ul style="line-height: 3;">
+                                        <li style="color: red;"> Amount to be paid: ₱{{ number_format($payment->amount, 2, '.', ',') }} </li>
                                         <li> Login to your bank mobile app.</li>
                                         <li> Choose Send Money</li>
                                         <li> Account Number: 000808048274</li>
@@ -27,6 +36,7 @@
                             @else
                                 <div class="form-group">
                                     <ul style="line-height: 3;">
+                                        <li style="color: red;"> Amount to be paid: ₱{{ number_format($payment->amount, 2, '.', ',') }} </li>
                                         <li> Please go to the nearest BDO bank branch.</li>
                                         <li> Fill out the deposit slip.</li>
                                         <li> Account Number: 000808048274</li>
@@ -37,30 +47,56 @@
                         </div>
 
                   		<div class="col-md-7">
-                     		<form class="theme-form mega-form">
+                     		<form class="theme-form mega-form" wire:submit.prevent="submit_payment">
                                 <div class="form-group">
-                                    <select class="form-control" wire:model="method">
+                                    <select class="form-control @error('method') is-invalid @enderror" wire:model="method">
                                         @foreach($options as $option)
                                             <option value="{{ $option->id }}">
                                                 {{ $option->name }}
                                             </option>
                                         @endforeach
                                     </select>
+
+                                    @error('method')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
 
                         		<div class="form-group">
-                           			<input class="form-control" type="text" placeholder="Transaction Number">
+                           			<input class="form-control @error('transaction') is-invalid @enderror" type="text" placeholder="Transaction Number" wire:model="transaction">
+
+                                    @error('transaction')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                         		</div>
                         		<div class="form-group">
-                           			<input class="form-control" type="text" placeholder="Amount">
+                           			<input class="form-control @error('amount') is-invalid @enderror" type="text" placeholder="Amount" wire:model="amount">
+
+                                    @error('amount')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                         		</div>
                         		<div class="form-group">
-                           			<input class="form-control" type="date">
+                           			<input class="form-control @error('date_paid') is-invalid @enderror" wire:model="date_paid" type="date">
+
+                                    @error('date_paid')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                         		</div>
 
-                                <div class="form-group text-right">
-                                    <button type="submit" class="btn btn-primary"> Submit</button>
-                                </div>
+                                @if (!session()->has('paymentsuccess'))
+                                    <div class="form-group text-right">
+                                        <button type="submit" class="btn btn-primary"> Submit</button>
+                                    </div>
+                                @endif
                      		</form>
                   		</div>
 
