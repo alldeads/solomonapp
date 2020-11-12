@@ -103,6 +103,7 @@ class OrderController extends AdminController
                     'processing' => 'Processing',
                     'accepted' => 'Accepted',
                     'for-delivery' => 'For Delivery',
+                    'out-for-delivery' => 'Out For Delivery',
                     'delivered' => 'Delivered',
                     'on-hold' => 'On Hold',
                     'cancelled' => 'Cancelled',

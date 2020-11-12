@@ -85,6 +85,7 @@ class PaymentController extends AdminController
                     'pending' => 'Pending', 
                     'processing' => 'Processing', 
                     'received' => 'Received',
+                    'refunded' => 'Refunded',
                     'fraud' => 'Fraud',
                     'on-hold' => 'On Hold',
                     'rejected' => 'Rejected',
