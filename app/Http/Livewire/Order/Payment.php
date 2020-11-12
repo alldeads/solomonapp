@@ -5,11 +5,14 @@ namespace App\Http\Livewire\Order;
 use Livewire\Component;
 
 use App\Models\Order;
+use App\Models\PaymentMethod;
 
 class Payment extends Component
 {
 	public $order;
 	public $payment;
+	public $options;
+	public $method;
 
 	public function mount($order_number)
 	{
@@ -24,6 +27,8 @@ class Payment extends Component
 
 		$this->order = $order;
 		$this->payment = $order->payment;
+		$this->method = $order->payment->method->id;
+		$this->options = PaymentMethod::where('abbr', '!=', 'cod')->active()->get();
 	}
 
     public function render()

@@ -35,6 +35,8 @@ class Checkout extends Component
 	public $payment_option;
 	public $quantity;
 	public $commissions = 0;
+	public $cod = false;
+	public $link = "#";
 
 	protected $rules = [
         'email'      => 'required|email',
@@ -193,9 +195,15 @@ class Checkout extends Component
 				]);
 			}
 
-			Cart::clearUserCart();
+			// Cart::clearUserCart();
 
-			session()->flash('checkoutsuccess', 'Your order has been placed. Please proceed for the payment.');
+			session()->flash('checkoutsuccess', 'Your order has been placed.');
+
+			if ($this->payment_option == 1) {
+				$this->cod = true;
+			} else {
+				$this->link = route('order.payment', ['order_number' => $order->reference]);
+			}
 
 			DB::commit();
 		} catch (\Exception $e) {

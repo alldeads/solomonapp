@@ -86,13 +86,13 @@ class DatabaseSeeder extends Seeder
         ]);
 
         PaymentMethod::create([
-            'name' => 'Fund Transfer (BDO)',
+            'name' => 'Fund Transfer',
             'abbr' => 'ft',
             'status' => 'active'
         ]);
 
         PaymentMethod::create([
-            'name' => 'Bank Deposit (BDO)',
+            'name' => 'Bank Deposit',
             'abbr' => 'deposit',
             'status' => 'active'
         ]);

@@ -22,6 +22,7 @@ class CreatePaymentsTable extends Migration
             $table->double('amount');
             $table->enum('type', ['order', 'account', 'other'])->default('order');
             $table->enum('status', ['pending', 'processing', 'received', 'fraud', 'on-hold', 'rejected'])->default('pending');
+            $table->timestamp('date_paid')->nullable();
             $table->timestamps();
         });
     }
