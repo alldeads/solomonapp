@@ -37,10 +37,12 @@
                     <div class="mode"><i class="fa fa-moon-o"></i></div>
                 </li>
                 <li>
-                    <div class="cart-box">
-                        <i class="fa fa-shopping-bag"></i>
-                        <span class="badge badge-pill badge-primary">{{ $count }}</span>
-                    </div>
+                    <a href="{{ route('cart') }}">
+                        <div class="cart-box">
+                            <i class="fa fa-shopping-bag"></i>
+                            <span class="badge badge-pill badge-primary">{{ $count }}</span>
+                        </div>
+                    </a>
                 </li>
         
                 <li class="maximize">
