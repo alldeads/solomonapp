@@ -12,6 +12,7 @@ class Single extends Component
 	public $order_details;
 	public $payment;
 	public $address;
+	public $method;
 
 	public function mount($order_number)
 	{
@@ -27,6 +28,7 @@ class Single extends Component
 		$this->address = $order->payment->address;
 		$this->order = $order;
 		$this->payment = $order->payment;
+		$this->method = $order->payment->method->abbr;
 		$this->order_details = $order->order_details;
 	}
 

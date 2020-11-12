@@ -167,23 +167,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                @if (session()->has('checkoutsuccess'))
-                                    <div class="alert alert-success mt-2">
-                                        {{ session('checkoutsuccess') }}
-                                    </div>
-
-                                    @if (!$this->cod)
-                                        <div class="text-center mt-2">
-                                            <a href="{{ $this->link }}" class="btn btn-primary">
-                                                Pay Now
-                                            </a>
-                                        </div>
-                                    @else
-                                        <div class="alert alert-success mt-2">
-                                            Please prepare the exact amount and double check the products upon receiving.
-                                        </div>
-                                    @endif
-                                @endif
 
                                 @if (session()->has('checkouterror'))
                                     <div class="alert alert-success">

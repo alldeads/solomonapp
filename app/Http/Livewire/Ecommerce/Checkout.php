@@ -35,8 +35,6 @@ class Checkout extends Component
 	public $payment_option;
 	public $quantity;
 	public $commissions = 0;
-	public $cod = false;
-	public $link = "#";
 
 	protected $rules = [
         'email'      => 'required|email',
@@ -197,18 +195,12 @@ class Checkout extends Component
 
 			// Cart::clearUserCart();
 
-			session()->flash('checkoutsuccess', 'Your order has been placed.');
-
-			if ($this->payment_option == 1) {
-				$this->cod = true;
-			} else {
-				$this->link = route('order.payment', ['order_number' => $order->reference]);
-			}
-
 			DB::commit();
+
+			return redirect()->route('order.single', ['order_number' => $order->reference]);
+			
 		} catch (\Exception $e) {
 			DB::rollBack();
-			dd($e);
 			session()->flash('checkouterror', 'Oops! Something went wrong, please try again.');
 		}
 	}

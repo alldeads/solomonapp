@@ -98,14 +98,25 @@
                                 </li>
                             </ul>
 
-                            @if ($payment->status != "received" && $payment->method->abbr != "cod") 
-                                <div class="row mt-3">
-                                    <div class="col-12 text-center">
-                                        <a href="{{ route('order.payment', ['order_number' => $order->reference]) }}" class="btn btn-primary">
-                                            Pay Now
-                                        </a>
+                            @if ($payment->status != "received")
+                                @if ($method != "cod")
+                                    <div class="row mt-3">
+                                        <div class="col-12 text-center">
+
+                                            <div class="alert alert-success mt-2">
+                                                Your order has been placed. Please proceed for payment!
+                                            </div>
+
+                                            <a href="{{ route('order.payment', ['order_number' => $order->reference]) }}" class="btn btn-primary">
+                                                Pay Now
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
+                                @else
+                                    <div class="alert alert-success mt-2">
+                                        Please prepare the exact amount and double check the products upon receiving.
+                                    </div>
+                                @endif
                             @endif
                         </div>
                     </div>
