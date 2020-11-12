@@ -22,7 +22,7 @@
     <div class="row second-chart-list third-news-update">
         @if ( auth()->user()->status == "inactive" )
             <div class="col-12 alert alert-warning text-center">
-                Your account is inactive. Please proceed for payment to unlock our rewards.<br>
+                Your account is inactive. Please proceed for payment to unlock your rewards. If you paid already, please wait 24-48 hours for account activation.<br>
                 <a href="{{ route('account.payment') }}" class="btn btn-danger mt-2"> Pay Now</a>
             </div>
         @endif
