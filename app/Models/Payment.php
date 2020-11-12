@@ -21,7 +21,8 @@ class Payment extends Model
         'payment_method_id',
         'amount',
         'status',
-        'type'
+        'type',
+        'date_paid'
     ];
 
     public function order()

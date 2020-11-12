@@ -16,6 +16,10 @@ class Cart extends Component
 	{
 		$this->carts = auth()->user()->carts;
 
+        if ( auth()->user()->status == "inactive" ) {
+            return redirect()->route('home');
+        }
+
         if ( count($this->carts) == 0 ) {
             return redirect()->route('product');
         }

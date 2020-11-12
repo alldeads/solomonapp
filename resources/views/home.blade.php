@@ -20,6 +20,12 @@
 @section('content')
 <div class="container-fluid">
     <div class="row second-chart-list third-news-update">
+        @if ( auth()->user()->status == "inactive" )
+            <div class="col-12 alert alert-warning text-center">
+                Your account is inactive. Please proceed for payment to unlock our rewards.<br>
+                <a href="{{ route('account.payment') }}" class="btn btn-danger mt-2"> Pay Now</a>
+            </div>
+        @endif
         <div class="col-xl-4 col-lg-12 xl-50 morning-sec box-col-12" style="display: none;">
             <div class="card o-hidden profile-greeting">
                 <div class="card-body">

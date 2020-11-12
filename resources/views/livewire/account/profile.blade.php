@@ -70,10 +70,12 @@
 			                            </span>
 			                        @enderror
 								</div>
-								<div class="form-group">
-									<label class="col-form-label">Referral Link</label>
-									<input class="form-control" wire:model="referral" type="text" disabled>
-								</div>
+								@if ( auth()->user()->status == "active" )
+									<div class="form-group">
+										<label class="col-form-label">Referral Link</label>
+										<input class="form-control" wire:model="referral" type="text" disabled>
+									</div>
+								@endif
 								<hr class="mt-4 mb-4">
 								<h6>Company Information</h6>
 								<div class="form-group">

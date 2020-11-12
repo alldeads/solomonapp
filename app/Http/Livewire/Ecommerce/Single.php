@@ -21,6 +21,10 @@ class Single extends Component
 	{
 		$user = auth()->user();
 
+		if ( $user->status == "inactive" ) {
+            return redirect()->route('home');
+        }
+
 		if ( $this->quantity < 1 ) {
 			session()->flash('carterror', 'Invalid quantity.');
 			return;
