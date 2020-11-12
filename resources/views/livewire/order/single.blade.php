@@ -96,6 +96,14 @@
                                         </label>
                                     </div>
                                 </li>
+
+                                <li class="shipping-class">Order Status
+                                    <div class="shopping-checkout-option">
+                                        <label class="d-block" for="chk-ani">
+                                            {{ ucfirst($order->status) }}
+                                        </label>
+                                    </div>
+                                </li>
                             </ul>
 
                             @if ($payment->status != "received")
@@ -103,13 +111,19 @@
                                     <div class="row mt-3">
                                         <div class="col-12 text-center">
 
-                                            <div class="alert alert-success mt-2">
-                                                Your order has been placed. Please proceed for payment!
-                                            </div>
+                                            @if($payment->status == "processing")
+                                                <div class="alert alert-success mt-2">
+                                                    We are still reviewing your payment.
+                                                </div>
+                                            @else
+                                                <div class="alert alert-success mt-2">
+                                                    Your order has been placed. Please proceed for payment!
+                                                </div>
 
-                                            <a href="{{ route('order.payment', ['order_number' => $order->reference]) }}" class="btn btn-primary">
-                                                Pay Now
-                                            </a>
+                                                <a href="{{ route('order.payment', ['order_number' => $order->reference]) }}" class="btn btn-primary">
+                                                    Pay Now
+                                                </a>
+                                            @endif
                                         </div>
                                     </div>
                                 @else

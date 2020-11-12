@@ -22,7 +22,7 @@ class CreateOrdersTable extends Migration
             $table->double('quantity');
             $table->bigInteger('payment_id')->nullable();
             $table->enum('shipping_type', ['pick-up', 'delivery']);
-            $table->enum('status', ['pending', 'processing', 'accepted', 'for-delivery', 'delivered', 'cancelled', 'on-hold'])->default('pending');
+            $table->enum('status', ['pending', 'processing', 'accepted', 'for-delivery', 'out-for-delivery', 'delivered', 'cancelled', 'on-hold'])->default('pending');
             $table->timestamps();
         });
     }

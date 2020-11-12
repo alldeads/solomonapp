@@ -193,7 +193,7 @@ class Checkout extends Component
 				]);
 			}
 
-			// Cart::clearUserCart();
+			Cart::clearUserCart();
 
 			DB::commit();
 
