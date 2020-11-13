@@ -10,6 +10,7 @@ use App\Http\Requests\CreateReportRequest;
 use App\Models\Contact;
 use App\Models\User;
 use App\Models\Address;
+use App\Models\Payment;
 
 class WebController extends Controller
 {
@@ -27,6 +28,7 @@ class WebController extends Controller
     public function referral(Request $request, $username)
     {
     	$referral = User::where('username', $username)->active()->first();
+
         $amount  = 1499;
 
     	if ( !$referral ) {
@@ -70,11 +72,11 @@ class WebController extends Controller
 
                 Payment::create([
                     'user_id'    => $user->id,
-                    'address_id' => $address_id,
+                    'address_id' => $address->id,
                     'payment_method_id' => 4, // Fund Transfer,
                     'reference_code' => '',
                     'amount' => $amount,
-                ])
+                ]);
 
                 $referral->update([
                     'direct_recruits' => $referral->direct_recruits + 1
@@ -84,6 +86,8 @@ class WebController extends Controller
 
                 return redirect()->route('success', ['token' => md5(uniqid())]);
             } catch (\Exception $e) {
+
+                dd($e);
                 DB::rollback();
             }
         }
