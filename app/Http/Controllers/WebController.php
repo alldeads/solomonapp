@@ -27,6 +27,7 @@ class WebController extends Controller
     public function referral(Request $request, $username)
     {
     	$referral = User::where('username', $username)->active()->first();
+        $amount  = 1499;
 
     	if ( !$referral ) {
     		return redirect('/');
@@ -55,7 +56,7 @@ class WebController extends Controller
                     'password' => bcrypt($request->password)
                 ]);
 
-                Address::create([
+                $address = Address::create([
                     'user_id' => $user->id,
                     'first_name' => $request->first_name,
                     'last_name' => $request->last_name,
@@ -66,6 +67,14 @@ class WebController extends Controller
                     'city'  => '',
                     'zip'  => ''
                 ]);
+
+                Payment::create([
+                    'user_id'    => $user->id,
+                    'address_id' => $address_id,
+                    'payment_method_id' => 4, // Fund Transfer,
+                    'reference_code' => '',
+                    'amount' => $amount,
+                ])
 
                 $referral->update([
                     'direct_recruits' => $referral->direct_recruits + 1
