@@ -19,6 +19,7 @@ class PaymentMethod extends Model
         'logo',
         'abbr',
         'status',
+        'transaction'
     ];
 
     public function scopeActive($query)

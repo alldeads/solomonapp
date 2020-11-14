@@ -97,6 +97,34 @@ class DatabaseSeeder extends Seeder
             'status' => 'active'
         ]);
 
+        PaymentMethod::create([
+            'name' => 'Cash',
+            'abbr' => 'cash',
+            'status' => 'active',
+            'transaction' => true
+        ]);
+
+        PaymentMethod::create([
+            'name' => 'Cheque',
+            'abbr' => 'cheque',
+            'status' => 'active',
+            'transaction' => true
+        ]);
+
+        PaymentMethod::create([
+            'name' => 'M Lhuillier',
+            'abbr' => 'mlhuillier',
+            'status' => 'active',
+            'transaction' => true
+        ]);
+
+        PaymentMethod::create([
+            'name' => 'Palawan',
+            'abbr' => 'palawan',
+            'status' => 'inactive',
+            'transaction' => true
+        ]);
+
         Product::create([
             'name'           => 'Charcoal Soap',
             'description'    => '',
