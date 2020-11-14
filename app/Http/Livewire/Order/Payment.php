@@ -40,7 +40,10 @@ class Payment extends Component
 		$this->order = $order;
 		$this->payment = $order->payment;
 		$this->method = $order->payment->method->id;
-		$this->options = PaymentMethod::where('abbr', '!=', 'cod')->active()->get();
+		$this->options = PaymentMethod::where('abbr', '!=', 'cod')
+										->active()
+										->notTransaction()
+										->get();
 	}
 
 	public function submit_payment()

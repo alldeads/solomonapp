@@ -21,7 +21,8 @@ class CreateTransactionsTable extends Migration
             $table->string('phone');
             $table->string('account_number')->nullable();
             $table->double('amount');
-            $table->enum('status', ['pending', 'paid'])->default('available');
+            $table->bigInteger('payment_method_id');
+            $table->enum('status', ['pending', 'paid'])->default('pending');
             $table->bigInteger('approved_by')->nullable();
             $table->timestamps();
         });

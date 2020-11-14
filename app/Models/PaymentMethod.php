@@ -26,4 +26,14 @@ class PaymentMethod extends Model
     {
         $query->where('status', 'active');
     }
+
+    public function scopeTransaction($query)
+    {
+        $query->where('transaction', true);
+    }
+
+    public function scopeNotTransaction($query)
+    {
+        $query->where('transaction', false);
+    }
 }
