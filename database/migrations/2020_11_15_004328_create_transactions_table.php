@@ -22,6 +22,7 @@ class CreateTransactionsTable extends Migration
             $table->string('account_number')->nullable();
             $table->double('amount');
             $table->bigInteger('payment_method_id');
+            $table->enum('bank', ['bdo', 'bpi', 'eastwest', 'metrobank'])->nullable();
             $table->enum('status', ['pending', 'paid'])->default('pending');
             $table->bigInteger('approved_by')->nullable();
             $table->timestamps();

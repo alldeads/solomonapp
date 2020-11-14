@@ -113,6 +113,29 @@
                             </li>
                         </ul>
                     </li>
+
+                    <li class="sidebar-list">
+                        <a class="sidebar-link sidebar-title active" href="#">
+                            <i data-feather="dollar-sign"></i>
+                            <span>Cash Transactions</span>
+                            <div class="according-menu">
+                                <i class="fa fa-angle-{{request()->route()->getPrefix() == '/transactions' ? 'down' : 'right' }}"></i>
+                            </div>
+                       </a>
+
+                       <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/activities' ? 'block;' : 'none;' }}">
+                            <li>
+                                <a href="{{ route('transaction.cash') }}">
+                                    Cash Out
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{route('point.history')}}">
+                                    Transactions History
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 @endif
 
                 <li class="sidebar-list">

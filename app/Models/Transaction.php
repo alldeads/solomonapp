@@ -24,6 +24,7 @@ class Transaction extends Model
         'payment_method_id',
         'status',
         'approved_by',
+        'bank'
     ];
 
     public function method()

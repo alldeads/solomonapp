@@ -88,7 +88,8 @@ class DatabaseSeeder extends Seeder
         PaymentMethod::create([
             'name' => 'Fund Transfer',
             'abbr' => 'ft',
-            'status' => 'active'
+            'status' => 'active',
+            'transaction' => true
         ]);
 
         PaymentMethod::create([

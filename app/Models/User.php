@@ -27,6 +27,7 @@ class User extends Authenticatable
         'status',
         'sponsor_id',
         'commission',
+        'lifetime',
         'direct_recruits'
     ];
 
