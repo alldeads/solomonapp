@@ -19,6 +19,7 @@ class CreatePaymentMethodsTable extends Migration
             $table->string('abbr');
             $table->text('logo')->nullable();
             $table->boolean('transaction')->default(false);
+            $table->boolean('payment')->default(false);
             $table->enum('status', ['active', 'inactive', 'fraud', 'on-hold', 'rejected'])->default('active');
             $table->timestamps();
         });

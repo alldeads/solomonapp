@@ -71,31 +71,36 @@ class DatabaseSeeder extends Seeder
         PaymentMethod::create([
             'name' => 'Cash On Delivery',
             'abbr' => 'cod',
+            'payment' => true
         ]);
 
         PaymentMethod::create([
             'name' => 'Paypal',
             'abbr' => 'paypal',
-            'status' => 'inactive'
+            'status' => 'inactive',
+            'payment' => true
         ]);
 
         PaymentMethod::create([
             'name' => 'Gcash',
             'abbr' => 'gcash',
-            'status' => 'inactive'
+            'status' => 'inactive',
+            'payment' => true
         ]);
 
         PaymentMethod::create([
             'name' => 'Fund Transfer',
             'abbr' => 'ft',
             'status' => 'active',
-            'transaction' => true
+            'transaction' => true,
+            'payment' => true
         ]);
 
         PaymentMethod::create([
             'name' => 'Bank Deposit',
             'abbr' => 'deposit',
-            'status' => 'active'
+            'status' => 'active',
+            'payment' => true
         ]);
 
         PaymentMethod::create([

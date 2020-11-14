@@ -59,7 +59,7 @@ class Checkout extends Component
 		$this->shipping_type  = "delivery";
 		$this->payment_option = 1;
 		$this->payment_options = PaymentMethod::active()
-											->notTransaction()
+											->payment()
 											->get();
 
 		if ( count( auth()->user()->addresses ) > 0 ) {
