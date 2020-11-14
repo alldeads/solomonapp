@@ -24,8 +24,56 @@
 									<th scope="row">{{ $order->reference }}</th>
 									<td>{{ $order->total }}</td>
 									<td>{{ $order->quantity }}</td>
-									<td>{{ ucfirst($order->status) }}</td>
-									<td>{{ ucfirst($order->payment->status) }}</td>
+									@if( $order->status == 'pending' )
+										<td>
+											<span class="badge badge-danger">
+												{{ ucfirst($order->status) }}
+											</span>
+										</td>
+									@elseif($order->status == 'processing') 
+										<td>
+											<span class="badge badge-warning">
+												{{ ucfirst($order->status) }}
+											</span>
+										</td>
+									@elseif($order->status == 'accepted') 
+										<td>
+											<span class="badge badge-success">
+												{{ ucfirst($order->status) }}
+											</span>
+										</td>
+									@else
+										<td>
+											<span class="badge badge-info">
+												{{ ucfirst($order->status) }}
+											</span>
+										</td>
+									@endif
+									@if( $order->payment->status == 'pending' )
+										<td>
+											<span class="badge badge-danger">
+												{{ ucfirst($order->payment->status) }}
+											</span>
+										</td>
+									@elseif($order->payment->status == 'processing') 
+										<td>
+											<span class="badge badge-warning">
+												{{ ucfirst($order->payment->status) }}
+											</span>
+										</td>
+									@elseif($order->payment->status == 'received') 
+										<td>
+											<span class="badge badge-success">
+												{{ ucfirst($order->payment->status) }}
+											</span>
+										</td>
+									@else
+										<td>
+											<span class="badge badge-info">
+												{{ ucfirst($order->payment->status) }}
+											</span>
+										</td>
+									@endif
 									<td>{{ date('F j, Y', strtotime($order->created_at)) }}</td>
 									<td>
 										<a href="{{ route('order.single', ['order_number' => $order->reference]) }}"> View</a>

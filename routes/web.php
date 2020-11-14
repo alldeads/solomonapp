@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function() {
 	Route::get('/point_system', App\Http\Livewire\Point\Item::class)->name('points');
 	Route::get('/points/history', App\Http\Livewire\Point\History::class)->name('point.history');
 	Route::get('/transactions/cash-out', App\Http\Livewire\Transactions\Cash::class)->name('transaction.cash');
+	Route::get('/transactions/history', App\Http\Livewire\Transactions\History::class)->name('transaction.history');
 	Route::get('/vouchers', App\Http\Livewire\Voucher\Index::class)->name('vouchers');
 });
 

@@ -130,7 +130,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('point.history')}}">
+                                <a href="{{route('transaction.history')}}">
                                     Transactions History
                                 </a>
                             </li>
