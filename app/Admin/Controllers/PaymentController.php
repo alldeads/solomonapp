@@ -36,9 +36,11 @@ class PaymentController extends AdminController
 
         });
         $grid->column('user.username', __('User Name'));
-        $grid->column('address_id', __('Address'));
         $grid->column('method.name', __('Payment Method'));
-        $grid->column('amount', __('Amount'));
+        $grid->column('amount', __('Amount'))->display(function($total) {
+
+            return "₱" . number_format($total, 2, '.', ',');
+        });
         $grid->column('status', __('Status'));
         $grid->column('created_at', __('Created at'));
 

@@ -5,6 +5,7 @@ namespace App\Admin\Controllers;
 use App\Models\Order;
 use App\Models\User;
 use Encore\Admin\Controllers\AdminController;
+Use Encore\Admin\Widgets\Table;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
@@ -35,8 +36,18 @@ class OrderController extends AdminController
         });
         $grid->column('user.username', __('Username'));
         $grid->column('reference', __('Reference'));
-        $grid->column('sub_total', __('Sub total'));
-        $grid->column('total', __('Total'));
+        $grid->column('order_detail_id', 'Details')->modal('Order Details', function ($model) {
+
+            $details = $model->order_details()->get()->map(function ($detail) {
+                return $detail->only(['id', 'product_name', 'product_quantity']);
+            });
+
+            return new Table(['ID', 'Product', 'Quantity'], $details->toArray());
+        });
+        $grid->column('total', __('Total'))->display(function($total) {
+
+            return "₱" . number_format($total, 2, '.', ',');
+        });
         $grid->column('quantity', __('Quantity'));
         $grid->column('payment_id', __('Payment'))->display(function ($id) {
 
