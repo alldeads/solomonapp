@@ -3,6 +3,18 @@
 @section('content')
 <div class="container py-4">
     <div class="row justify-content-center">
+        <div class="col-12">
+            <div class="blog-posts single-post">
+                <article class="post post-large blog-single-post border-0 m-0 p-0">
+                    <div class="post-image ml-0">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/45830194?color=ffffff&title=0&byline=0&portrait=0&badge=0" width="640" height="360" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
         <div class="col-md-6 col-lg-5 mb-5 mb-lg-0">
             <div class="divider">
                 <span class="bg-light px-4 position-absolute left-50pct top-50pct transform3dxy-n50">Registration</span>

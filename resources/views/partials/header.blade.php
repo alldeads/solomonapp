@@ -24,7 +24,7 @@
 											<a class="nav-link pl-0" href="{{ route('login')}}"><i class="fas fa-angle-right"></i> Login</a>
 										</li>
 										<li class="nav-item nav-item-anim-icon">
-											<a class="nav-link" href="contact-us.html"><i class="fas fa-angle-right"></i> Create Account</a>
+											<a class="nav-link" href="{{ route('referral', ['username' => 'solomon']) }}"><i class="fas fa-angle-right"></i> Create Account</a>
 										</li>
 									@endauth
 									<li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-sm-show">
