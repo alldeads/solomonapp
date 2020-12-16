@@ -71,7 +71,7 @@ class ProductController extends AdminController
         $form = new Form(new Product());
 
         $form->text('name', __('Name'));
-        $form->text('description', __('Description'));
+        $form->hidden('description', __('Description'))->default('Awesome');
         $form->number('quantity', __('Quantity'));
         $form->decimal('original_price', __('Original price'));
         $form->decimal('members_price', __('Members price'));
