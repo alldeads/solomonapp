@@ -28,7 +28,11 @@
 										</li>
 									@endauth
 									<li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-sm-show">
-										<span class="ws-nowrap"><i class="fas fa-phone"></i> (123) 456-789</span>
+										<span class="ws-nowrap"><i class="fas fa-phone"></i> (+63) 995-7554-420</span>
+									</li>
+
+									<li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-sm-show">
+										<span class="ws-nowrap"><i class="fas fa-phone"></i> (+63) 915-2709-408</span>
 									</li>
 								</ul>
 							</nav>
