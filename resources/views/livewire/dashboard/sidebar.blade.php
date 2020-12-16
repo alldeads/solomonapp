@@ -71,10 +71,20 @@
                        </a>
                     </li>
 
-                    <li class="sidebar-list">
+                    {{-- <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title active" href="{{ route('vouchers') }}">
                             <i data-feather="box"></i>
                             <span>Vouchers</span>
+                            <div class="according-menu">
+                                <i class="fa fa-angle-{{request()->route()->getPrefix() == '/home' ? 'down' : 'right' }}"></i>
+                            </div>
+                       </a>
+                    </li> --}}
+
+                    <li class="sidebar-list">
+                        <a class="sidebar-link sidebar-title active" href="{{ route('referral.invite') }}">
+                            <i data-feather="user-plus"></i>
+                            <span>Invite Friends</span>
                             <div class="according-menu">
                                 <i class="fa fa-angle-{{request()->route()->getPrefix() == '/home' ? 'down' : 'right' }}"></i>
                             </div>
