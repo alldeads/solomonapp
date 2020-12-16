@@ -53,7 +53,7 @@
 				<div class="header-column">
 					<div class="header-row">
 						<div class="header-logo">
-							<a href="index.html">
+							<a href="/">
 								<img alt="Porto" width="200" data-sticky-width="200" src="{{ asset('images/logo-2.jpg') }}">
 							</a>
 						</div>
