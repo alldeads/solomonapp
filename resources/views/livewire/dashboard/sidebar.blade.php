@@ -61,6 +61,17 @@
                     </li>
 
                     <li class="sidebar-list">
+                        <label class="badge badge-danger">{{ $this->downlines }}</label>
+                        <a class="sidebar-link sidebar-title active" href="{{ route('network.index') }}">
+                            <i data-feather="users"></i>
+                            <span>Network</span>
+                            <div class="according-menu">
+                                <i class="fa fa-angle-{{request()->route()->getPrefix() == '/products' ? 'down' : 'right' }}"></i>
+                            </div>
+                       </a>
+                    </li>
+
+                    <li class="sidebar-list">
                         <label class="badge badge-warning">{{ $points }}</label>
                         <a class="sidebar-link sidebar-title active" href="{{ route('points') }}">
                             <i data-feather="gift"></i>
