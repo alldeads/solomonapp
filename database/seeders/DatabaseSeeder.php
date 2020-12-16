@@ -134,48 +134,48 @@ class DatabaseSeeder extends Seeder
         Product::create([
             'name'           => 'Charcoal Soap',
             'description'    => '',
-            'original_price' => 150,
-            'members_price'  => 90,
+            'original_price' => 125,
+            'members_price'  => 100,
             'avatar'         => 'products/charcoal.jpg'
         ]);
 
         Product::create([
             'name'           => 'Calamansi Soap',
             'description'    => '',
-            'original_price' => 150,
-            'members_price'  => 90,
+            'original_price' => 125,
+            'members_price'  => 100,
             'avatar'         => 'products/calamansi.jpg'
         ]);
 
         Product::create([
             'name'           => 'Carrot Soap',
             'description'    => '',
-            'original_price' => 150,
-            'members_price'  => 90,
+            'original_price' => 125,
+            'members_price'  => 100,
             'avatar'         => 'products/carrot.jpg'
         ]);
 
         Product::create([
             'name'           => 'Tomato Soap',
             'description'    => '',
-            'original_price' => 150,
-            'members_price'  => 90,
+            'original_price' => 125,
+            'members_price'  => 100,
             'avatar'         => 'products/tomato.jpg'
         ]);
 
         Product::create([
             'name'           => 'Singkamas Soap',
             'description'    => '',
-            'original_price' => 150,
-            'members_price'  => 90,
+            'original_price' => 125,
+            'members_price'  => 100,
             'avatar'         => 'products/singkamas.jpg'
         ]);
 
         Product::create([
             'name'           => 'Banana Soap',
             'description'    => '',
-            'original_price' => 150,
-            'members_price'  => 90,
+            'original_price' => 125,
+            'members_price'  => 100,
             'avatar'         => 'products/banana.jpg'
         ]);
 
