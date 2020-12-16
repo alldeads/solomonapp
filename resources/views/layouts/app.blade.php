@@ -68,6 +68,29 @@
         @yield('content')
 
         @include('partials.footer')
+
+        <!-- Load Facebook SDK for JavaScript -->
+        <div id="fb-root"></div>
+        <script>
+            window.fbAsyncInit = function() {
+                FB.init({
+                    xfbml            : true,
+                    version          : 'v9.0'
+                });
+            };
+
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+        <!-- Your Chat Plugin code -->
+        <div class="fb-customerchat" attribution=setup_tool page_id="103519311594709" theme_color="#FEE21E"></div>
+
     </div>
     
     @livewireScripts
@@ -102,7 +125,6 @@
 
     <!-- Theme Custom -->
     <script src="{{ asset('js/custom.js') }}"></script>
-
 
     <!-- Theme Initialization Files -->
     <script src="{{ asset('js/theme.init.js') }}"></script>
