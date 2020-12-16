@@ -3,30 +3,30 @@
 @section('content')
 <div class="container py-4">
     <div class="row justify-content-center">
-        <div class="col-12">
+        <div class="col-md-8 col-lg-8 col-sm-12 m-auto">
             <div class="blog-posts single-post">
                 <article class="post post-large blog-single-post border-0 m-0 p-0">
                     <div class="post-image ml-0">
                         <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/45830194?color=ffffff&title=0&byline=0&portrait=0&badge=0" width="640" height="360" allowfullscreen></iframe>
+                            <iframe width="1280" height="720" src="https://www.youtube.com/embed/8riMFCXAu1A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                 </article>
             </div>
         </div>
 
-        <div class="col-md-6 col-lg-5 mb-5 mb-lg-0">
+        <div class="col-md-4 col-lg-4">
             <div class="divider">
                 <span class="bg-light px-4 position-absolute left-50pct top-50pct transform3dxy-n50">Registration</span>
             </div>
             <form method="POST" action="{{ route('referral', ['username' => $referral->username]) }}" class="needs-validation">
                 @csrf
-                <div class="form-row">
+                {{-- <div class="form-row">
                     <div class="form-group col">
                         <label class="text-color-light text-3">Sponsor Name<span class="text-color-danger">*</span></label>
                         <input type="text" name="first_name" value="{{ $referral->full_name }}" class="form-control text-color-light text-4" readonly="true">
                     </div>
-                </div>
+                </div> --}}
                 <div class="form-row">
                     <div class="form-group col">
                         <label class="text-color-light text-3">First Name<span class="text-color-danger">*</span></label>
