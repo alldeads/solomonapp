@@ -16,6 +16,7 @@ Route::group([
     $router->get('/api/users', 'UserController@getUser' );
 
     $router->resource('users', UserController::class);
+    $router->resource('products', ProductController::class);
     $router->resource('item-histories', PointsController::class);
     $router->resource('payments', PaymentController::class);
     $router->resource('orders', OrderController::class);

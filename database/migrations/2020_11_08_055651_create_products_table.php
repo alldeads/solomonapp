@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('sku')->nullable();
             $table->string('description');
-            $table->integer('quantity')->default(0);
+            $table->integer('quantity')->default(100);
             $table->double('original_price');
             $table->double('members_price');
             $table->double('discounted_price')->nullable();
