@@ -204,8 +204,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Item::create([
-            'name'    => 'Romoss Power Bank',
-            'points'  => 10,
+            'name'    => 'Univeral Power Bank',
+            'points'  => 15,
             'avatar'  => 'items/romoss.jpg'
         ]);
 
@@ -240,14 +240,26 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Item::create([
-            'name'    => 'Brand New Samsung A10s',
-            'points'  => 800,
-            'avatar'  => 'items/samsung-a10.jpg'
+            'name'    => '2,500 Pesos Cash',
+            'points'  => 400,
+            'avatar'  => 'items/twothousand.jpg'
+        ]);
+
+        Item::create([
+            'name'    => 'Oppo F1s Selfie Expert',
+            'points'  => 600,
+            'avatar'  => 'items/oppo.jpg'
+        ]);
+
+        Item::create([
+            'name'    => '10,000 Pesos Cash',
+            'points'  => 1500,
+            'avatar'  => 'items/tenthousand.jpg'
         ]);
 
         Item::create([
             'name'    => 'Brand New HP Laptop',
-            'points'  => 1750,
+            'points'  => 2000,
             'avatar'  => 'items/hplaptop.jpg'
         ]);
 
