@@ -19,7 +19,7 @@ class Item extends Component
 	{
 		$this->item = $item;
 		$this->product_name = $item->product->name;
-		$this->product_avatar = $item->product->avatar;
+		$this->product_avatar = str_replace('public', 'storage', $item->product->avatar);
 		$this->product_price = $item->product->original_price;
 		$this->quantity = $item->quantity;
 		$this->total = $this->product_price * $this->quantity;
