@@ -16,7 +16,7 @@ class Index extends Component
 	public function mount()
 	{
 		$this->downlines = User::get_user_downlines();
-		$this->list = $this->downlines[0];
+		$this->list = isset($this->downlines[0]) ? $this->downlines[0] : [];
 		$this->level = 0;
 	}
 
