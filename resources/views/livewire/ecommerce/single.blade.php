@@ -7,7 +7,7 @@
 		@endif
       	<div class="product-box">
          	<div class="product-img">
-            	<img class="img-fluid" src="{{ str_replace('public', 'storage', asset($product->avatar)) }}" alt="">
+            	<img class="img-fluid" src="{{ asset($product->avatar) }}" alt="">
             	<div class="product-hover">
                		<ul>
                   		<li>
