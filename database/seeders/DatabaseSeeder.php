@@ -164,19 +164,11 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Product::create([
-            'name'           => 'Singkamas Soap',
+            'name'           => 'Peppermint Soap',
             'description'    => '',
             'original_price' => 125,
             'members_price'  => 100,
             'avatar'         => 'products/singkamas.jpg'
-        ]);
-
-        Product::create([
-            'name'           => 'Banana Soap',
-            'description'    => '',
-            'original_price' => 125,
-            'members_price'  => 100,
-            'avatar'         => 'products/banana.jpg'
         ]);
 
         Product::create([
@@ -193,6 +185,22 @@ class DatabaseSeeder extends Seeder
             'original_price' => 150,
             'members_price'  => 125,
             'avatar'         => 'products/eucalyptus.jpg'
+        ]);
+
+        Product::create([
+            'name'           => 'Scent of Queen',
+            'description'    => '',
+            'original_price' => 499,
+            'members_price'  => 299,
+            'avatar'         => 'products/scent_of_queen.jpg'
+        ]);
+
+        Product::create([
+            'name'           => 'Scent of King',
+            'description'    => '',
+            'original_price' => 499,
+            'members_price'  => 299,
+            'avatar'         => 'products/scent_of_king.jpg'
         ]);
 
         Item::create([
