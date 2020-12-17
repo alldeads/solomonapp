@@ -168,7 +168,7 @@ class DatabaseSeeder extends Seeder
             'description'    => '',
             'original_price' => 125,
             'members_price'  => 100,
-            'avatar'         => 'products/singkamas.jpg'
+            'avatar'         => 'products/peppermint.jpg'
         ]);
 
         Product::create([
