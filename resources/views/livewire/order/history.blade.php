@@ -22,7 +22,7 @@
 							@foreach($orders as $order)
 								<tr>
 									<th scope="row">{{ $order->reference }}</th>
-									<td>{{ $order->total }}</td>
+									<td>₱{{ number_format($order->total, 2, '.', ',') }}</td>
 									<td>{{ $order->quantity }}</td>
 									@if( $order->status == 'pending' )
 										<td>
