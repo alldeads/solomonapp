@@ -20,6 +20,7 @@
 					<table class="table table-hover">
 						<thead>
 							<tr>
+								<th scope="col">Sponsor Name</th>
 								<th scope="col">Full Name</th>
 								<th scope="col">Username</th>
 								<th scope="col">Points</th>
