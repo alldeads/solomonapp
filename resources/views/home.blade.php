@@ -21,6 +21,12 @@
 
 <div class="container-fluid">
     <div class="row">
+        @if ( auth()->user()->status == "inactive" )
+            <div class="col-12 alert alert-warning text-center">
+                Your account is inactive. Please proceed for payment to unlock your rewards. If you paid already, please wait 24-48 hours for account activation.<br>
+                <a href="{{ route('account.payment') }}" class="btn btn-danger mt-2"> Pay Now</a>
+            </div>
+        @endif
         <div class="col-sm-6 col-xl-3 col-lg-6">
             <div class="card o-hidden">
                 <div class="bg-primary b-r-4 card-body">
@@ -42,7 +48,7 @@
                     <div class="media static-top-widget">
                         <div class="align-self-center text-center"><i data-feather="dollar-sign"></i></div>
                         <div class="media-body">
-                            <span class="m-0">Available Cash</span>
+                            <span class="m-0">Cash</span>
                             <h4 class="mb-0 counter">₱{{ number_format($user->commission, 2, '.', ',') }}</h4>
                             <i class="icon-bg" data-feather="dollar-sign"></i>
                         </div>
@@ -57,7 +63,7 @@
                     <div class="media static-top-widget">
                         <div class="align-self-center text-center"><i data-feather="check"></i></div>
                         <div class="media-body">
-                            <span class="m-0">Available Points</span>
+                            <span class="m-0">Points</span>
                             <h4 class="mb-0 counter">{{ $user->available_points }}</h4>
                             <i class="icon-bg" data-feather="check"></i>
                         </div>
