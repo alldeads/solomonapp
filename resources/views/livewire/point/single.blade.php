@@ -31,7 +31,6 @@
 	            	<i class="fa fa-star"></i>
 	            </div>
 	            <h4>{{ $item->name }}</h4>
-	            <p>Simply dummy text of the printing.</p>
 	            <div class="product-price">{{ $item->points }}
 	            </div>
          	</div>
