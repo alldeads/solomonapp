@@ -48,7 +48,7 @@ class Cart extends Model
         $count = 0;
 
         foreach ($carts as $cart) {
-            $count += $cart->quantity * $cart->product->original_price;
+            $count += $cart->quantity * $cart->product->members_price;
         }
 
         return $count;

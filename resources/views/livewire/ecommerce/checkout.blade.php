@@ -127,7 +127,7 @@
 
                                 <ul class="qty">
                                     @foreach( $items as $item )
-                                        <li>{{ $item->product->name }} × {{ $item->quantity }} <span>₱{{ number_format($item->quantity * $item->product->original_price, 2, '.', ',') }}</span></li>
+                                        <li>{{ $item->product->name }} × {{ $item->quantity }} <span>₱{{ number_format($item->quantity * $item->product->members_price, 2, '.', ',') }}</span></li>
                                     @endforeach
                                 </ul>
 

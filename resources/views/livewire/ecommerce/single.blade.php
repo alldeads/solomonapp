@@ -45,7 +45,7 @@
                 					@endif
                         			
                            			<h4>{{ $product->name }}</h4>
-                       				<div class="product-price">₱{{ number_format($product->original_price, 2, '.', ',') }}
+                       				<div class="product-price">₱{{ number_format($product->members_price, 2, '.', ',') }}
                        				</div>
                        				<div class="product-view">
                           				<h6 class="f-w-600">Product Details</h6>
@@ -81,8 +81,7 @@
 	            	<i class="fa fa-star"></i>
 	            </div>
 	            <h4>{{ $product->name }}</h4>
-	            <p>Simply dummy text of the printing.</p>
-	            <div class="product-price">₱{{ number_format($product->original_price, 2, '.', ',') }}
+	            <div class="product-price">₱{{ number_format($product->members_price, 2, '.', ',') }}
 	            </div>
          	</div>
       	</div>
