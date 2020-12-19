@@ -206,7 +206,7 @@ class DatabaseSeeder extends Seeder
         Item::create([
             'name'    => 'Univeral Power Bank',
             'points'  => 15,
-            'avatar'  => 'items/romoss.jpg'
+            'avatar'  => 'items/powerbank.jpg'
         ]);
 
         Item::create([
