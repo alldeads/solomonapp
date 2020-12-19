@@ -111,9 +111,9 @@ class UserController extends AdminController
 
             if ( !$form->password ) {
                 $form->password = $user->password;
+            } else {
+                $form->password = bcrypt($form->password);
             }
-
-            $form->password = bcrypt($form->password);
         });
 
         return $form;
