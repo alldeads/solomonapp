@@ -23,7 +23,7 @@ class Order extends Model
         'status',
         'payment_id',
         'shipping_type',
-        'delivery_fee'
+        'shipping_fee'
     ];
 
     public function user()

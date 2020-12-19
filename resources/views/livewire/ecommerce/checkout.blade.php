@@ -84,7 +84,7 @@
                             @enderror
                         </div> --}}
                         <div class="form-group">
-                            <label for="inputAddress2">City</label>
+                            <label for="inputAddress2">City / Municipality</label>
                             <select class="form-control @error('city') is-invalid @enderror" wire:model="city_id">
 
                                 @foreach($cities as $c)
@@ -93,6 +93,12 @@
                                     </option>
                                 @endforeach
                             </select>
+
+                            @error('city')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="inputAddress6">Zip Code</label>

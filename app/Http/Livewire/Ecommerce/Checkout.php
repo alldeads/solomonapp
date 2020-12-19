@@ -82,7 +82,13 @@ class Checkout extends Component
 			$this->email = $address->email;
 			$this->address = $address->address;
 			$this->state = $address->state;
-			$this->city = $address->city;
+
+			$c = City::where('name', $address->city)->first();
+
+			if ($c) {
+				$this->city = $c->name;
+			}
+			
 			$this->zip = $address->zip;
 			$this->notes = $address->notes;
 			$this->address_id = $address->id;
@@ -203,7 +209,7 @@ class Checkout extends Component
 				'user_id' => $user->id,
 				'sub_total' => $this->sub_total,
 				'total' => $this->total,
-				'delivery_fee' => $this->delivery_fee,
+				'shipping_fee' => $this->delivery_fee,
 				'quantity' => $this->quantity,
 				'payment_id' => $payment->id,
 				'shipping_type' => $this->shipping_type
@@ -227,6 +233,7 @@ class Checkout extends Component
 			
 		} catch (\Exception $e) {
 			DB::rollBack();
+			dd($e);
 			session()->flash('checkouterror', 'Oops! Something went wrong, please try again.');
 		}
 	}

@@ -44,10 +44,17 @@ class OrderController extends AdminController
 
             return new Table(['ID', 'Product', 'Quantity'], $details->toArray());
         });
+        $grid->column('payment.address_id', __('Address'))->display(function($id) {
+            // $address = Address::findOrFail($id);
+
+            // return "<a href='/admin/users/".$id."/edit'>" . $user->full_name. "</a>";
+
+        });
         $grid->column('total', __('Total'))->display(function($total) {
 
             return "₱" . number_format($total, 2, '.', ',');
         });
+        $grid->column('shipping_fee', __('Shipping Fee'));
         $grid->column('quantity', __('Quantity'));
         $grid->column('payment_id', __('Payment'))->display(function ($id) {
 
