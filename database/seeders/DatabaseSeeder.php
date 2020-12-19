@@ -19,7 +19,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Voucher::factory(1000)->create();
+        // \App\Models\Voucher::factory(1000)->create();
+
+        $this->call([
+            CityTableSeeder::class
+        ]);
 
     	$user = User::create([
     		'first_name' => "Solomon",
