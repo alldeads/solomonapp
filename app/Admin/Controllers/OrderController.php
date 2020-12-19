@@ -138,6 +138,7 @@ class OrderController extends AdminController
 
                     $user->product_sold += $form->quantity;
                     $user->commission += $commission;
+                    $user->ppb += $form->quantity;
                     $user->lifetime_earning += $commission;
                     $user->save();
                 }

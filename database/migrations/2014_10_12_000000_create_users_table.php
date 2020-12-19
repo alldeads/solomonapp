@@ -29,6 +29,8 @@ class CreateUsersTable extends Migration
             $table->integer('product_sold')->default(0);
             $table->double('commission')->default(0);
             $table->double('lifetime_earning')->default(0);
+            $table->integer('ppb')->default(0);
+            $table->integer('hppb')->default(0);
             $table->enum('status', ['inactive', 'active'])->default('inactive');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

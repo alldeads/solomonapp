@@ -64,7 +64,7 @@
                         <div class="align-self-center text-center"><i data-feather="dollar-sign"></i></div>
                         <div class="media-body">
                             <span class="m-0">Personal Points Bonus</span>
-                            <h4 class="mb-0 counter">{{ $user->commission }}</h4>
+                            <h4 class="mb-0 counter">{{ $user->ppb }}</h4>
                             <i class="icon-bg" data-feather="dollar-sign"></i>
                         </div>
                     </div>
@@ -79,7 +79,7 @@
                         <div class="align-self-center text-center"><i data-feather="dollar-sign"></i></div>
                         <div class="media-body">
                             <span class="m-0">Happy 5 Pass Up Bonus</span>
-                            <h4 class="mb-0 counter">{{ $user->commission }}</h4>
+                            <h4 class="mb-0 counter">{{ $user->hppb }}</h4>
                             <i class="icon-bg" data-feather="dollar-sign"></i>
                         </div>
                     </div>

@@ -28,7 +28,8 @@ class User extends Authenticatable
         'sponsor_id',
         'commission',
         'lifetime',
-        'direct_recruits'
+        'direct_recruits',
+        'ppb', 'hppb'
     ];
 
     /**
@@ -92,6 +93,11 @@ class User extends Authenticatable
 
             if ( $user->status == 'active' ) {
                 $user->available_points = $user->available_points + $points;
+
+                if ( $count != 0 ) {
+                    $user->hppb += $points;
+                }
+
                 $user->save();
             }
             
