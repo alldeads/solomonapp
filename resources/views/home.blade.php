@@ -33,7 +33,7 @@
                     <div class="media static-top-widget">
                         <div class="align-self-center text-center"><i data-feather="database"></i></div>
                         <div class="media-body">
-                            <span class="m-0">Earnings</span>
+                            <span class="m-0">Lifetime Earnings</span>
                             <h4 class="mb-0 counter">₱{{ number_format($user->lifetime_earning, 2, '.', ',') }}</h4>
                             <i class="icon-bg" data-feather="database"></i>
                          </div>
@@ -44,11 +44,11 @@
 
         <div class="col-sm-6 col-xl-3 col-lg-6">
             <div class="card o-hidden">
-                <div class="bg-secondary b-r-4 card-body">
+                <div class="bg-success b-r-4 card-body">
                     <div class="media static-top-widget">
                         <div class="align-self-center text-center"><i data-feather="dollar-sign"></i></div>
                         <div class="media-body">
-                            <span class="m-0">Cash</span>
+                            <span class="m-0">Direct Selling Bonus</span>
                             <h4 class="mb-0 counter">₱{{ number_format($user->commission, 2, '.', ',') }}</h4>
                             <i class="icon-bg" data-feather="dollar-sign"></i>
                         </div>
@@ -59,13 +59,28 @@
 
         <div class="col-sm-6 col-xl-3 col-lg-6">
             <div class="card o-hidden">
-                <div class="bg-primary b-r-4 card-body">
+                <div class="bg-danger b-r-4 card-body">
                     <div class="media static-top-widget">
-                        <div class="align-self-center text-center"><i data-feather="check"></i></div>
+                        <div class="align-self-center text-center"><i data-feather="dollar-sign"></i></div>
                         <div class="media-body">
-                            <span class="m-0">Points</span>
-                            <h4 class="mb-0 counter">{{ $user->available_points }}</h4>
-                            <i class="icon-bg" data-feather="check"></i>
+                            <span class="m-0">Personal Points Bonus</span>
+                            <h4 class="mb-0 counter">{{ $user->commission }}</h4>
+                            <i class="icon-bg" data-feather="dollar-sign"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-xl-3 col-lg-6">
+            <div class="card o-hidden">
+                <div class="bg-info b-r-4 card-body">
+                    <div class="media static-top-widget">
+                        <div class="align-self-center text-center"><i data-feather="dollar-sign"></i></div>
+                        <div class="media-body">
+                            <span class="m-0">Happy 5 Pass Up Bonus</span>
+                            <h4 class="mb-0 counter">{{ $user->commission }}</h4>
+                            <i class="icon-bg" data-feather="dollar-sign"></i>
                         </div>
                     </div>
                 </div>
@@ -78,7 +93,7 @@
                     <div class="media static-top-widget">
                         <div class="align-self-center text-center"><i data-feather="users"></i></div>
                         <div class="media-body">
-                            <span class="m-0">Network</span>
+                            <span class="m-0">Total Network</span>
                             <h4 class="mb-0 counter">{{ $data['network'] }}</h4>
                             <i class="icon-bg" data-feather="users"></i>
                         </div>
