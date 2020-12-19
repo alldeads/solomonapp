@@ -87,6 +87,7 @@ class Checkout extends Component
 
 			if ($c) {
 				$this->city = $c->name;
+				$this->city_id = $c->id;
 			}
 			
 			$this->zip = $address->zip;
@@ -117,6 +118,7 @@ class Checkout extends Component
 		$this->delivery_fee = $city->fee;
 		$this->total = Cart::getUserCartTotal() + $this->delivery_fee;
 		$this->city = $city->name;
+		$this->city_id = $city->id;
 	}
 
 	public function updatedAddressId($address_id)

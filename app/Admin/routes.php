@@ -13,7 +13,8 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('home');
 
-    $router->get('/api/users', 'UserController@getUser' );
+    $router->get('/api/users', 'UserController@getUser');
+    $router->get('/api/cities', 'AddressController@getCity');
 
     $router->resource('users', UserController::class);
     $router->resource('products', ProductController::class);
@@ -21,5 +22,6 @@ Route::group([
     $router->resource('payments', PaymentController::class);
     $router->resource('orders', OrderController::class);
     $router->resource('cities', CityController::class);
+    $router->resource('addresses', AddressController::class);
     // $router->resource('vouchers', VoucherController::class);
 });
