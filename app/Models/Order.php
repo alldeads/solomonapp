@@ -22,7 +22,8 @@ class Order extends Model
         'quantity',
         'status',
         'payment_id',
-        'shipping_type'
+        'shipping_type',
+        'delivery_fee'
     ];
 
     public function user()

@@ -48,7 +48,7 @@ class Checkout extends Component
         'zip'        => 'required|numeric',
         'notes'      => 'nullable',
         'address'    => 'required',
-        'state'      => 'required',
+        // 'state'      => 'required',
         'city'       => 'required',
         'payment_option' => 'required|numeric',
         'shipping_type' => 'required|string'
@@ -61,6 +61,7 @@ class Checkout extends Component
 		$this->items = auth()->user()->carts;
 		$this->cities = City::where('status', 'active')->get();
 		$this->delivery_fee = $city->fee;
+		$this->city = $city->name;
 		$this->quantity = Cart::getUserCartQuantity();
 		$this->sub_total = Cart::getUserCartTotal();
 		$this->total = Cart::getUserCartTotal() + $this->delivery_fee;
@@ -109,6 +110,7 @@ class Checkout extends Component
 
 		$this->delivery_fee = $city->fee;
 		$this->total = Cart::getUserCartTotal() + $this->delivery_fee;
+		$this->city = $city->name;
 	}
 
 	public function updatedAddressId($address_id)

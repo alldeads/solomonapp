@@ -74,7 +74,7 @@
                                 </span>
                             @enderror
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="inputCity">State/Municipality</label>
                             <input class="form-control @error('state') is-invalid @enderror" wire:model="state" type="text">
                             @error('state')
@@ -82,7 +82,7 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                        </div>
+                        </div> --}}
                         <div class="form-group">
                             <label for="inputAddress2">City</label>
                             <select class="form-control @error('city') is-invalid @enderror" wire:model="city_id">
