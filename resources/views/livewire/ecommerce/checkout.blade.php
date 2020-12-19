@@ -85,12 +85,14 @@
                         </div>
                         <div class="form-group">
                             <label for="inputAddress2">City</label>
-                            <input class="form-control @error('city') is-invalid @enderror" wire:model="city" type="text">
-                            @error('city')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            <select class="form-control @error('city') is-invalid @enderror" wire:model="city_id">
+
+                                @foreach($cities as $c)
+                                    <option value="{{ $c->id }}"> 
+                                        {{ $c->name }}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="inputAddress6">Zip Code</label>
@@ -135,6 +137,11 @@
                                     <li>Subtotal 
                                         <span class="count">
                                             ₱{{ number_format($sub_total, 2, '.', ',') }}
+                                        </span>
+                                    </li>
+                                    <li>Shipping Fee
+                                        <span class="count">
+                                            ₱{{ number_format($delivery_fee, 2, '.', ',') }}
                                         </span>
                                     </li>
                                     <li class="shipping-class">Shipping

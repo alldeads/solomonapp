@@ -12,6 +12,7 @@ use App\Models\PaymentMethod;
 use App\Models\Payment;
 use App\Models\Order;
 use App\Models\User;
+use App\Models\City;
 use App\Models\OrderDetails;
 
 class Checkout extends Component
@@ -35,6 +36,9 @@ class Checkout extends Component
 	public $payment_option;
 	public $quantity;
 	public $commissions = 0;
+	public $city_id = 1;
+	public $delivery_fee = 0;
+	public $cities = [];
 
 	protected $rules = [
         'email'      => 'required|email',
@@ -52,10 +56,14 @@ class Checkout extends Component
 
 	public function mount()
 	{
+		$city = City::findOrFail($this->city_id);
+
 		$this->items = auth()->user()->carts;
+		$this->cities = City::where('status', 'active')->get();
+		$this->delivery_fee = $city->fee;
 		$this->quantity = Cart::getUserCartQuantity();
 		$this->sub_total = Cart::getUserCartTotal();
-		$this->total = Cart::getUserCartTotal();
+		$this->total = Cart::getUserCartTotal() + $this->delivery_fee;
 		$this->shipping_type  = "delivery";
 		$this->payment_option = 1;
 		$this->payment_options = PaymentMethod::active()
@@ -88,6 +96,19 @@ class Checkout extends Component
 		foreach ($this->items as $value) {
 			$this->commissions += ($value->product->original_price - $value->product->members_price) * $value->quantity;
 		}
+	}
+
+	public function updatedCityId($city_id)
+	{
+		$city = City::find($city_id);
+
+		if ( !$city ) {
+			session()->flash('checkouterror', 'Oops! Something went wrong, please try again.');
+			exit;
+		}
+
+		$this->delivery_fee = $city->fee;
+		$this->total = Cart::getUserCartTotal() + $this->delivery_fee;
 	}
 
 	public function updatedAddressId($address_id)
@@ -180,6 +201,7 @@ class Checkout extends Component
 				'user_id' => $user->id,
 				'sub_total' => $this->sub_total,
 				'total' => $this->total,
+				'delivery_fee' => $this->delivery_fee,
 				'quantity' => $this->quantity,
 				'payment_id' => $payment->id,
 				'shipping_type' => $this->shipping_type

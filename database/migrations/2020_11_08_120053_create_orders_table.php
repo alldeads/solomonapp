@@ -19,6 +19,7 @@ class CreateOrdersTable extends Migration
             $table->string('reference')->unique();
             $table->double('sub_total');
             $table->double('total');
+            $table->double('shipping_fee')->default(0);
             $table->double('quantity');
             $table->bigInteger('payment_id')->nullable();
             $table->enum('shipping_type', ['pick-up', 'delivery']);
