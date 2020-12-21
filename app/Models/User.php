@@ -135,17 +135,16 @@ class User extends Authenticatable
     {
         $arr = [];
 
+        $arr[0][] = auth()->user();
+
         foreach (auth()->user()->downlines as $downline) { // 1st Level
-            $arr[0][] = $downline;
+            $arr[1][] = $downline;
             foreach ($downline->downlines as $a) { // 2nd Level
-                $arr[1][] = $a;
+                $arr[2][] = $a;
                 foreach ($a->downlines as $b) { // 3nd Level
-                    $arr[2][] = $b;
+                    $arr[3][] = $b;
                     foreach ($b->downlines as $c) { // 4th Level
-                        $arr[3][] = $c;
-                        foreach ($c->downlines as $d) { // 5th Level
-                            $arr[4][] = $d;
-                        }
+                        $arr[4][] = $c;
                     }
                 }
             }
