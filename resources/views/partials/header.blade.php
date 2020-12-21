@@ -90,6 +90,13 @@
 												Contact Us
 											</a>
 										</li>
+										@auth
+											<li class="dropdown">
+												<a class="dropdown-item " href="{{ route('home') }}">
+													Dashboard
+												</a>
+											</li>
+										@endauth
 									</ul>
 								</nav>
 							</div>
