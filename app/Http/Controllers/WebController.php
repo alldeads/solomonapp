@@ -109,4 +109,9 @@ class WebController extends Controller
     {
         return view('opportunities');
     }
+
+    public function products()
+    {
+        return view('products');
+    }
 }

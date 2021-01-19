@@ -25,6 +25,7 @@ Route::get('/', function () {
 Route::get('/contact-us', App\Http\Livewire\Contact::class)->name('contact');
 Route::get('/beginners-guide', [App\Http\Controllers\WebController::class, 'beginners'])->name('beginners');
 Route::get('/opportunities', [App\Http\Controllers\WebController::class, 'opportunities'])->name('opportunities');
+Route::get('/products/web', [App\Http\Controllers\WebController::class, 'products'])->name('products');
 Route::post('/contact-us', [App\Http\Controllers\WebController::class, 'saveReport'])->name('home');
 Route::get('/success/{token}', [App\Http\Controllers\WebController::class, 'success'])->name('success');
 
