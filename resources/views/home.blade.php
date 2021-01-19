@@ -31,7 +31,7 @@
             <div class="card o-hidden">
                 <div class="bg-primary b-r-4 card-body">
                     <div class="media static-top-widget">
-                        <div class="align-self-center text-center"><i data-feather="database"></i></div>
+                        <div class="align-self-center text-center"><i data-feather="dollar-sign"></i></div>
                         <div class="media-body">
                             <span class="m-0">Lifetime Earnings</span>
                             <h4 class="mb-0 counter">₱{{ number_format($user->lifetime_earning, 2, '.', ',') }}</h4>
