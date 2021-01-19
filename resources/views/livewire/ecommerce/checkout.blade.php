@@ -74,7 +74,7 @@
                                 </span>
                             @enderror
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="inputCity">State/Municipality</label>
                             <input class="form-control @error('state') is-invalid @enderror" wire:model="state" type="text">
                             @error('state')
@@ -82,10 +82,18 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                        </div>
+                        </div> --}}
                         <div class="form-group">
-                            <label for="inputAddress2">City</label>
-                            <input class="form-control @error('city') is-invalid @enderror" wire:model="city" type="text">
+                            <label for="inputAddress2">City / Municipality</label>
+                            <select class="form-control @error('city') is-invalid @enderror" wire:model="city_id">
+
+                                @foreach($cities as $c)
+                                    <option value="{{ $c->id }}"> 
+                                        {{ $c->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+
                             @error('city')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -127,7 +135,7 @@
 
                                 <ul class="qty">
                                     @foreach( $items as $item )
-                                        <li>{{ $item->product->name }} × {{ $item->quantity }} <span>₱{{ number_format($item->quantity * $item->product->original_price, 2, '.', ',') }}</span></li>
+                                        <li>{{ $item->product->name }} × {{ $item->quantity }} <span>₱{{ number_format($item->quantity * $item->product->members_price, 2, '.', ',') }}</span></li>
                                     @endforeach
                                 </ul>
 
@@ -135,6 +143,11 @@
                                     <li>Subtotal 
                                         <span class="count">
                                             ₱{{ number_format($sub_total, 2, '.', ',') }}
+                                        </span>
+                                    </li>
+                                    <li>Shipping Fee
+                                        <span class="count">
+                                            ₱{{ number_format($delivery_fee, 2, '.', ',') }}
                                         </span>
                                     </li>
                                     <li class="shipping-class">Shipping

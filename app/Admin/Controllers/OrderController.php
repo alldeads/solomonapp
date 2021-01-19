@@ -4,6 +4,7 @@ namespace App\Admin\Controllers;
 
 use App\Models\Order;
 use App\Models\User;
+use App\Models\Address;
 use Encore\Admin\Controllers\AdminController;
 Use Encore\Admin\Widgets\Table;
 use Encore\Admin\Form;
@@ -44,10 +45,16 @@ class OrderController extends AdminController
 
             return new Table(['ID', 'Product', 'Quantity'], $details->toArray());
         });
+        $grid->column('payment.address_id', __('Address'))->display(function($id) {
+            $address = Address::findOrFail($id);
+
+            return "<a href='/admin/addresses/".$id."/edit' target='_blank'>View</a>";
+        });
         $grid->column('total', __('Total'))->display(function($total) {
 
             return "₱" . number_format($total, 2, '.', ',');
         });
+        $grid->column('shipping_fee', __('Shipping Fee'));
         $grid->column('quantity', __('Quantity'));
         $grid->column('payment_id', __('Payment'))->display(function ($id) {
 
@@ -138,6 +145,7 @@ class OrderController extends AdminController
 
                     $user->product_sold += $form->quantity;
                     $user->commission += $commission;
+                    $user->ppb += $form->quantity;
                     $user->lifetime_earning += $commission;
                     $user->save();
                 }

@@ -19,7 +19,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Voucher::factory(1000)->create();
+        // \App\Models\Voucher::factory(1000)->create();
+
+        $this->call([
+            CityTableSeeder::class
+        ]);
 
     	$user = User::create([
     		'first_name' => "Solomon",
@@ -134,49 +138,41 @@ class DatabaseSeeder extends Seeder
         Product::create([
             'name'           => 'Charcoal Soap',
             'description'    => '',
-            'original_price' => 150,
-            'members_price'  => 90,
+            'original_price' => 125,
+            'members_price'  => 100,
             'avatar'         => 'products/charcoal.jpg'
         ]);
 
         Product::create([
             'name'           => 'Calamansi Soap',
             'description'    => '',
-            'original_price' => 150,
-            'members_price'  => 90,
+            'original_price' => 125,
+            'members_price'  => 100,
             'avatar'         => 'products/calamansi.jpg'
         ]);
 
         Product::create([
             'name'           => 'Carrot Soap',
             'description'    => '',
-            'original_price' => 150,
-            'members_price'  => 90,
+            'original_price' => 125,
+            'members_price'  => 100,
             'avatar'         => 'products/carrot.jpg'
         ]);
 
         Product::create([
             'name'           => 'Tomato Soap',
             'description'    => '',
-            'original_price' => 150,
-            'members_price'  => 90,
+            'original_price' => 125,
+            'members_price'  => 100,
             'avatar'         => 'products/tomato.jpg'
         ]);
 
         Product::create([
-            'name'           => 'Singkamas Soap',
+            'name'           => 'Peppermint Soap',
             'description'    => '',
-            'original_price' => 150,
-            'members_price'  => 90,
-            'avatar'         => 'products/singkamas.jpg'
-        ]);
-
-        Product::create([
-            'name'           => 'Banana Soap',
-            'description'    => '',
-            'original_price' => 150,
-            'members_price'  => 90,
-            'avatar'         => 'products/banana.jpg'
+            'original_price' => 125,
+            'members_price'  => 100,
+            'avatar'         => 'products/peppermint.jpg'
         ]);
 
         Product::create([
@@ -195,10 +191,26 @@ class DatabaseSeeder extends Seeder
             'avatar'         => 'products/eucalyptus.jpg'
         ]);
 
+        Product::create([
+            'name'           => 'Scent of Queen',
+            'description'    => '',
+            'original_price' => 499,
+            'members_price'  => 299,
+            'avatar'         => 'products/scent_of_queen.jpg'
+        ]);
+
+        Product::create([
+            'name'           => 'Scent of King',
+            'description'    => '',
+            'original_price' => 499,
+            'members_price'  => 299,
+            'avatar'         => 'products/scent_of_king.jpg'
+        ]);
+
         Item::create([
-            'name'    => 'Romoss Power Bank',
-            'points'  => 10,
-            'avatar'  => 'items/romoss.jpg'
+            'name'    => 'Univeral Power Bank',
+            'points'  => 15,
+            'avatar'  => 'items/powerbank.jpg'
         ]);
 
         Item::create([
@@ -232,14 +244,26 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Item::create([
-            'name'    => 'Brand New Samsung A10s',
-            'points'  => 800,
-            'avatar'  => 'items/samsung-a10.jpg'
+            'name'    => '2,500 Pesos Cash',
+            'points'  => 400,
+            'avatar'  => 'items/twothousand.jpg'
+        ]);
+
+        Item::create([
+            'name'    => 'Oppo F1s Selfie Expert',
+            'points'  => 600,
+            'avatar'  => 'items/oppo.jpg'
+        ]);
+
+        Item::create([
+            'name'    => '10,000 Pesos Cash',
+            'points'  => 1500,
+            'avatar'  => 'items/tenthousand.jpg'
         ]);
 
         Item::create([
             'name'    => 'Brand New HP Laptop',
-            'points'  => 1750,
+            'points'  => 2000,
             'avatar'  => 'items/hplaptop.jpg'
         ]);
 

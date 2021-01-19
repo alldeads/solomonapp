@@ -28,7 +28,8 @@ class User extends Authenticatable
         'sponsor_id',
         'commission',
         'lifetime',
-        'direct_recruits'
+        'direct_recruits',
+        'ppb', 'hppb'
     ];
 
     /**
@@ -92,6 +93,11 @@ class User extends Authenticatable
 
             if ( $user->status == 'active' ) {
                 $user->available_points = $user->available_points + $points;
+
+                if ( $count != 0 ) {
+                    $user->hppb += $points;
+                }
+
                 $user->save();
             }
             
@@ -102,6 +108,51 @@ class User extends Authenticatable
         } while ($count != $level);
     }
 
+    public static function count_user_downlines()
+    {
+        $count = 0;
+
+        foreach (auth()->user()->downlines as $downline) { // 1st Level
+            $count++;
+            foreach ($downline->downlines as $a) { // 2nd Level
+                $count++;
+                foreach ($a->downlines as $b) { // 3nd Level
+                    $count++;
+                    foreach ($b->downlines as $c) { // 4th Level
+                        $count++;
+                        foreach ($c->downlines as $d) { // 5th Level
+                            $count++;
+                        }
+                    }
+                }
+            }
+        }
+
+        return $count;
+    }
+
+    public static function get_user_downlines()
+    {
+        $arr = [];
+
+        $arr[0][] = auth()->user();
+
+        foreach (auth()->user()->downlines as $downline) { // 1st Level
+            $arr[1][] = $downline;
+            foreach ($downline->downlines as $a) { // 2nd Level
+                $arr[2][] = $a;
+                foreach ($a->downlines as $b) { // 3nd Level
+                    $arr[3][] = $b;
+                    foreach ($b->downlines as $c) { // 4th Level
+                        $arr[4][] = $c;
+                    }
+                }
+            }
+        }
+
+        return $arr;
+    }
+
     public function carts()
     {
         return $this->hasMany(Cart::class);
@@ -110,6 +161,11 @@ class User extends Authenticatable
     public function sponsor()
     {
         return $this->belongsTo(User::class, 'sponsor_id');
+    }
+
+    public function downlines()
+    {
+        return $this->hasMany(User::class, 'sponsor_id');
     }
 
     public function addresses()

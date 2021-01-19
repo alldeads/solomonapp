@@ -7,6 +7,7 @@ use App\Http\Requests\CreateReportRequest;
 
 use App\Models\Item;
 use App\Models\Order;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -29,17 +30,19 @@ class HomeController extends Controller
     {
         $user = auth()->user();
 
-        $data['this_month'] = Order::get_monthly_income(now());
-        $data['last_month'] = Order::get_monthly_income('last month');
+        $data['network'] = User::count_user_downlines();
 
-        $items = Item::where('points', '<=', $user->available_points)->get();
-        $rewards = count($items);
+        // $data['this_month'] = Order::get_monthly_income(now());
+        // $data['last_month'] = Order::get_monthly_income('last month');
 
-        $claimed_rewards = count(auth()->user()->items()
-                                ->where('status', 'received')
-                                ->get());
-        $data['claimed_rewards'] = $claimed_rewards;
+        // $items = Item::where('points', '<=', $user->available_points)->get();
+        // $rewards = count($items);
 
-        return view('home', compact('user', 'data', 'rewards'));
+        // $claimed_rewards = count(auth()->user()->items()
+        //                         ->where('status', 'received')
+        //                         ->get());
+        // $data['claimed_rewards'] = $claimed_rewards;
+
+        return view('home', compact('user', 'data'));
     }
 }

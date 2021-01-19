@@ -28,7 +28,11 @@
 										</li>
 									@endauth
 									<li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-sm-show">
-										<span class="ws-nowrap"><i class="fas fa-phone"></i> (123) 456-789</span>
+										<span class="ws-nowrap"><i class="fas fa-phone"></i> (+63) 995-7554-420</span>
+									</li>
+
+									<li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-sm-show">
+										<span class="ws-nowrap"><i class="fas fa-phone"></i> (+63) 915-2709-408</span>
 									</li>
 								</ul>
 							</nav>
@@ -37,9 +41,7 @@
 					<div class="header-column justify-content-end">
 						<div class="header-row">
 							<ul class="header-social-icons social-icons d-none d-sm-block social-icons-clean">
-								<li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-								<li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-								<li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+								<li class="social-icons-facebook"><a href="https://www.facebook.com/Solomon-103519311594709/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -51,7 +53,7 @@
 				<div class="header-column">
 					<div class="header-row">
 						<div class="header-logo">
-							<a href="index.html">
+							<a href="/">
 								<img alt="Porto" width="200" data-sticky-width="200" src="{{ asset('images/logo-2.jpg') }}">
 							</a>
 						</div>
@@ -88,6 +90,13 @@
 												Contact Us
 											</a>
 										</li>
+										@auth
+											<li class="dropdown">
+												<a class="dropdown-item " href="{{ route('home') }}">
+													Dashboard
+												</a>
+											</li>
+										@endauth
 									</ul>
 								</nav>
 							</div>

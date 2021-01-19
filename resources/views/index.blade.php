@@ -170,9 +170,9 @@
 						</span>
 						<span> beautiful and fully responsive.</span>
 					</h1>
-					<p class="lead appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="300">
+					{{-- <p class="lead appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="300">
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum, nulla vel pellentesque consequat, ante nulla hendrerit arcu, ac tincidunt mauris lacus sed leo.
-					</p>
+					</p> --}}
 				</div>
 			</div>
 

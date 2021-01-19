@@ -1,5 +1,5 @@
 <div>
-	<div id="googlemaps" class="google-map mt-0" style="height: 500px;"></div>
+	{{-- <div id="googlemaps" class="google-map mt-0" style="height: 500px;"></div> --}}
 
 	<div class="container">
 

@@ -96,8 +96,6 @@ class UserController extends AdminController
         $form->text('username', __('Username'));
         $form->email('email', __('Email'));
         $form->text('phone', __('Phone'));
-        $form->text('company', __('Company'));
-        $form->text('position', __('Position'));
         $form->number('available_points', __('Available points'));
 
         $form->select('status', __('Status'))
@@ -113,9 +111,9 @@ class UserController extends AdminController
 
             if ( !$form->password ) {
                 $form->password = $user->password;
+            } else {
+                $form->password = bcrypt($form->password);
             }
-
-            $form->password = bcrypt($form->password);
         });
 
         return $form;

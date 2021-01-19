@@ -70,6 +70,11 @@
                                         ₱{{ number_format($order->sub_total, 2, '.', ',') }}
                                     </span>
                                 </li>
+                                <li>Shipping Fee
+                                    <span class="count">
+                                        ₱{{ number_format($order->shipping_fee, 2, '.', ',') }}
+                                    </span>
+                                </li>
                                 <li class="shipping-class">Shipping Type
                                     <div class="shopping-checkout-option">
                                         <label class="d-block" for="chk-ani">

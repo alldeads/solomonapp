@@ -14,6 +14,24 @@
         console.log(tets);
     })
 
+    $('#copylink').on('click', function (e) {
+        var copyText = document.getElementById("referralLink");
+
+         /* Select the text field */
+          
+        copyText.select(); 
+          
+        copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+
+
+        /* Alert the copied text */
+          
+        alert("Successfully copied!");
+    });
+
     /*----------------------------------------
      passward show hide
      ----------------------------------------*/
