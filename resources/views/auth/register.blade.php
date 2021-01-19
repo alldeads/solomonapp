@@ -4,7 +4,7 @@
 <div class="container py-4">
     <div class="row justify-content-center">
 
-        <div class="col-12">
+        <div class="col-8 col-lg-8 m-auto">
             <div class="owl-carousel nav-inside show-nav-hover dots-inside mb-0" data-plugin-options="{'items': 1, 'loop': true, 'autoplay': true, 'autoplayTimeout': 3000, 'autoplayHoverPause': true, 'nav': true, 'dots': true, 'animateOut': 'fadeOut'}">
 
                 @for( $i = 1; $i < 26; $i++ )

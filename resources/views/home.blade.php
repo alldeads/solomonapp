@@ -35,7 +35,7 @@
                         <div class="media-body">
                             <span class="m-0">Lifetime Earnings</span>
                             <h4 class="mb-0 counter">₱{{ number_format($user->lifetime_earning, 2, '.', ',') }}</h4>
-                            <i class="icon-bg" data-feather="database"></i>
+                            <i class="icon-bg" data-feather="dollar-sign"></i>
                          </div>
                     </div>
                 </div>
