@@ -99,4 +99,14 @@ class WebController extends Controller
     {
         return view('site.success');
     }
+
+    public function beginners()
+    {
+        return view('beginners');
+    }
+
+    public function opportunities()
+    {
+        return view('opportunities');
+    }
 }

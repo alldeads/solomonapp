@@ -6,7 +6,7 @@
 		<div class="col-10 m-auto">
             <div class="owl-carousel nav-inside show-nav-hover dots-inside mb-0" data-plugin-options="{'items': 1, 'loop': true, 'autoplay': true, 'autoplayTimeout': 3000, 'autoplayHoverPause': true, 'nav': true, 'dots': true, 'animateOut': 'fadeOut'}">
 
-                @for( $i = 0; $i < 2; $i++ )
+                @for( $i = 21; $i < 24; $i++ )
                     <div>
                         <img src="{{ asset('sliders/'. $i .'.png') }}" data-thumb="{{ asset('sliders/'. $i .'.png') }}" alt="" />
                     </div>
