@@ -19,6 +19,7 @@ class CreatePaymentsTable extends Migration
             $table->bigInteger('address_id');
             $table->bigInteger('payment_method_id');
             $table->string('reference_code');
+            $table->string('mode')->nullable();
             $table->double('amount');
             $table->enum('type', ['order', 'account', 'other'])->default('order');
             $table->enum('status', ['pending', 'processing', 'received', 'fraud', 'on-hold', 'rejected', 'refunded'])->default('pending');

@@ -82,14 +82,16 @@ class DatabaseSeeder extends Seeder
             'name' => 'Paypal',
             'abbr' => 'paypal',
             'status' => 'inactive',
-            'payment' => true
+            'payment' => true,
+            'activation' => true
         ]);
 
         PaymentMethod::create([
             'name' => 'Gcash',
             'abbr' => 'gcash',
-            'status' => 'inactive',
-            'payment' => true
+            'status' => 'active',
+            'payment' => true,
+            'activation' => true
         ]);
 
         PaymentMethod::create([
@@ -97,21 +99,40 @@ class DatabaseSeeder extends Seeder
             'abbr' => 'ft',
             'status' => 'active',
             'transaction' => true,
-            'payment' => true
+            'payment' => true,
+            'activation' => false
         ]);
 
         PaymentMethod::create([
             'name' => 'Bank Deposit',
             'abbr' => 'deposit',
             'status' => 'active',
-            'payment' => true
+            'payment' => true,
+            'activation' => false
+        ]);
+
+        PaymentMethod::create([
+            'name' => 'BDO',
+            'abbr' => 'bdo',
+            'status' => 'active',
+            'payment' => false,
+            'activation' => true
+        ]);
+
+        PaymentMethod::create([
+            'name' => 'BPI',
+            'abbr' => 'bpi',
+            'status' => 'active',
+            'payment' => false,
+            'activation' => true
         ]);
 
         PaymentMethod::create([
             'name' => 'Cash',
             'abbr' => 'cash',
             'status' => 'active',
-            'transaction' => true
+            'transaction' => true,
+            'activation' => true
         ]);
 
         PaymentMethod::create([

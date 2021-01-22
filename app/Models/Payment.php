@@ -22,7 +22,8 @@ class Payment extends Model
         'amount',
         'status',
         'type',
-        'date_paid'
+        'date_paid',
+        'mode'
     ];
 
     public function order()
