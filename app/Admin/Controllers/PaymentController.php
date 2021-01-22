@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Models\Address;
 use App\Models\Payment;
 use App\Models\User;
 use Encore\Admin\Controllers\AdminController;
@@ -35,8 +36,14 @@ class PaymentController extends AdminController
             return "<a href='/admin/users/".$id."/edit'>" . $user->full_name. "</a>";
 
         });
+        $grid->column('address.id', __('Address'))->display(function($id) {
+            $address = Address::findOrFail($id);
+
+            return "<a href='/admin/addresses/".$id."/edit' target='_blank'>View</a>";
+        });
         $grid->column('user.username', __('User Name'));
         $grid->column('method.name', __('Payment Method'));
+        $grid->column('mode', __('Mode'));
         $grid->column('amount', __('Amount'))->display(function($total) {
 
             return "₱" . number_format($total, 2, '.', ',');
