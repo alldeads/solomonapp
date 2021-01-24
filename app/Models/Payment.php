@@ -23,7 +23,8 @@ class Payment extends Model
         'status',
         'type',
         'date_paid',
-        'mode'
+        'mode',
+        'package'
     ];
 
     public function order()

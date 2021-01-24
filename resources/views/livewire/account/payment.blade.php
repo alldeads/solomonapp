@@ -110,16 +110,20 @@
 
                                 <div class="form-group">
                                     <select class="form-control @error('package') is-invalid @enderror" wire:model="package">
-                                        <option value="package1">
-                                            Package 1
+                                        <option value="starterpack-a">
+                                            Starter Pack A
                                         </option>
 
-                                        <option value="package2">
-                                            Package 2
+                                        <option value="starterpack-b">
+                                            Starter Pack B
                                         </option>
 
-                                        <option value="package3">
-                                            Package 3
+                                        <option value="starterpack-c">
+                                            Starter Pack C
+                                        </option>
+
+                                        <option value="starterpack-d">
+                                            Starter Pack D
                                         </option>
                                     </select>
 

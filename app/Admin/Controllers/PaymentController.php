@@ -43,7 +43,42 @@ class PaymentController extends AdminController
         });
         $grid->column('user.username', __('User Name'));
         $grid->column('method.name', __('Payment Method'));
-        $grid->column('mode', __('Mode'));
+        $grid->column('mode', __('Mode'))->display(function($mode) {
+
+            if ( $mode == "pick-up" ) {
+                $mode = "Pick Up";
+            }
+
+            else if ( $mode == "delivery" ) {
+                $mode = "Delivery";
+            }
+
+            else if ( $mode == "shipping" ) {
+                $mode = "Shipping";
+            }
+
+            return $mode;
+        });
+        $grid->column('package', __('Package'))->display(function($package) {
+
+            if ( $package == "starterpack-b" ) {
+                $package = "Starter Pack B";
+            }
+
+            else if ( $package == "starterpack-c" ) {
+                $package = "Starter Pack C";
+            }
+
+            else if ( $package == "starterpack-d" ) {
+                $package = "Starter Pack D";
+            }
+
+            else if ( $package == "starterpack-a" ) {
+                $package = "Starter Pack A";
+            }
+
+            return $package;
+        });
         $grid->column('amount', __('Amount'))->display(function($total) {
 
             return "₱" . number_format($total, 2, '.', ',');

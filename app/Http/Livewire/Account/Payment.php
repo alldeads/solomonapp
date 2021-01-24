@@ -83,6 +83,7 @@ class Payment extends Component
     			'reference_code' => $this->transaction,
     			'amount' => $this->pamount,
     			'status' => 'processing',
+                'package' => $this->package,
     			'date_paid' => $this->date_paid,
     			'payment_method_id' => $this->method
     		]
