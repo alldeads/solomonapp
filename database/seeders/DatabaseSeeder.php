@@ -48,6 +48,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $user = User::create([
+            'sponsor_id' => 1,
             'first_name' => "SolomonDirectAccount",
             'last_name'  => "Account",
             'email' => 'contact@solomonapp.com',

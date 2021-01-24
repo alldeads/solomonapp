@@ -21,12 +21,25 @@
             </div>
             <form method="POST" action="{{ route('referral', ['username' => $referral->username]) }}" class="needs-validation">
                 @csrf
-                {{-- <div class="form-row">
-                    <div class="form-group col">
-                        <label class="text-color-light text-3">Sponsor Name<span class="text-color-danger">*</span></label>
-                        <input type="text" name="first_name" value="{{ $referral->full_name }}" class="form-control text-color-light text-4" readonly="true">
+
+                @if ( strtolower($referral->username) == "solomondirectaccount" )
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label class="text-color-light text-3">Sponsor Name<span class="text-color-danger">*</span></label>
+
+                            <select class="form-control text-color-light text-4" name="sponsor_name">
+                                @foreach($users as $user)
+                                    <option value="{{ $user->username }}"> {{ ucwords($user->username) }}</option>
+                                @endforeach
+                            </select>
+
+                            <span role="alert">
+                                <strong><i>Please select your sponsor.</i></strong>
+                            </span>
+                        </div>
                     </div>
-                </div> --}}
+                @endif
+
                 <div class="form-row">
                     <div class="form-group col">
                         <label class="text-color-light text-3">First Name<span class="text-color-danger">*</span></label>

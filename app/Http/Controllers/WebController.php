@@ -35,21 +35,39 @@ class WebController extends Controller
     		return redirect('/');
     	}
 
+        $users = User::where('id', '!=', 1)->active()->get();
+
         if ( count($request->all()) > 0 ) {
             $validatedData = $request->validate([
-                'first_name' => 'required|min:2',
-                'last_name' => 'required|min:2',
-                'email' => 'required|email',
-                'phone' => 'required',
-                'username' => 'required|min:4',
-                'password' => 'required|confirmed'
+                'first_name'    => 'required|min:2',
+                'last_name'     => 'required|min:2',
+                'email'         => 'required|email',
+                'phone'         => 'required',
+                'username'      => 'required|min:4',
+                'password'      => 'required|confirmed',
+                'sponsor_name'  => 'nullable',
             ]);
 
             try {
                 DB::beginTransaction();
 
+                $referral_id = $referral->id;
+
+                if ( $request->sponsor_name && !empty($request->sponsor_name) ) {
+
+                    $sponsor = User::where('username', strtolower($request->sponsor_name))
+                                    ->active()
+                                    ->first();
+
+                    if ( !$sponsor ) {
+                        return redirect('/');
+                    }
+
+                    $referral_id = $sponsor->id;
+                }
+
                 $user = User::create([
-                    'sponsor_id' => $referral->id,
+                    'sponsor_id' => $referral_id,
                     'first_name' => $request->first_name,
                     'last_name' => $request->last_name,
                     'email' => $request->email,
@@ -86,13 +104,12 @@ class WebController extends Controller
 
                 return redirect()->route('success', ['token' => md5(uniqid())]);
             } catch (\Exception $e) {
-
                 dd($e);
                 DB::rollback();
             }
         }
 
-    	return view('auth.register', compact('referral'));
+    	return view('auth.register', compact('referral', 'users'));
     }
 
     public function success($token)
