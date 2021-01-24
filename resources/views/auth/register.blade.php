@@ -29,7 +29,7 @@
 
                             <select class="form-control text-color-light text-4" name="sponsor_name">
                                 @foreach($users as $user)
-                                    <option value="{{ $user->username }}"> {{ ucwords($user->username) }}</option>
+                                    <option value="{{ $user->username }}">{{ ucwords($user->full_name) . " (" . ucwords($user->username) .")" }}</option>
                                 @endforeach
                             </select>
 
