@@ -37,7 +37,7 @@ class Payment extends Component
     {
     	$this->options = PaymentMethod::where('activation', 1)->active()->get();
     	$this->method = 3;
-        $this->package = "package1";
+        $this->package = "starterpack-a";
         $this->mode    = "pick-up";
     }
 

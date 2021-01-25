@@ -185,21 +185,21 @@
                      		</form>
                   		</div>
 
-                        @if ($method == 3)
+                        @if ($package == "starterpack-a")
                             <div class="col-md-12 text-center mt-2">
-                                <img class="img-fluid" src="{{asset('payments/gcash.png')}}" alt="" width="400">
+                                <img class="img-fluid" src="{{asset('packages/package-a.jpg')}}">
                             </div>
-                        @elseif ($method == 6)
+                        @elseif ($package == "starterpack-b")
                             <div class="col-md-12 text-center mt-2">
-                                <img class="img-fluid" src="{{asset('payments/bdo.png')}}" alt="" width="400">
+                                <img class="img-fluid" src="{{asset('packages/package-b.jpg')}}">
                             </div>
-                        @elseif ($method == 7)
+                        @elseif ($package == "starterpack-c")
                             <div class="col-md-12 text-center mt-2">
-                                <img class="img-fluid" src="{{asset('payments/bpi.png')}}" alt="" width="400">
+                                <img class="img-fluid" src="{{asset('packages/package-c.jpg')}}">
                             </div>
                         @else
                             <div class="col-md-12 text-center mt-2">
-                                <img class="img-fluid" src="{{asset('payments/cash.png')}}" alt="" width="250">
+                                <img class="img-fluid" src="{{asset('packages/package-d.jpg')}}">
                             </div>
                         @endif
                		</div>
