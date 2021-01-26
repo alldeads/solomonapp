@@ -28,6 +28,8 @@ class PaymentController extends AdminController
     {
         $grid = new Grid(new Payment());
 
+        $grid->model()->whereHas('user');
+
         $grid->column('type', __('Type'));
         $grid->column('reference_code', __('Reference code'));
         $grid->column('user_id', __('Full Name'))->display(function($id) {
