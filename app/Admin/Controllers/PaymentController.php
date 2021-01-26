@@ -29,60 +29,60 @@ class PaymentController extends AdminController
         $grid = new Grid(new Payment());
 
         $grid->column('type', __('Type'));
-        $grid->column('reference_code', __('Reference code'));
-        $grid->column('user_id', __('Full Name'))->display(function($id) {
-            $user = User::findOrFail($id);
+        // $grid->column('reference_code', __('Reference code'));
+        // $grid->column('user_id', __('Full Name'))->display(function($id) {
+        //     $user = User::findOrFail($id);
 
-            return "<a href='/admin/users/".$id."/edit'>" . $user->full_name. "</a>";
+        //     return "<a href='/admin/users/".$id."/edit'>" . $user->full_name. "</a>";
 
-        });
-        $grid->column('address.id', __('Address'))->display(function($id) {
-            $address = Address::findOrFail($id);
+        // });
+        // $grid->column('address.id', __('Address'))->display(function($id) {
+        //     $address = Address::findOrFail($id);
 
-            return "<a href='/admin/addresses/".$id."/edit' target='_blank'>View</a>";
-        });
-        $grid->column('user.username', __('User Name'));
-        $grid->column('method.name', __('Payment Method'));
-        $grid->column('mode', __('Mode'))->display(function($mode) {
+        //     return "<a href='/admin/addresses/".$id."/edit' target='_blank'>View</a>";
+        // });
+        // $grid->column('user.username', __('User Name'));
+        // $grid->column('method.name', __('Payment Method'));
+        // $grid->column('mode', __('Mode'))->display(function($mode) {
 
-            if ( $mode == "pick-up" ) {
-                $mode = "Pick Up";
-            }
+        //     if ( $mode == "pick-up" ) {
+        //         $mode = "Pick Up";
+        //     }
 
-            else if ( $mode == "delivery" ) {
-                $mode = "Delivery";
-            }
+        //     else if ( $mode == "delivery" ) {
+        //         $mode = "Delivery";
+        //     }
 
-            else if ( $mode == "shipping" ) {
-                $mode = "Shipping";
-            }
+        //     else if ( $mode == "shipping" ) {
+        //         $mode = "Shipping";
+        //     }
 
-            return $mode;
-        });
-        $grid->column('package', __('Package'))->display(function($package) {
+        //     return $mode;
+        // });
+        // $grid->column('package', __('Package'))->display(function($package) {
 
-            if ( $package == "starterpack-b" ) {
-                $package = "Starter Pack B";
-            }
+        //     if ( $package == "starterpack-b" ) {
+        //         $package = "Starter Pack B";
+        //     }
 
-            else if ( $package == "starterpack-c" ) {
-                $package = "Starter Pack C";
-            }
+        //     else if ( $package == "starterpack-c" ) {
+        //         $package = "Starter Pack C";
+        //     }
 
-            else if ( $package == "starterpack-d" ) {
-                $package = "Starter Pack D";
-            }
+        //     else if ( $package == "starterpack-d" ) {
+        //         $package = "Starter Pack D";
+        //     }
 
-            else if ( $package == "starterpack-a" ) {
-                $package = "Starter Pack A";
-            }
+        //     else if ( $package == "starterpack-a" ) {
+        //         $package = "Starter Pack A";
+        //     }
 
-            return $package;
-        });
-        $grid->column('amount', __('Amount'))->display(function($total) {
+        //     return $package;
+        // });
+        // $grid->column('amount', __('Amount'))->display(function($total) {
 
-            return "₱" . number_format($total, 2, '.', ',');
-        });
+        //     return "₱" . number_format($total, 2, '.', ',');
+        // });
         $grid->column('status', __('Status'));
         $grid->column('created_at', __('Created at'));
 
