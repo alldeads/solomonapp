@@ -43,7 +43,7 @@ class WebController extends Controller
                 'last_name'     => 'required|min:2',
                 'email'         => 'required|email',
                 'phone'         => 'required',
-                'username'      => 'required|min:4',
+                'username'      => 'required|min:4|unique:users',
                 'password'      => 'required|confirmed',
                 'sponsor_name'  => 'nullable',
             ]);
@@ -104,7 +104,9 @@ class WebController extends Controller
 
                 return redirect()->route('success', ['token' => md5(uniqid())]);
             } catch (\Exception $e) {
-                dd($e);
+
+                session()->flash('registererror', 'Oops! There was an error, please try again!');
+
                 DB::rollback();
             }
         }
