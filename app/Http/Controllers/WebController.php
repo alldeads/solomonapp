@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\CreateReportRequest;
@@ -53,19 +54,6 @@ class WebController extends Controller
 
                 $referral_id = $referral->id;
 
-                if ( $request->sponsor_name && !empty($request->sponsor_name) ) {
-
-                    $sponsor = User::where('username', strtolower($request->sponsor_name))
-                                    ->active()
-                                    ->first();
-
-                    if ( !$sponsor ) {
-                        return redirect('/');
-                    }
-
-                    $referral_id = $sponsor->id;
-                }
-
                 $user = User::create([
                     'sponsor_id' => $referral_id,
                     'first_name' => $request->first_name,
@@ -101,6 +89,18 @@ class WebController extends Controller
                 ]);
 
                 DB::commit();
+
+                if ( Auth::check() ) {
+                    Auth::logout();
+                    $request->session()->invalidate();
+                    $request->session()->regenerateToken();
+                }
+
+                if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+                    $request->session()->regenerate();
+
+                    return redirect()->intended('account/payment');
+                }
 
                 return redirect()->route('success', ['token' => md5(uniqid())]);
             } catch (\Exception $e) {
