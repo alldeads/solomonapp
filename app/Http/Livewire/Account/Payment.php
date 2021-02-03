@@ -89,9 +89,7 @@ class Payment extends Component
     		]
     	);
 
-    	session()->flash('accountpaymentsuccess', 'This confirms your payment transaction. Your payment will be posted real-time.');
-
-    	return;
+    	return redirect()->route('home');
     }
 
     public function render()

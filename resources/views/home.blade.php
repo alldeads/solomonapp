@@ -21,10 +21,14 @@
 
 <div class="container-fluid">
     <div class="row">
-        @if ( auth()->user()->status == "inactive" )
+        @if ( !$data['payment'] )
             <div class="col-12 alert alert-warning text-center">
                 Your account is inactive. Please proceed for payment to unlock your rewards. If you paid already, please wait 24-48 hours for account activation.<br>
                 <a href="{{ route('account.payment') }}" class="btn btn-danger mt-2"> Pay Now</a>
+            </div>
+        @else
+            <div class="col-12 alert alert-info text-center">
+                Your payment has been processed and your payment will be posted within 24 hours. If you have any concern about this payment, please send us a message in messenger.</a>
             </div>
         @endif
         <div class="col-sm-6 col-xl-3 col-lg-6">
