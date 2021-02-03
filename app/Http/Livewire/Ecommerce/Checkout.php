@@ -60,12 +60,12 @@ class Checkout extends Component
 
 		$this->items = auth()->user()->carts;
 		$this->cities = City::where('status', 'active')->get();
-		$this->delivery_fee = $city->fee;
+		$this->delivery_fee = 0;
 		$this->city = $city->name;
 		$this->quantity = Cart::getUserCartQuantity();
 		$this->sub_total = Cart::getUserCartTotal();
-		$this->total = Cart::getUserCartTotal() + $this->delivery_fee;
-		$this->shipping_type  = "delivery";
+		$this->total = Cart::getUserCartTotal();
+		$this->shipping_type  = "pick-up";
 		$this->payment_option = 1;
 		$this->payment_options = PaymentMethod::active()
 											->payment()
@@ -116,9 +116,27 @@ class Checkout extends Component
 		}
 
 		$this->delivery_fee = $city->fee;
+
+		if ($this->shipping_type == "pick-up") {
+			$this->delivery_fee = 0;
+		}
+
 		$this->total = Cart::getUserCartTotal() + $this->delivery_fee;
 		$this->city = $city->name;
 		$this->city_id = $city->id;
+	}
+
+	public function updatedShippingType($shipping_type)
+	{
+		$city = City::find($this->city_id);
+
+		if ($this->shipping_type == "pick-up") {
+			$this->delivery_fee = 0;
+		} else {
+			$this->delivery_fee = $city->fee;
+		}
+
+		$this->total = Cart::getUserCartTotal() + $this->delivery_fee;
 	}
 
 	public function updatedAddressId($address_id)
