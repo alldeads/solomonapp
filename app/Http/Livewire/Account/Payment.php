@@ -41,6 +41,17 @@ class Payment extends Component
         $this->mode    = "pick-up";
     }
 
+    public function updatedMode($mode)
+    {
+        if ( $mode == "pick-up" ) {
+            $this->pamount = 1499 + 0;
+        } else if ($mode == "delivery") {
+            $this->pamount = 1499 + 150;
+        } else {
+            $this->pamount = 1499 + 250;
+        }
+    }
+
     public function submit_payment()
     {
     	$this->validate();

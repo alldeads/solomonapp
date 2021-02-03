@@ -64,49 +64,6 @@
 
                   		<div class="col-md-7">
                      		<form class="theme-form mega-form" wire:submit.prevent="submit_payment">
-                                <div class="form-group">
-                                    <select class="form-control @error('method') is-invalid @enderror" wire:model="method">
-                                        @foreach($options as $option)
-                                            <option value="{{ $option->id }}">
-                                                {{ $option->name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-
-                                    @error('method')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-
-                        		<div class="form-group">
-                           			<input class="form-control @error('transaction') is-invalid @enderror" type="text" placeholder="Transaction Number" wire:model="transaction">
-
-                                    @error('transaction')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                        		</div>
-                        		<div class="form-group">
-                           			<input class="form-control @error('amount') is-invalid @enderror" type="number" placeholder="Amount" wire:model="amount">
-
-                                    @error('amount')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                        		</div>
-                        		<div class="form-group">
-                           			<input class="form-control @error('date_paid') is-invalid @enderror" wire:model="date_paid" type="date">
-
-                                    @error('date_paid')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                        		</div>
 
                                 <div class="form-group">
                                     <select class="form-control @error('package') is-invalid @enderror" wire:model="package">
@@ -176,6 +133,53 @@
                                         @enderror
                                     </div>
                                 @endif
+
+                                <div class="form-group">
+                                    <select class="form-control @error('method') is-invalid @enderror" wire:model="method">
+                                        @foreach($options as $option)
+                                            <option value="{{ $option->id }}">
+                                                {{ $option->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+
+                                    @error('method')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+
+                        		<div class="form-group">
+                           			<input class="form-control @error('transaction') is-invalid @enderror" type="text" placeholder="Transaction Number" wire:model="transaction">
+
+                                    @error('transaction')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                        		</div>
+                        		<div class="form-group">
+                                    <span style="color: red;"> Amount to be paid: ₱{{ number_format($pamount, 2, '.', ',') }} </span>
+                           			<input class="form-control @error('amount') is-invalid @enderror" type="number" placeholder="Amount" wire:model="amount">
+
+                                    @error('amount')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                        		</div>
+                        		<div class="form-group">
+                           			<input class="form-control @error('date_paid') is-invalid @enderror" wire:model="date_paid" type="date">
+
+                                    @error('date_paid')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                        		</div>
+
+                                
 
                                 @if (!session()->has('paymentsuccess'))
                                     <div class="form-group text-right">
