@@ -76,14 +76,6 @@ class WebController extends Controller
                     'zip'  => ''
                 ]);
 
-                Payment::create([
-                    'user_id'    => $user->id,
-                    'address_id' => $address->id,
-                    'payment_method_id' => 4, // Fund Transfer,
-                    'reference_code' => '',
-                    'amount' => $amount,
-                ]);
-
                 $referral->update([
                     'direct_recruits' => $referral->direct_recruits + 1
                 ]);
