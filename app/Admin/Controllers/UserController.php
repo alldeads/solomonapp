@@ -36,6 +36,24 @@ class UserController extends AdminController
         $grid->column('status', __('Status'));
         $grid->column('created_at', __('Created at'));
 
+
+        $grid->filter(function($filter){
+
+            // Remove the default id filter
+            $filter->disableIdFilter();
+
+            // Add a column filter
+            $filter->like('username', 'User Name');
+
+            $filter->equal('status')->radio([
+                ''   => 'All',
+                'inactive'  => 'Inactive',
+                'active'    => 'Active',
+            ]);
+
+
+        });
+
         return $grid;
     }
 
