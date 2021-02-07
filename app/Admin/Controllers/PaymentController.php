@@ -30,6 +30,8 @@ class PaymentController extends AdminController
 
         $grid->model()->whereHas('user');
 
+        $grid->model()->orderBy('id', 'desc');
+
         $grid->column('type', __('Type'));
         $grid->column('reference_code', __('Reference code'));
         $grid->column('user_id', __('Full Name'))->display(function($id) {
@@ -91,6 +93,26 @@ class PaymentController extends AdminController
         });
         $grid->column('status', __('Status'));
         $grid->column('created_at', __('Created at'));
+
+        $grid->filter(function($filter){
+
+            // Remove the default id filter
+            $filter->disableIdFilter();
+
+            // Add a column filter
+            $filter->like('reference_code', 'Reference No.');
+
+            $filter->equal('status')->radio([
+                ''   => 'All',
+                'pending'  => 'Pending',
+                'processing' => 'Processing',
+                'received' => 'Received',
+                'refunded' => 'Refunded',
+                'fraud' => 'Fraud',
+                'on-hold' => 'On Hold',
+                'rejected' => 'Rejected',
+            ]);
+        });
 
         return $grid;
     }
