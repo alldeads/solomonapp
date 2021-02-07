@@ -29,6 +29,8 @@ class OrderController extends AdminController
     {
         $grid = new Grid(new Order());
 
+        $grid->model()->orderBy('id', 'desc');
+
         $grid->column('user_id', __('Full Name'))->display(function($id) {
             $user = User::findOrFail($id);
 
