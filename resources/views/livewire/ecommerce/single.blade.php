@@ -49,7 +49,7 @@
                        				</div>
                        				<div class="product-view">
                           				<h6 class="f-w-600">Product Details</h6>
-                          				<p class="mb-0">{{ $product->description }}</p>
+                          				<p class="mb-0">{!! $product->description !!}</p>
                        				</div>
                        				<div class="product-qnty">
                           				<h6 class="f-w-600">Quantity</h6>
