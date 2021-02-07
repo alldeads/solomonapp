@@ -27,6 +27,8 @@ class UserController extends AdminController
     {
         $grid = new Grid(new User());
 
+        $grid->model()->orderBy('id', 'desc');
+
         $grid->column('id', __('Id'));
         $grid->column('sponsor.username', __('Sponsor'));
         $grid->column('username', __('Username'));
