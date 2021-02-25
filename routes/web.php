@@ -44,7 +44,6 @@ Route::middleware('auth')->group(function() {
 	Route::get('/points/history', App\Http\Livewire\Point\History::class)->name('point.history');
 	Route::get('/transactions/cash-out', App\Http\Livewire\Transactions\Cash::class)->name('transaction.cash');
 	Route::get('/transactions/history', App\Http\Livewire\Transactions\History::class)->name('transaction.history');
-	Route::get('/vouchers', App\Http\Livewire\Voucher\Index::class)->name('vouchers');
 	Route::get('/invite-friends', App\Http\Livewire\Referral\Invite::class)->name('referral.invite');
 	Route::get('/networks', App\Http\Livewire\Network\Index::class)->name('network.index');
 });
