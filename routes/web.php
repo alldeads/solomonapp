@@ -13,9 +13,8 @@ Route::get('opportunities', [WebController::class, 'opportunities'])->name('oppo
 Route::get('our-products', [WebController::class, 'products'])->name('products');
 Route::get('success/{token}', [WebController::class, 'success'])->name('success');
 
-// Contact Routes
-Route::get('contact-us', App\Http\Livewire\Contact::class)->name('contact');
-Route::post('contact-us', [WebController::class, 'saveReport'])->name('home');
+// Contact Route
+Route::get('contact-us', [WebController::class, 'contact'])->name('contact');
 
 // Registration Routes
 Route::get('/site/{username}', [WebController::class, 'referral']);

@@ -15,17 +15,6 @@ use App\Models\Payment;
 
 class WebController extends Controller
 {
-    public function saveReport(CreateReportRequest $request) {
-    	try {
-    		Contact::create($request->all());
-    		session()->flash('success', 'Successfully submitted!');
-    	} catch (\Exception $e) {
-    		session()->flash('error', 'Something went wrong!');
-    	}
-
-    	return redirect()->route('contact');
-    }
-
     public function index()
     {
         return view('index');
@@ -129,5 +118,10 @@ class WebController extends Controller
     public function products()
     {
         return view('products');
+    }
+
+    public function contact()
+    {
+        return view('contact-us');
     }
 }
