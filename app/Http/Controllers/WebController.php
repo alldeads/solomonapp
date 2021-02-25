@@ -26,6 +26,11 @@ class WebController extends Controller
     	return redirect()->route('contact');
     }
 
+    public function index()
+    {
+        return view('index');
+    }
+
     public function referral(Request $request, $username)
     {
     	$referral = User::where('username', $username)->active()->first();

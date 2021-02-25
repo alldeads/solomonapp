@@ -20,16 +20,14 @@ Auth::routes(['register' => false]);
 Route::get('/site/{username}', [App\Http\Controllers\WebController::class, 'referral']);
 Route::post('/site/{username}', [App\Http\Controllers\WebController::class, 'referral'])->name('referral');
 
-Route::get('/', function () {
-    return view('index');
-});
-
-Route::get('/contact-us', App\Http\Livewire\Contact::class)->name('contact');
-Route::get('/beginners-guide', [WebController::class, 'beginners'])->name('beginners');
-Route::get('/opportunities', [WebController::class, 'opportunities'])->name('opportunities');
-Route::get('/our-products', [WebController::class, 'products'])->name('products');
-Route::post('/contact-us', [WebController::class, 'saveReport'])->name('home');
-Route::get('/success/{token}', [WebController::class, 'success'])->name('success');
+// Neutral Routes
+Route::get('contact-us', App\Http\Livewire\Contact::class)->name('contact');
+Route::get('/', [WebController::class, 'index'])->name('index');
+Route::get('beginners-guide', [WebController::class, 'beginners'])->name('beginners');
+Route::get('opportunities', [WebController::class, 'opportunities'])->name('opportunities');
+Route::get('our-products', [WebController::class, 'products'])->name('products');
+Route::post('contact-us', [WebController::class, 'saveReport'])->name('home');
+Route::get('success/{token}', [WebController::class, 'success'])->name('success');
 
 Route::middleware('auth')->group(function() {
 	Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
