@@ -1,9 +1,6 @@
 <form>
-	@if (session('status'))
-        <div class="contact-form-success alert alert-{{ session('status.type') }} mt-4">
-			<strong>{{ session('status.label') }}</strong> {{ session('status.message') }}
-		</div>
-    @endif
+	
+	@include('partials.toasts')
 
 	<div class="form-row">
 		<div class="form-group col-lg-6">

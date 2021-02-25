@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Validator;
 
 class Contact extends Component
 {
-
     public $input = [];
 
     public function create()
@@ -29,6 +28,8 @@ class Contact extends Component
             'type'    => 'success',
             'label'   => 'Success!'
         ]);
+
+        $this->emit('displayMessage');
 
         $this->input = [];
     }
