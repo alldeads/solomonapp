@@ -7,6 +7,7 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Illuminate\Http\Request;
 
 class ProductController extends AdminController
 {
@@ -59,6 +60,12 @@ class ProductController extends AdminController
         $show->field('updated_at', __('Updated at'));
 
         return $show;
+    }
+
+    public function getProduct( Request $request ) {
+        $q = $request->get('q');
+
+        return Product::where('name', 'like', "%$q%")->paginate(null, ['id', 'name as text']);
     }
 
     /**

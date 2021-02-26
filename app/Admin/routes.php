@@ -14,6 +14,7 @@ Route::group([
     $router->get('/', 'HomeController@index')->name('home');
 
     $router->get('/api/users', 'UserController@getUser');
+    $router->get('/api/products', 'ProductController@getProduct');
     $router->get('/api/cities', 'AddressController@getCity');
     $router->get('/api/methods', 'TransactionController@getMethod');
 
@@ -25,5 +26,6 @@ Route::group([
     $router->resource('cities', CityController::class);
     $router->resource('addresses', AddressController::class);
     $router->resource('transactions', TransactionController::class);
+    $router->resource('inventories', InventoryController::class);
     // $router->resource('vouchers', VoucherController::class);
 });
