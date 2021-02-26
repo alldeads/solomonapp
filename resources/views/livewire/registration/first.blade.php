@@ -84,7 +84,7 @@
     <div class="form-row mt-2">
         <div class="form-group col">
             <button href="#" wire:click.prevent="submit" class="btn btn-primary-scale-2  btn-modern btn-block text-uppercase text-light rounded-0 font-weight-bold text-3 py-3">
-            	Continue: Step 2
+            	Proceed: Select Package
             </button>
         </div>
     </div>

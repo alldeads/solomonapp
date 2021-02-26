@@ -33,7 +33,7 @@ class First extends Component
 
         $result = User::create_user($this->input, $this->referral);
 
-        if ( $result === true ) {
+        if ( $result !== false ) {
         	session()->flash('status', [
 	            'message' => __('Account Information has been created!'),
 	            'type'    => 'success',
@@ -41,7 +41,11 @@ class First extends Component
 	        ]);
 
         	$this->show = "none";
-	        return;
+
+            $this->emit('proceedpackage', [
+                'show' => 'block',
+                'user' => $result
+            ]);
         }
 
         session()->flash('status', [

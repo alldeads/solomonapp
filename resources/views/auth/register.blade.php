@@ -14,6 +14,7 @@
                 </div>
 
                 @livewire('registration.first', ['referral' => $referral])
+                @livewire('registration.second')
             </div>
         </div>
     </div>

@@ -229,7 +229,7 @@ class User extends Authenticatable
             ]);
 
             DB::commit();
-            return true;
+            return $user;
         } catch (\Exception $e) {
             DB::rollback();
             return false;
