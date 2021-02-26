@@ -29,8 +29,6 @@ class Contact extends Component
             'label'   => 'Success!'
         ]);
 
-        $this->emit('displayMessage');
-
         $this->input = [];
     }
 

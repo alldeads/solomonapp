@@ -24,80 +24,78 @@ class WebController extends Controller
     {
     	$referral = User::where('username', $username)->active()->first();
 
-        $amount  = 1499;
-
     	if ( !$referral ) {
     		return redirect('/');
     	}
 
-        $users = User::where('id', '!=', 1)->active()->get();
+        return view('auth.register', compact('referral'));
 
-        if ( count($request->all()) > 0 ) {
-            $validatedData = $request->validate([
-                'first_name'    => 'required|min:2',
-                'last_name'     => 'required|min:2',
-                'email'         => 'required|email',
-                'phone'         => 'required',
-                'username'      => 'required|min:4|unique:users',
-                'password'      => 'required|confirmed',
-                'sponsor_name'  => 'nullable',
-            ]);
+        // $users = User::where('id', '!=', 1)->active()->get();
 
-            try {
-                DB::beginTransaction();
+        // if ( count($request->all()) > 0 ) {
+        //     $validatedData = $request->validate([
+        //         'first_name'    => 'required|min:2',
+        //         'last_name'     => 'required|min:2',
+        //         'email'         => 'required|email',
+        //         'phone'         => 'required',
+        //         'username'      => 'required|min:4|unique:users',
+        //         'password'      => 'required|confirmed',
+        //         'sponsor_name'  => 'nullable',
+        //     ]);
 
-                $referral_id = $referral->id;
+        //     try {
+        //         DB::beginTransaction();
 
-                $user = User::create([
-                    'sponsor_id' => $referral_id,
-                    'first_name' => $request->first_name,
-                    'last_name' => $request->last_name,
-                    'email' => $request->email,
-                    'phone' => $request->phone,
-                    'username' => $request->username,
-                    'password' => bcrypt($request->password)
-                ]);
+        //         $referral_id = $referral->id;
 
-                $address = Address::create([
-                    'user_id' => $user->id,
-                    'first_name' => $request->first_name,
-                    'last_name' => $request->last_name,
-                    'email' => $request->email,
-                    'phone' => $request->phone,
-                    'address'  => '',
-                    'state'  => '',
-                    'city'  => '',
-                    'zip'  => ''
-                ]);
+        //         $user = User::create([
+        //             'sponsor_id' => $referral_id,
+        //             'first_name' => $request->first_name,
+        //             'last_name' => $request->last_name,
+        //             'email' => $request->email,
+        //             'phone' => $request->phone,
+        //             'username' => $request->username,
+        //             'password' => bcrypt($request->password)
+        //         ]);
 
-                $referral->update([
-                    'direct_recruits' => $referral->direct_recruits + 1
-                ]);
+        //         $address = Address::create([
+        //             'user_id' => $user->id,
+        //             'first_name' => $request->first_name,
+        //             'last_name' => $request->last_name,
+        //             'email' => $request->email,
+        //             'phone' => $request->phone,
+        //             'address'  => '',
+        //             'state'  => '',
+        //             'city'  => '',
+        //             'zip'  => ''
+        //         ]);
 
-                DB::commit();
+        //         $referral->update([
+        //             'direct_recruits' => $referral->direct_recruits + 1
+        //         ]);
 
-                if ( Auth::check() ) {
-                    Auth::logout();
-                    $request->session()->invalidate();
-                    $request->session()->regenerateToken();
-                }
+        //         DB::commit();
 
-                if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-                    $request->session()->regenerate();
+        //         if ( Auth::check() ) {
+        //             Auth::logout();
+        //             $request->session()->invalidate();
+        //             $request->session()->regenerateToken();
+        //         }
 
-                    return redirect()->intended('account/payment');
-                }
+        //         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+        //             $request->session()->regenerate();
 
-                return redirect()->route('success', ['token' => md5(uniqid())]);
-            } catch (\Exception $e) {
+        //             return redirect()->intended('account/payment');
+        //         }
 
-                session()->flash('registererror', 'Oops! There was an error, please try again!');
+        //         return redirect()->route('success', ['token' => md5(uniqid())]);
+        //     } catch (\Exception $e) {
 
-                DB::rollback();
-            }
-        }
+        //         session()->flash('registererror', 'Oops! There was an error, please try again!');
 
-    	return view('auth.register', compact('referral', 'users'));
+        //         DB::rollback();
+        //     }
+        // }
     }
 
     public function success($token)

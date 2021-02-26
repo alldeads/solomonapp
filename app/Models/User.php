@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -191,5 +192,47 @@ class User extends Authenticatable
     public function transactions()
     {
         return $this->hasMany(Transaction::class);
+    }
+
+    public static function create_user($user_data, User $referral)
+    {
+         DB::beginTransaction();
+
+        try {
+
+            $referral_id = $referral->id;
+
+            $user = User::create([
+                'sponsor_id' => $referral_id,
+                'first_name' => $user_data['first_name'],
+                'last_name'  => $user_data['last_name'],
+                'email'      => $user_data['email'],
+                'phone'      => $user_data['phone'],
+                'username'   => $user_data['username'],
+                'password'   => bcrypt($user_data['password'])
+            ]);
+
+            $address = Address::create([
+                'user_id'    => $user->id,
+                'first_name' => $user_data['first_name'],
+                'last_name'  => $user_data['last_name'],
+                'email'      => $user_data['email'],
+                'phone'      => $user_data['phone'],
+                'address'    => '',
+                'state'      => '',
+                'city'       => '',
+                'zip'        => ''
+            ]);
+
+            $referral->update([
+                'direct_recruits' => $referral->direct_recruits + 1
+            ]);
+
+            DB::commit();
+            return true;
+        } catch (\Exception $e) {
+            DB::rollback();
+            return false;
+        }
     }
 }
