@@ -8,12 +8,15 @@ use Illuminate\Support\Facades\Validator;
 
 class Second extends Component
 {
-	public $listeners = ['proceedpackage' => 'proceedpackage'];
+	public $listeners = [
+		'proceedpackage' => 'proceedpackage',
+		'backpackage'    => 'backpackage'
+	];
 
 	public $input = [
 		'package' => '',
-		'amount'  => 1499,
-		'option'  => ''
+		'option'  => '',
+		'address' => ''
 	];
 
 	public $show = "none";
@@ -30,6 +33,13 @@ class Second extends Component
 		$this->user = $data['user'];
 	}
 
+	public function backpackage($data)
+	{
+		$this->show  = $data['show'];
+		$this->user  = $data['user'];
+		$this->input = $data['data'];
+	}
+
 	public function submit()
 	{
 		$validatedData = Validator::make($this->input, [
@@ -40,8 +50,11 @@ class Second extends Component
 
 		$this->emit('proceedpayment', [
             'show' => 'block',
-            'data' => $this->input
+            'data' => $this->input,
+            'user' => $this->user
         ]);
+
+        $this->show = "none";
 	}
 
     public function render()

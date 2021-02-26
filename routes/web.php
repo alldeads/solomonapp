@@ -17,8 +17,7 @@ Route::get('success/{token}', [WebController::class, 'success'])->name('success'
 Route::get('contact-us', [WebController::class, 'contact'])->name('contact');
 
 // Registration Routes
-Route::get('/site/{username}', [WebController::class, 'referral']);
-Route::post('/site/{username}', [WebController::class, 'referral'])->name('referral');
+Route::get('/site/{username}', [WebController::class, 'referral'])->name('referral');
 
 Route::middleware('auth')->group(function() {
 	Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

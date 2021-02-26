@@ -69,18 +69,6 @@
         </div>
     </div>
 
-    {{-- @if($errors->any())
-        <div class="alert alert-danger mt-2 text-center">
-            {!! implode('', $errors->all('<div>:message</div>')) !!}
-        </div>
-    @endif --}}
-
-    {{-- @if(session()->has('registererror'))
-        <div class="alert alert-danger mt-2 text-center">
-            {{ session('registererror') }}
-        </div>
-    @endif --}}
-
     <div class="form-row mt-2">
         <div class="form-group col">
             <button href="#" wire:click.prevent="submit" class="btn btn-primary-scale-2  btn-modern btn-block text-uppercase text-light rounded-0 font-weight-bold text-3 py-3">
