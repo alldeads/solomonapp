@@ -2,21 +2,22 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\Inventory;
+use App\Models\PurchaseOrder;
 use App\Models\Product;
+use App\Models\User;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
-class InventoryController extends AdminController
+class PurchaseOrderController extends AdminController
 {
     /**
      * Title for current resource.
      *
      * @var string
      */
-    protected $title = 'Inventory';
+    protected $title = 'Purchase Orders';
 
     /**
      * Make a grid builder.
@@ -25,16 +26,14 @@ class InventoryController extends AdminController
      */
     protected function grid()
     {
-        $grid = new Grid(new Inventory());
+        $grid = new Grid(new PurchaseOrder());
 
         $grid->column('id', __('Id'));
-        $grid->column('product.name', __('Product Name'));
+        $grid->column('product.name', __('Product'));
         $grid->column('quantity', __('Quantity'));
-        $grid->column('threshold', __('Threshold'));
-        $grid->column('reserved', __('Reserved'));
-        $grid->column('minimum_purchase', __('Min. Purchase'));
+        $grid->column('user.first_name', __('Approved By'));
+        $grid->column('status', __('Status'));
         $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
 
         return $grid;
     }
@@ -47,15 +46,14 @@ class InventoryController extends AdminController
      */
     protected function detail($id)
     {
-        $show = new Show(Inventory::findOrFail($id));
+        $show = new Show(PurchaseOrder::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('product_id', __('Product id'));
+        $show->field('product_id', __('Product'));
         $show->field('quantity', __('Quantity'));
-        $show->field('threshold', __('Threshold'));
-        $show->field('reserved', __('Reserved'));
-        $show->field('minimum_purchase', __('Min. Purchase'));
+        $show->field('approved_by', __('Approved by'));
         $show->field('created_at', __('Created at'));
+        $show->field('updated_at', __('Updated at'));
 
         return $show;
     }
@@ -67,7 +65,7 @@ class InventoryController extends AdminController
      */
     protected function form()
     {
-        $form = new Form(new Inventory());
+        $form = new Form(new PurchaseOrder());
 
         $form->select('product_id', 'Product')->options(function ($id) {
             $product = Product::find($id);
@@ -76,10 +74,20 @@ class InventoryController extends AdminController
                 return [$product->id => $product->name];
             }
         })->ajax('/admin/api/products');
-        $form->display('quantity', __('Quantity'))->default(0);
-        $form->number('threshold', __('Threshold'));
-        $form->number('minimum_purchase', __('Min. Purchase'));
-        $form->display('reserved', __('Reserved'));
+        $form->number('quantity', __('Quantity'));
+        $form->select('approved_by', 'Approved By')->options(function ($id) {
+            $user = User::find($id);
+
+            if ($user) {
+                return [$user->id => $user->username];
+            }
+        })->ajax('/admin/api/users');
+        $form->select('status', __('Status'))
+                ->options([
+                    'pending' => 'Pending',
+                    'received' => 'Received',
+                    'cancelled' => 'Cancelled'
+                ]);
 
         return $form;
     }

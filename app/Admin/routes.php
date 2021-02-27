@@ -27,5 +27,7 @@ Route::group([
     $router->resource('addresses', AddressController::class);
     $router->resource('transactions', TransactionController::class);
     $router->resource('inventories', InventoryController::class);
+    $router->resource('purchase-orders', PurchaseOrderController::class);
+    $router->resource('contacts', ContactController::class);
     // $router->resource('vouchers', VoucherController::class);
 });
