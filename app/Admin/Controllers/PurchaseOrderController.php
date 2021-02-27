@@ -74,6 +74,7 @@ class PurchaseOrderController extends AdminController
                 return [$product->id => $product->name];
             }
         })->ajax('/admin/api/products');
+        
         $form->number('quantity', __('Quantity'));
         $form->select('approved_by', 'Approved By')->options(function ($id) {
             $user = User::find($id);
@@ -82,12 +83,13 @@ class PurchaseOrderController extends AdminController
                 return [$user->id => $user->username];
             }
         })->ajax('/admin/api/users');
+
         $form->select('status', __('Status'))
-                ->options([
-                    'pending' => 'Pending',
-                    'received' => 'Received',
-                    'cancelled' => 'Cancelled'
-                ]);
+            ->options([
+                'pending' => 'Pending',
+                'received' => 'Received',
+                'cancelled' => 'Cancelled'
+            ]);
 
         return $form;
     }

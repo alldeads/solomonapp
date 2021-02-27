@@ -13,8 +13,13 @@
                     <span class="bg-light px-4 position-absolute left-50pct top-50pct transform3dxy-n50">Registration</span>
                 </div>
 
-                @livewire('registration.first', ['referral' => $referral])
-                @livewire('registration.second')
+                @if (auth()->check() && !empty(auth()->user()->payments))
+                    @livewire('registration.first', ['referral' => $referral, 'show' => 'none'])
+                    @livewire('registration.second', ['user' => auth()->user(), 'show' => 'block'])
+                @else
+                    @livewire('registration.first', ['referral' => $referral])
+                    @livewire('registration.second')
+                @endif
                 @livewire('registration.third')
             </div>
         </div>

@@ -19,21 +19,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\Voucher::factory(1000)->create();
-
-        $this->call([
-            CityTableSeeder::class
-        ]);
-
-    	$user = User::create([
-    		'first_name' => "Solomon",
-    		'last_name'  => "Solomon",
-    		'email' => 'contact@solomonapp.com',
-    		'username' => 'solomon',
-    		'phone' => '123456',
-    		'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 
+        $user = User::create([
+            'first_name' => "Solomon",
+            'last_name'  => "Solomon",
+            'email' => 'contact@solomonapp.com',
+            'username' => 'solomon',
+            'phone' => '123456',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 
             'status' => 'active'
-    	]);
+        ]);
 
         Address::create([
             'user_id' => $user->id,
@@ -302,6 +296,11 @@ class DatabaseSeeder extends Seeder
             'name'    => '80,000  Pesos Cash',
             'points'  => 10000,
             'avatar'  => 'items/eightythousand.jpg'
+        ]);
+
+        $this->call([
+            CityTableSeeder::class,
+            InventoryTableSeeder::class
         ]);
     }
 }

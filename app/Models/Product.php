@@ -23,4 +23,9 @@ class Product extends Model
         'discounted_price',
         'avatar',
     ];
+
+    public function inventory()
+    {
+        return $this->hasOne(Inventory::class);
+    }
 }
