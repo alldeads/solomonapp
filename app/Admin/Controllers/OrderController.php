@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Order;
+use App\Models\Product;
 use App\Models\User;
 use App\Models\Address;
 use Encore\Admin\Controllers\AdminController;
@@ -42,7 +43,11 @@ class OrderController extends AdminController
         $grid->column('order_detail_id', 'Details')->modal('Order Details', function ($model) {
 
             $details = $model->order_details()->get()->map(function ($detail) {
-                return $detail->only(['id', 'product_name', 'product_quantity']);
+                return $data = [
+                    'id'       => $detail->id,
+                    'product'  => $detail->product->name,
+                    'quantity' => $detail->product_quantity
+                ];
             });
 
             return new Table(['ID', 'Product', 'Quantity'], $details->toArray());
@@ -103,31 +108,48 @@ class OrderController extends AdminController
     {
         $form = new Form(new Order());
 
-        $form->hidden('user_id');
-        $form->hidden('id');
-        $form->text('user.username', __('User'))->disable();
-        $form->text('reference', __('Reference'))->disable();
-        $form->decimal('sub_total', __('Sub total'));
-        $form->decimal('total', __('Total'));
-        $form->decimal('quantity', __('Quantity'));
+        $form->column(1/2, function ($form) {
+            $form->hidden('user_id');
+            $form->hidden('id');
 
-        $form->select('shipping_type', __('Shipping type'))
-                ->options([
-                    'pick-up' => 'Pick Up', 
-                    'delivery' => 'Delivery'
-                ]);
+            $form->text('user.username', __('User'))->disable();
+            $form->text('reference', __('Reference'))->disable();
+            $form->decimal('total', __('Total Amount'));
+            $form->decimal('quantity', __('Total Quantity'));
 
-        $form->select('status', __('Status'))
-                ->options([
-                    'pending' => 'Pending', 
-                    'processing' => 'Processing',
-                    'accepted' => 'Accepted',
-                    'for-delivery' => 'For Delivery',
-                    'out-for-delivery' => 'Out For Delivery',
-                    'delivered' => 'Delivered',
-                    'on-hold' => 'On Hold',
-                    'cancelled' => 'Cancelled',
-                ]);
+            $form->select('shipping_type', __('Shipping type'))
+                    ->options([
+                        'pick-up' => 'Pick Up', 
+                        'delivery' => 'Delivery'
+                    ]);
+
+            $form->select('status', __('Status'))
+                    ->options([
+                        'pending' => 'Pending', 
+                        'processing' => 'Processing',
+                        'accepted' => 'Accepted',
+                        'for-delivery' => 'For Delivery',
+                        'out-for-delivery' => 'Out For Delivery',
+                        'delivered' => 'Delivered',
+                        'on-hold' => 'On Hold',
+                        'cancelled' => 'Cancelled',
+                    ]);
+        });
+
+        $form->column(1/2, function ($form) {
+
+            $form->hasMany('order_details', function (Form\NestedForm $form) {
+                $form->select('product_id', 'Product')->options(function ($id) {
+                    $product = Product::find($id);
+
+                    if ($product) {
+                        return [$product->id => $product->name];
+                    }
+                })->ajax('/admin/api/products');
+
+                $form->text('product_quantity', 'Quantity');
+            });
+        });
 
         $form->saving(function (Form $form) {
 
