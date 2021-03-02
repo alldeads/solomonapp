@@ -122,6 +122,8 @@ class OrderController extends AdminController
 
             $form->text('user.username', __('User'))->disable();
             $form->text('reference', __('Reference'))->disable();
+            $form->decimal('sub_total', __('Sub Total Amount'));
+            $form->decimal('shipping_fee', __('Shipping Fee'));
             $form->decimal('total', __('Total Amount'));
             $form->decimal('quantity', __('Total Quantity'));
 
@@ -151,7 +153,6 @@ class OrderController extends AdminController
         });
 
         $form->column(1/2, function ($form) {
-
             $form->hasMany('order_details', function (Form\NestedForm $form) {
                 $form->select('product_id', 'Product')->options(function ($id) {
                     $product = Product::find($id);
@@ -160,6 +161,8 @@ class OrderController extends AdminController
                         return [$product->id => $product->name];
                     }
                 })->ajax('/admin/api/products');
+
+                $form->decimal('product_price', __('Price'));
 
                 $form->text('product_quantity', 'Quantity');
             });

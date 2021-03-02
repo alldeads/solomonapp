@@ -14,7 +14,7 @@ class RemoveFieldsFromOrderDetails extends Migration
     public function up()
     {
         Schema::table('order_details', function (Blueprint $table) {
-            $table->dropColumn(['product_name', 'product_price', 'product_price_m']);
+            $table->dropColumn(['product_name', 'product_price_m']);
         });
     }
 
@@ -27,7 +27,6 @@ class RemoveFieldsFromOrderDetails extends Migration
     {
         Schema::table('order_details', function (Blueprint $table) {
             $table->string('product_name');
-            $table->double('product_price');
             $table->double('product_price_m');
         });
     }

@@ -237,8 +237,9 @@ class Checkout extends Component
 
 			foreach ($this->items as $value) {
 				OrderDetails::create([
-					'order_id' => $order->id,
-					'product_id' => $value->product->id,
+					'order_id'         => $order->id,
+					'product_id'       => $value->product->id,
+					'product_price'    => $value->product->members_price,
 					'product_quantity' => $value->quantity
 				]);
 			}
@@ -251,7 +252,6 @@ class Checkout extends Component
 			
 		} catch (\Exception $e) {
 			DB::rollBack();
-			dd($e);
 			session()->flash('checkouterror', 'Oops! Something went wrong, please try again.');
 		}
 	}
