@@ -38,8 +38,8 @@ class HomeController extends Controller
             'type' => 'account'
         ])->where('status', '!=', 'received')->first();
 
-        if ( count($user->payments->toArray()) == 0 ) {
-            return redirect()->route('referral', ['username' => $user->sponsor->username]);
+        if ( count($user->payments->toArray()) == 0 && $user->status == "inactive" ) {
+            return redirect()->route('referral', ['username' => $user->sponsor->username ?? 'solomon']);
         }
 
         return view('home', compact('user', 'data'));
