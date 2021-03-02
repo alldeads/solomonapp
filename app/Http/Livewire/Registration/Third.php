@@ -8,6 +8,7 @@ use Carbon\Carbon;
 
 use App\Models\Payment;
 use App\Models\User;
+use App\Models\Order;
 use App\Models\PaymentMethod;
 
 use Illuminate\Support\Facades\Validator;
@@ -77,6 +78,16 @@ class Third extends Component
     			'payment_method_id' => $this->input['method'],
     		]
     	);
+
+        $params = [
+            'package' => $this->data['package'],
+            'option'  => $this->data['option'],
+            'amount'  => $this->amount,
+            'user'    => $user,
+            'payment' => $payment
+        ];
+
+        Order::createItemsFromPackage($params);
 
     	if ( Auth::check() ) {
             Auth::logout();

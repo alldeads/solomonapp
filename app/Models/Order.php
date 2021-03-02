@@ -23,7 +23,8 @@ class Order extends Model
         'status',
         'payment_id',
         'shipping_type',
-        'shipping_fee'
+        'shipping_fee',
+        'type'
     ];
 
     public function user()
@@ -65,5 +66,90 @@ class Order extends Model
         }
 
         return $data;
+    }
+
+    public static function createItemsFromPackage($params)
+    {
+        $package = $params['package'] ?? 'starterpack-a';
+
+        $fee    = 0;
+        $sub    = $params['amount'];
+        $option = 'pick-up';
+
+        if ( $params['option'] != 'pick-up' ) {
+            $fee = $params['amount'] - 1499;
+            $sub = $params['amount'] - $fee;
+            $option = 'delivery';
+        }
+
+        $order = Order::create([
+            'reference'      => 'S-' . time(),
+            'user_id'        => $params['user']->id,
+            'sub_total'      => $sub,
+            'total'          => $params['amount'],
+            'shipping_fee'   => $fee,
+            'quantity'       => 1,
+            'payment_id'     => $params['payment']->id,
+            'shipping_type'  => $option,
+            'type'           => 'package'
+        ]);
+
+        if ( $params['package'] == 'starterpack-a' ) {
+            $products = [
+                '8' => 1, // Royalty Scent Queen
+                '9' => 1, // Royalty Scent King
+                '6' => 2, // Turmeric Oil
+                '7' => 2, // Eucalyptus Oil
+                '1' => 1, // Charcoal Soap
+                '2' => 1, // Calamansi Soap
+                '3' => 1, // Carrot Soap
+                '4' => 1, // Tomato Soap
+                '5' => 1, // Peppermint Soap
+            ];
+        }
+
+        else if ( $params['package'] == 'starterpack-b' ) {
+            $products = [
+                '6' => 7, // Turmeric Oil
+                '7' => 7, // Eucalyptus Oil
+            ];
+        }
+
+        else if ( $params['package'] == 'starterpack-c' ) {
+            $products = [
+                '6' => 3, // Turmeric Oil
+                '7' => 3, // Eucalyptus Oil
+                '1' => 2, // Charcoal Soap
+                '2' => 2, // Calamansi Soap
+                '3' => 2, // Carrot Soap
+                '4' => 2, // Tomato Soap
+                '5' => 2, // Peppermint Soap
+            ];
+        }
+
+        else {
+            $products = [
+                '8' => 3, // Royalty Scent Queen
+                '9' => 2, // Royalty Scent King
+            ];
+        }
+
+        $count = 0;
+
+
+        foreach ($products as $key => $value) {
+            $product = Product::findOrFail($key);
+
+            OrderDetails::create([
+                'order_id'         => $order->id,
+                'product_id'       => $product->id,
+                'product_price'    => $product->members_price,
+                'product_quantity' => $value
+            ]);
+
+            $count += $value;
+        }
+
+        $order->update(['quantity' => $count]);
     }
 }

@@ -13,7 +13,7 @@
                     <span class="bg-light px-4 position-absolute left-50pct top-50pct transform3dxy-n50">Registration</span>
                 </div>
 
-                @if (auth()->check() && !empty(auth()->user()->payments))
+                @if (auth()->check() && count(auth()->user()->payments->toArray()) == 0)
                     @livewire('registration.first', ['referral' => $referral, 'show' => 'none'])
                     @livewire('registration.second', ['user' => auth()->user(), 'show' => 'block'])
                 @else
