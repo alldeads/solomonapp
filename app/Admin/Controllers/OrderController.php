@@ -125,7 +125,13 @@ class OrderController extends AdminController
             $form->decimal('total', __('Total Amount'));
             $form->decimal('quantity', __('Total Quantity'));
 
-            $form->select('shipping_type', __('Shipping type'))
+            $form->select('type', __('Order Type'))
+                    ->options([
+                        'order'   => 'Order', 
+                        'package' => 'Package'
+                    ]);
+
+            $form->select('shipping_type', __('Shipping Type'))
                     ->options([
                         'pick-up' => 'Pick Up', 
                         'delivery' => 'Delivery'

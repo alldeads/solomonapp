@@ -238,9 +238,7 @@ class Checkout extends Component
 			foreach ($this->items as $value) {
 				OrderDetails::create([
 					'order_id' => $order->id,
-					'product_name' => $value->product->name,
-					'product_price' => $value->product->original_price,
-					'product_price_m' => $value->product->members_price,
+					'product_id' => $value->product->id,
 					'product_quantity' => $value->quantity
 				]);
 			}

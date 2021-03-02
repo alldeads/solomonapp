@@ -60,7 +60,7 @@
 
                             <ul class="qty">
                                 @foreach( $order_details as $item )
-                                    <li>{{ $item->product_name }} × {{ $item->product_quantity }} <span>₱{{ number_format($item->product_quantity * $item->product_price, 2, '.', ',') }}</span></li>
+                                    <li>{{ $item->product->name }} × {{ $item->product_quantity }} <span>₱{{ number_format($item->product_quantity * $item->product->original_price, 2, '.', ',') }}</span></li>
                                 @endforeach
                             </ul>
 
