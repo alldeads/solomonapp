@@ -32,6 +32,8 @@ class OrderController extends AdminController
 
         $grid->model()->orderBy('id', 'desc');
 
+        $grid->column('reference', __('Reference'))->setAttributes(['style' => 'color:red;']);
+
         $grid->column('user_id', __('Full Name'))->display(function($id) {
             $user = User::findOrFail($id);
 
@@ -39,7 +41,7 @@ class OrderController extends AdminController
 
         });
         $grid->column('user.username', __('Username'));
-        $grid->column('reference', __('Reference'));
+        
         $grid->column('order_detail_id', 'Details')->modal('Order Details', function ($model) {
 
             $details = $model->order_details()->get()->map(function ($detail) {
