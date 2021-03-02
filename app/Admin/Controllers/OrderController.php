@@ -12,6 +12,8 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
+use Carbon\Carbon;
+
 class OrderController extends AdminController
 {
     /**
@@ -33,6 +35,8 @@ class OrderController extends AdminController
         $grid->model()->orderBy('id', 'desc');
 
         $grid->column('reference', __('Reference'))->setAttributes(['style' => 'color:red;']);
+
+        $grid->column('type', __('Type'))->setAttributes(['style' => 'color:purple;'])->ucfirst();;
 
         $grid->column('user_id', __('Full Name'))->display(function($id) {
             $user = User::findOrFail($id);
@@ -69,9 +73,11 @@ class OrderController extends AdminController
 
             return "<a href='/admin/payments/".$id."/edit' target='_blank'>Click Here</a>";
         });
-        $grid->column('shipping_type', __('Shipping type'));
-        $grid->column('status', __('Status'));
-        $grid->column('created_at', __('Created at'));
+        $grid->column('shipping_type', __('Shipping type'))->ucfirst();;
+        $grid->column('status', __('Status'))->ucfirst();;
+        $grid->column('created_at', __('Created at'))->display(function ($created_at) {
+            return Carbon::parse($created_at)->format('F j, Y h:m a');
+        });
 
         return $grid;
     }
