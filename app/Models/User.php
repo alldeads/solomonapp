@@ -93,14 +93,14 @@ class User extends Authenticatable
             }
 
             if ( $user->status == 'active' ) {
-                $user->available_points = $user->available_points + $points;
+
+                if ( $count == 0 ) {
+                    $user->available_points = $user->available_points + $points;
+                }
 
                 if ( $count != 0 ) {
-                    if ( $count == 0 ) {
-                        $user->hppb += $points;
-                    } else {
-                        $user->hppb += $points * 0.2;
-                    }
+                    $user->hppb += $points;
+                    $user->available_points = $user->available_points + $points * 0.2;
                 }
 
                 $user->save();

@@ -116,7 +116,7 @@ class UserController extends AdminController
         $form->text('username', __('Username'));
         $form->email('email', __('Email'));
         $form->text('phone', __('Phone'));
-        $form->number('available_points', __('Available points'));
+        $form->decimal('available_points', __('Available points'));
 
         $form->select('status', __('Status'))
                 ->options([

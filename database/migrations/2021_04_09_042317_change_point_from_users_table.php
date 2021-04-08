@@ -16,6 +16,7 @@ class ChangePointFromUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->decimal('used_points')->change();
             $table->decimal('available_points')->change();
+            $table->decimal('hppb')->change();
         });
     }
 
