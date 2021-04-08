@@ -96,7 +96,11 @@ class User extends Authenticatable
                 $user->available_points = $user->available_points + $points;
 
                 if ( $count != 0 ) {
-                    $user->hppb += $points;
+                    if ( $count == 0 ) {
+                        $user->hppb += $points;
+                    } else {
+                        $user->hppb += $points * 0.2;
+                    }
                 }
 
                 $user->save();
